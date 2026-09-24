@@ -43,6 +43,7 @@ export function RoomSyncBar({
           setRoomId(saved);
           setIsConnected(true);
         } else {
+          setRoomId("");
           setIsConnected(false);
           setConnectedCount(1);
         }
@@ -67,8 +68,23 @@ export function RoomSyncBar({
     }
   };
 
-  // Disconnect Room
-  const handleDisconnect = () => {
+  // Disconnect Room with instant server broadcast
+  const handleDisconnect = async () => {
+    if (roomId && userId) {
+      try {
+        await fetch("/api/room/sync", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            roomId,
+            userId,
+            isDisconnect: true,
+          }),
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }
     setIsConnected(false);
     setConnectedCount(1);
     cloudObjIdRef.current = "";
@@ -78,7 +94,7 @@ export function RoomSyncBar({
     }
   };
 
-  // Poll server and cloud for real-time changes every 700ms when connected
+  // Poll server and cloud for real-time changes every 600ms when connected
   useEffect(() => {
     if (!isConnected || !roomId || !userId) return;
 
@@ -97,7 +113,7 @@ export function RoomSyncBar({
 
           // If changes came from another user, update grid
           if (data.roomState.gridData && onGridSynced) {
-            if (Date.now() - lastLocalUpdateRef.current > 600) {
+            if (Date.now() - lastLocalUpdateRef.current > 500) {
               onGridSynced(data.roomState.gridData);
             }
           }
@@ -105,7 +121,7 @@ export function RoomSyncBar({
       } catch (err) {
         console.error("Realtime sync error:", err);
       }
-    }, 700);
+    }, 600);
 
     return () => clearInterval(interval);
   }, [isConnected, roomId, userId, onGridSynced]);
@@ -138,7 +154,7 @@ export function RoomSyncBar({
       }
     };
 
-    const timer = setTimeout(broadcast, 150);
+    const timer = setTimeout(broadcast, 100);
     return () => clearTimeout(timer);
   }, [currentGridData, isConnected, roomId, userId, activeCellRef]);
 

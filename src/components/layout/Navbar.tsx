@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileSpreadsheet, BookOpen, Trophy, Sparkles, Users, X, Check, Wifi, Share2 } from "lucide-react";
+import { FileSpreadsheet, BookOpen, Trophy, Sparkles, Users, X, Check, Wifi, Share2, WifiOff } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Navbar() {
@@ -28,8 +28,29 @@ export function Navbar() {
     setUserId(uid);
   }, []);
 
+  // Listen to room-id-changed event across components
+  useEffect(() => {
+    const checkRoom = () => {
+      if (typeof window !== "undefined") {
+        const saved = localStorage.getItem("excel_learn_room_id");
+        if (saved) {
+          setActiveRoomId(saved);
+        } else {
+          setActiveRoomId("");
+          setConnectedCount(1);
+        }
+      }
+    };
+
+    checkRoom();
+    window.addEventListener("room-id-changed", checkRoom);
+    return () => window.removeEventListener("room-id-changed", checkRoom);
+  }, []);
+
+  // Poll server for live connected users count
   useEffect(() => {
     if (!activeRoomId || !userId) return;
+
     const poll = async () => {
       try {
         const res = await fetch(`/api/room/sync?roomId=${encodeURIComponent(activeRoomId)}&userId=${encodeURIComponent(userId)}`);
@@ -41,8 +62,9 @@ export function Navbar() {
         console.error(e);
       }
     };
+
     poll();
-    const interval = setInterval(poll, 1500);
+    const interval = setInterval(poll, 1200);
     return () => clearInterval(interval);
   }, [activeRoomId, userId]);
 
@@ -57,8 +79,24 @@ export function Navbar() {
     }
   };
 
-  const handleDisconnect = () => {
+  const handleDisconnect = async () => {
+    if (activeRoomId && userId) {
+      try {
+        await fetch("/api/room/sync", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            roomId: activeRoomId,
+            userId,
+            isDisconnect: true,
+          }),
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }
     setActiveRoomId("");
+    setConnectedCount(1);
     if (typeof window !== "undefined") {
       localStorage.removeItem("excel_learn_room_id");
       window.dispatchEvent(new Event("room-id-changed"));
@@ -74,23 +112,23 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#E0CFFC] shadow-sm">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E0CFFC] shadow-sm">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-0 min-h-[4rem] flex flex-wrap md:flex-nowrap items-center justify-between gap-2">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-[#E0CFFC] group-hover:bg-[#FFC8DD] rounded-2xl flex items-center justify-center text-[#2D2342] shadow-sm transition-all border border-[#DBCDF0]">
-              <FileSpreadsheet className="w-5 h-5 text-[#2D2342]" />
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[#E0CFFC] group-hover:bg-[#FFC8DD] rounded-2xl flex items-center justify-center text-[#2D2342] shadow-sm transition-all border border-[#DBCDF0]">
+              <FileSpreadsheet className="w-4 h-4 sm:w-5 sm:h-5 text-[#2D2342]" />
             </div>
-            <span className="font-black text-base sm:text-xl text-[#2D2342] tracking-tight whitespace-nowrap">
+            <span className="font-black text-sm sm:text-xl text-[#2D2342] tracking-tight whitespace-nowrap">
               Belajar Excel <span className="animated-gradient-text underline decoration-[#FFC8DD] underline-offset-4">Ayya</span>
             </span>
           </Link>
 
           {/* Nav Links with Framer Motion layoutId Spring Sliding Indicator */}
-          <nav className="relative flex items-center gap-2 text-sm font-bold text-[#2D2342]">
+          <nav className="relative flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold text-[#2D2342] overflow-x-auto no-scrollbar py-1">
             <Link
               href="/modules"
-              className={`relative px-4 py-2 rounded-full flex items-center gap-1.5 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] border-2 select-none outline-none focus:outline-none ${
+              className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-full flex items-center gap-1.5 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] border-2 select-none outline-none focus:outline-none whitespace-nowrap ${
                 isModules
                   ? "border-[#C7CEEA] text-[#2D2342] font-black shadow-sm"
                   : "border-transparent hover:border-[#C7CEEA] bg-transparent text-slate-600 hover:text-[#2D2342]"
@@ -104,14 +142,14 @@ export function Navbar() {
                 />
               )}
               <span className="relative z-10 flex items-center gap-1.5">
-                <BookOpen className="w-4 h-4 text-[#FF758F]" />
+                <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FF758F]" />
                 <span>Materi & Latihan</span>
               </span>
             </Link>
 
             <Link
               href="/progress"
-              className={`relative px-4 py-2 rounded-full flex items-center gap-1.5 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] border-2 select-none outline-none focus:outline-none ${
+              className={`relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-full flex items-center gap-1.5 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] border-2 select-none outline-none focus:outline-none whitespace-nowrap ${
                 isProgress
                   ? "border-[#C7CEEA] text-[#2D2342] font-black shadow-sm"
                   : "border-transparent hover:border-[#C7CEEA] bg-transparent text-slate-600 hover:text-[#2D2342]"
@@ -125,27 +163,27 @@ export function Navbar() {
                 />
               )}
               <span className="relative z-10 flex items-center gap-1.5">
-                <Trophy className="w-4 h-4 text-amber-600" />
+                <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-600" />
                 <span>Progress Ayya</span>
               </span>
             </Link>
           </nav>
 
-          {/* Action Buttons: Konek Realtime & Mulai Belajar (Shown only on Home) */}
-          <div className="flex items-center gap-3">
+          {/* Action Buttons: Konek Realtime */}
+          <div className="flex items-center gap-2 shrink-0">
             <button
               type="button"
               onClick={() => setShowRoomModal(true)}
-              className="flex items-center gap-2 px-3.5 py-2 bg-[#E0CFFC] hover:bg-[#DBCDF0] text-[#2D2342] text-xs font-extrabold rounded-xl border border-[#C7CEEA] transition-all shadow-sm"
+              className="flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 bg-[#E0CFFC] hover:bg-[#DBCDF0] text-[#2D2342] text-[11px] sm:text-xs font-extrabold rounded-2xl border border-[#C7CEEA] transition-all shadow-sm whitespace-nowrap"
             >
-              <Users className="w-4 h-4 text-[#FF758F]" />
+              <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FF758F]" />
               <span>{activeRoomId ? `Ruang: ${activeRoomId} (${connectedCount} Orang)` : "Konek Belajar Bareng"}</span>
             </button>
 
             {isHome && (
               <Link
                 href="/modules"
-                className="hidden sm:flex items-center gap-1.5 px-4 py-2 bg-[#FFC8DD] hover:bg-[#FFADAD] text-[#2D2342] text-xs font-black rounded-xl transition-all shadow-sm border border-[#FFADAD]"
+                className="hidden md:flex items-center gap-1.5 px-4 py-2 bg-[#FFC8DD] hover:bg-[#FFADAD] text-[#2D2342] text-xs font-black rounded-2xl transition-all shadow-sm border border-[#FFADAD] whitespace-nowrap"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Mulai Belajar</span>
@@ -225,9 +263,10 @@ export function Navbar() {
                   <button
                     type="button"
                     onClick={handleDisconnect}
-                    className="px-4 py-2 bg-[#FFADAD] hover:bg-rose-300 text-[#2D2342] font-bold rounded-xl text-xs"
+                    className="px-4 py-2 bg-[#FFADAD] hover:bg-rose-300 text-[#2D2342] font-bold rounded-xl text-xs flex items-center gap-1.5"
                   >
-                    Putus Koneksi
+                    <WifiOff className="w-4 h-4" />
+                    <span>Putus Koneksi</span>
                   </button>
                 </div>
               </div>

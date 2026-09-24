@@ -87,7 +87,7 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    const { roomId, gridData, activeCell, updatedBy, userId, isHeartbeat } = await req.json();
+    const { roomId, gridData, activeCell, updatedBy, userId, isHeartbeat, isDisconnect } = await req.json();
 
     if (!roomId) {
       return NextResponse.json({ error: "Kode Ruang (Room ID) wajib diisi" }, { status: 400 });
@@ -97,6 +97,46 @@ export async function POST(req: Request) {
     const room = await getCloudRoom(cleanRoomId);
 
     const now = Date.now();
+
+    // Handle Disconnect action
+    if (isDisconnect && userId) {
+      delete room.activeUsers[userId];
+      const connectedCount = Object.values(room.activeUsers).filter(
+        (t) => now - t < 8000
+      ).length;
+
+      try {
+        if (room.cloudObjectId) {
+          await fetch(`https://api.restful-api.dev/objects/${room.cloudObjectId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: `EXCEL_ROOM_${cleanRoomId}`,
+              data: {
+                roomId: cleanRoomId,
+                gridData: room.gridData,
+                activeCell: room.activeCell,
+                updatedBy: room.updatedBy,
+                updatedAt: room.updatedAt,
+                activeUsers: room.activeUsers,
+              },
+            }),
+          });
+        }
+      } catch (e) {
+        console.error(e);
+      }
+
+      return NextResponse.json({
+        success: true,
+        roomState: {
+          roomId: room.roomId,
+          gridData: room.gridData,
+          connectedCount: Math.max(1, connectedCount),
+        },
+      });
+    }
+
     if (userId) {
       room.activeUsers[userId] = now;
     }

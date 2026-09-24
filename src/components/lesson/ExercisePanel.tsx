@@ -230,7 +230,7 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
                 Ketik di kotak cell lalu tekan Enter
               </span>
             </div>
-            <SpreadsheetGrid initialDataset={currentExercise.dataset} onGridChange={handleGridChange} />
+            <SpreadsheetGrid initialDataset={currentExercise.dataset} gridData={currentGridData} onGridChange={handleGridChange} />
           </div>
 
           {/* Validation Feedback */}

@@ -8,12 +8,14 @@ import { Maximize2, Minimize2 } from "lucide-react";
 
 interface SpreadsheetGridProps {
   initialDataset: GridDataset;
+  gridData?: Record<string, CellData>;
   onGridChange?: (gridData: Record<string, CellData>) => void;
   readOnly?: boolean;
 }
 
 export function SpreadsheetGrid({
   initialDataset,
+  gridData: externalGridData,
   onGridChange,
   readOnly = false,
 }: SpreadsheetGridProps) {
@@ -85,6 +87,16 @@ export function SpreadsheetGrid({
   useEffect(() => {
     setGridData(initialDataset.data || {});
   }, [initialDataset]);
+
+  // Sync internal gridData state when external gridData prop updates from remote room sync
+  useEffect(() => {
+    if (externalGridData && Object.keys(externalGridData).length > 0) {
+      setGridData((prev) => ({
+        ...prev,
+        ...externalGridData,
+      }));
+    }
+  }, [externalGridData]);
 
   useEffect(() => {
     recalculateGrid(gridData);
