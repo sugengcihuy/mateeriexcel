@@ -61,15 +61,17 @@ export function Navbar() {
           <nav className="relative flex items-center gap-2 text-sm font-bold text-[#2D2342]">
             <Link
               href="/modules"
-              className={`relative px-4 py-2 rounded-xl flex items-center gap-1.5 transition-colors ${
-                isModules ? "text-[#2D2342] font-black" : "text-slate-600 hover:text-[#2D2342]"
+              className={`relative px-4 py-2 rounded-full flex items-center gap-1.5 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] border-2 select-none outline-none focus:outline-none ${
+                isModules
+                  ? "border-[#C7CEEA] text-[#2D2342] font-black shadow-sm"
+                  : "border-transparent hover:border-[#C7CEEA] bg-transparent text-slate-600 hover:text-[#2D2342]"
               }`}
             >
               {isModules && (
                 <motion.div
                   layoutId="navbarActiveIndicator"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  className="absolute inset-0 bg-[#E0CFFC]/70 rounded-xl border border-[#C7CEEA] shadow-sm"
+                  className="absolute inset-0 bg-[#E0CFFC]/80 rounded-full"
                 />
               )}
               <span className="relative z-10 flex items-center gap-1.5">
@@ -80,15 +82,17 @@ export function Navbar() {
 
             <Link
               href="/progress"
-              className={`relative px-4 py-2 rounded-xl flex items-center gap-1.5 transition-colors ${
-                isProgress ? "text-[#2D2342] font-black" : "text-slate-600 hover:text-[#2D2342]"
+              className={`relative px-4 py-2 rounded-full flex items-center gap-1.5 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] border-2 select-none outline-none focus:outline-none ${
+                isProgress
+                  ? "border-[#C7CEEA] text-[#2D2342] font-black shadow-sm"
+                  : "border-transparent hover:border-[#C7CEEA] bg-transparent text-slate-600 hover:text-[#2D2342]"
               }`}
             >
               {isProgress && (
                 <motion.div
                   layoutId="navbarActiveIndicator"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  className="absolute inset-0 bg-[#E0CFFC]/70 rounded-xl border border-[#C7CEEA] shadow-sm"
+                  className="absolute inset-0 bg-[#E0CFFC]/80 rounded-full"
                 />
               )}
               <span className="relative z-10 flex items-center gap-1.5">

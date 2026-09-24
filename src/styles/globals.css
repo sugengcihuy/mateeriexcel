@@ -3,9 +3,18 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
   body {
     background-color: #FAF5FF;
     color: #2D2342;
+  }
+
+  button:focus, button:focus-visible, a:focus, a:focus-visible {
+    outline: none !important;
+    box-shadow: none;
   }
 }
 
