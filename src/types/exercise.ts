@@ -7,16 +7,16 @@ export interface CellData {
 export interface GridDataset {
   rows: number;
   cols: number;
-  data: Record<string, CellData>; // key: "A1", "B2", etc.
+  data: Record<string, CellData>;
   headers?: string[];
 }
 
 export interface ExpectedAnswer {
-  targetCell: string; // e.g. "B10" or array of cells
+  targetCell: string;
   expectedValue?: string | number;
-  requiredFormulaPattern?: string; // regex string or substring check e.g. "SUM" or "VLOOKUP"
+  requiredFormulaPattern?: string;
   checkType?: "value" | "formula" | "both";
-  tolerance?: number; // numeric rounding tolerance
+  tolerance?: number;
 }
 
 export interface ExerciseData {
@@ -28,6 +28,7 @@ export interface ExerciseData {
   dataset: GridDataset;
   instruction: string;
   expectedAnswer: ExpectedAnswer;
+  multiTargetAnswers?: ExpectedAnswer[];
   hint?: string;
 }
 

@@ -1,63 +1,119 @@
 {
   "id": "ex-basic-10",
   "lessonId": "les-basic-01",
-  "taskNumber": 10,
-  "title": "Soal 10: Total Omset 5 Cabang Toko",
+  "taskNumber": 1,
+  "title": "Ujian Campuran Basic: Master Laporan Toko Q1",
   "type": "formula",
-  "instruction": "Hitunglah Total Omset dari 5 Cabang Toko di cell B7.",
+  "instruction": "Lengkapi seluruh Laporan Ringkasan Toko Q1: Hitung Total Penjualan di cell B7 (=SUM), Rata-Rata Penjualan di cell B8 (=AVERAGE), Total Transaksi di cell B9 (=COUNT), Penjualan Tertinggi di cell B10 (=MAX), dan Penjualan Terendah di cell B11 (=MIN).",
   "dataset": {
-    "rows": 9,
-    "cols": 7,
+    "rows": 12,
+    "cols": 5,
     "data": {
       "A1": {
-        "value": "Cabang"
+        "value": "Bulan"
       },
       "B1": {
-        "value": "Omset (Rp)"
+        "value": "Penjualan (Rp)"
       },
       "A2": {
-        "value": "Jakarta Selatan"
+        "value": "Januari"
       },
       "B2": {
-        "value": 45000000
+        "value": 15000000
       },
       "A3": {
-        "value": "Bandung Barat"
+        "value": "Februari"
       },
       "B3": {
-        "value": 30000000
+        "value": 18500000
       },
       "A4": {
-        "value": "Surabaya Pusat"
+        "value": "Maret"
       },
       "B4": {
-        "value": 50000000
+        "value": 22000000
       },
       "A5": {
-        "value": "Medan Kota"
+        "value": "April"
       },
       "B5": {
-        "value": 25000000
+        "value": 19000000
       },
       "A6": {
-        "value": "Semarang Tim"
+        "value": "Mei"
       },
       "B6": {
-        "value": 30000000
+        "value": 25500000
       },
       "A7": {
-        "value": "Total Omset"
+        "value": "Total Penjualan"
       },
       "B7": {
+        "value": ""
+      },
+      "A8": {
+        "value": "Rata-Rata Penjualan"
+      },
+      "B8": {
+        "value": ""
+      },
+      "A9": {
+        "value": "Total Transaksi"
+      },
+      "B9": {
+        "value": ""
+      },
+      "A10": {
+        "value": "Penjualan Tertinggi"
+      },
+      "B10": {
+        "value": ""
+      },
+      "A11": {
+        "value": "Penjualan Terendah"
+      },
+      "B11": {
         "value": ""
       }
     }
   },
   "expectedAnswer": {
     "targetCell": "B7",
-    "expectedValue": 180000000,
+    "expectedValue": 100000000,
     "requiredFormulaPattern": "SUM",
     "checkType": "both"
   },
-  "hint": "=SUM(B2:B6)"
+  "multiTargetAnswers": [
+    {
+      "targetCell": "B7",
+      "expectedValue": 100000000,
+      "requiredFormulaPattern": "SUM",
+      "checkType": "both"
+    },
+    {
+      "targetCell": "B8",
+      "expectedValue": 20000000,
+      "requiredFormulaPattern": "AVERAGE",
+      "checkType": "both"
+    },
+    {
+      "targetCell": "B9",
+      "expectedValue": 5,
+      "requiredFormulaPattern": "COUNT",
+      "checkType": "both"
+    },
+    {
+      "targetCell": "B10",
+      "expectedValue": 25500000,
+      "requiredFormulaPattern": "MAX",
+      "checkType": "both"
+    },
+    {
+      "targetCell": "B11",
+      "expectedValue": 15000000,
+      "requiredFormulaPattern": "MIN",
+      "checkType": "both"
+    }
+  ],
+  "hint": "Gunakan =SUM(B2:B6) di B7, =AVERAGE(B2:B6) di B8, =COUNT(B2:B6) di B9, =MAX(B2:B6) di B10, dan =MIN(B2:B6) di B11."
 }

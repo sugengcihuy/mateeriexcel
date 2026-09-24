@@ -22,7 +22,7 @@ export async function POST(
     }
 
     // Server-side validation using HyperFormula
-    const result = validateExerciseAnswer(gridData, exercise.expectedAnswer);
+    const result = validateExerciseAnswer(gridData, exercise.expectedAnswer, exercise.multiTargetAnswers);
 
     return NextResponse.json({
       ...result,
