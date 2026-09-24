@@ -2,7 +2,7 @@
   "id": "mod-basic",
   "slug": "01-basic",
   "title": "Excel Basic: Utama & Statistik",
-  "description": "Kuasai fungsi dasar terpopuler: SUM, AVERAGE, COUNT, MAX, dan MIN dengan 10 latihan praktis.",
+  "description": "Kuasai fungsi dasar terpopuler: SUM, AVERAGE, COUNT, MAX, dan MIN dengan latihan praktis terstruktur.",
   "level": "basic",
   "order": 1,
   "lessons": [
@@ -10,9 +10,9 @@
       "id": "les-basic-01",
       "slug": "01-formula-dasar",
       "moduleId": "mod-basic",
-      "title": "Pelajaran 1: SUM, AVERAGE, COUNT, MAX & MIN (10 Soal Praktik)",
+      "title": "Pelajaran 1: SUM, AVERAGE, COUNT, MAX & MIN",
       "order": 1,
-      "summary": "10 Soal Latihan Praktik Penjumlahan, Rata-rata, dan Nilai Ekstrem.",
+      "summary": "Penjumlahan, Rata-rata, dan Nilai Ekstrem.",
       "contentPath": "01-basic/01-formula-dasar.json",
       "exercises": [
         "ex-basic-01", "ex-basic-02", "ex-basic-03", "ex-basic-04", "ex-basic-05",

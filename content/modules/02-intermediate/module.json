@@ -2,7 +2,7 @@
   "id": "mod-intermediate",
   "slug": "02-intermediate",
   "title": "Excel Intermediate: Logika IF, SUMIF & HLOOKUP",
-  "description": "Kuasai fungsi logika evaluasi data bertingkat (IF, SUMIF, COUNTIF) dan pencarian data horizontal HLOOKUP dengan 10 latihan praktis.",
+  "description": "Kuasai fungsi logika evaluasi data bertingkat (IF, SUMIF, COUNTIF) dan pencarian data horizontal HLOOKUP dengan latihan praktis terstruktur.",
   "level": "intermediate",
   "order": 2,
   "lessons": [
@@ -10,9 +10,9 @@
       "id": "les-int-01",
       "slug": "01-logika-if-sumif",
       "moduleId": "mod-intermediate",
-      "title": "Pelajaran 2: Logika IF, SUMIF, COUNTIF & HLOOKUP (10 Soal Praktik)",
+      "title": "Pelajaran 2: Logika IF, SUMIF, COUNTIF & HLOOKUP",
       "order": 1,
-      "summary": "10 Soal Latihan Praktik Logika dan Pencarian Data Mendatar.",
+      "summary": "Logika dan Pencarian Data Mendatar.",
       "contentPath": "02-intermediate/01-logika-if-sumif.json",
       "exercises": [
         "ex-int-01", "ex-int-02", "ex-int-03", "ex-int-04", "ex-int-05",

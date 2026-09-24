@@ -2,7 +2,7 @@
   "id": "mod-advanced",
   "slug": "03-advanced",
   "title": "Excel Advanced: VLOOKUP, XLOOKUP & PivotTable",
-  "description": "Kuasai fungsi pencarian data terpopuler (VLOOKUP, XLOOKUP, INDEX+MATCH) dan pengolahan tabel ringkasan PivotTable dengan 10 latihan praktis.",
+  "description": "Kuasai fungsi pencarian data terpopuler (VLOOKUP, XLOOKUP, INDEX+MATCH) dan pengolahan tabel ringkasan PivotTable dengan latihan praktis terstruktur.",
   "level": "advanced",
   "order": 3,
   "lessons": [
@@ -10,9 +10,9 @@
       "id": "les-adv-01",
       "slug": "01-vlookup",
       "moduleId": "mod-advanced",
-      "title": "Pelajaran 3: VLOOKUP, XLOOKUP, INDEX-MATCH & PivotTable (10 Soal Praktik)",
+      "title": "Pelajaran 3: VLOOKUP, XLOOKUP, INDEX-MATCH & PivotTable",
       "order": 1,
-      "summary": "10 Soal Latihan Praktik Pencarian Vertikal & Simulasi PivotTable.",
+      "summary": "Pencarian Vertikal & Simulasi PivotTable.",
       "contentPath": "03-advanced/01-vlookup.json",
       "exercises": [
         "ex-adv-vlookup-01", "ex-adv-02", "ex-adv-03", "ex-adv-xlookup-01", "ex-adv-05",
