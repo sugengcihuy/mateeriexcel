@@ -4,10 +4,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FileSpreadsheet, BookOpen, Trophy, Sparkles, Users, X, Check, Wifi, Share2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isModules = pathname.startsWith("/modules");
+  const isProgress = pathname.startsWith("/progress");
 
   const [showRoomModal, setShowRoomModal] = useState<boolean>(false);
   const [inputRoomId, setInputRoomId] = useState<string>("");
@@ -54,22 +57,44 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Nav Links */}
-          <nav className="flex items-center gap-6 text-sm font-bold text-[#2D2342]">
+          {/* Nav Links with Framer Motion layoutId Spring Sliding Indicator */}
+          <nav className="relative flex items-center gap-2 text-sm font-bold text-[#2D2342]">
             <Link
               href="/modules"
-              className="flex items-center gap-1.5 hover:text-[#FF758F] transition-colors"
+              className={`relative px-4 py-2 rounded-xl flex items-center gap-1.5 transition-colors ${
+                isModules ? "text-[#2D2342] font-black" : "text-slate-600 hover:text-[#2D2342]"
+              }`}
             >
-              <BookOpen className="w-4 h-4 text-[#A0E7E5]" />
-              <span>Materi & Latihan</span>
+              {isModules && (
+                <motion.div
+                  layoutId="navbarActiveIndicator"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  className="absolute inset-0 bg-[#E0CFFC]/70 rounded-xl border border-[#C7CEEA] shadow-sm"
+                />
+              )}
+              <span className="relative z-10 flex items-center gap-1.5">
+                <BookOpen className="w-4 h-4 text-[#FF758F]" />
+                <span>Materi & Latihan</span>
+              </span>
             </Link>
 
             <Link
               href="/progress"
-              className="flex items-center gap-1.5 hover:text-[#FF758F] transition-colors"
+              className={`relative px-4 py-2 rounded-xl flex items-center gap-1.5 transition-colors ${
+                isProgress ? "text-[#2D2342] font-black" : "text-slate-600 hover:text-[#2D2342]"
+              }`}
             >
-              <Trophy className="w-4 h-4 text-[#FFD6A5]" />
-              <span>Progress Ayya</span>
+              {isProgress && (
+                <motion.div
+                  layoutId="navbarActiveIndicator"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  className="absolute inset-0 bg-[#E0CFFC]/70 rounded-xl border border-[#C7CEEA] shadow-sm"
+                />
+              )}
+              <span className="relative z-10 flex items-center gap-1.5">
+                <Trophy className="w-4 h-4 text-amber-600" />
+                <span>Progress Ayya</span>
+              </span>
             </Link>
           </nav>
 
