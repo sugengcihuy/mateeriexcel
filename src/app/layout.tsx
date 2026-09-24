@@ -6,9 +6,18 @@ import { Navbar } from "@/components/layout/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Belajar Excel Ayya — Tempat Belajar Excel Simpel & Seru",
-  description:
-    "Belajar Microsoft Excel dari dasar sampai mahir langsung praktik di browser. Simpel, cepat, dan gampang dipahami!",
+  title: "Belajar Excel Ayya",
+  description: "Platform Interaktif Belajar Microsoft Excel dari Dasar hingga Mahir.",
+  openGraph: {
+    title: "Belajar Excel Ayya",
+    description: "Platform Interaktif Belajar Microsoft Excel dari Dasar hingga Mahir.",
+    siteName: "Belajar Excel Ayya",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Belajar Excel Ayya",
+    description: "Platform Interaktif Belajar Microsoft Excel dari Dasar hingga Mahir.",
+  },
 };
 
 export default function RootLayout({

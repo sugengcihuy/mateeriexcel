@@ -1,6 +1,6 @@
 {
-  "title": "Pelajaran 3: VLOOKUP & XLOOKUP Master",
-  "subtitle": "Cari data otomatis antar tabel dengan VLOOKUP, INDEX-MATCH, dan XLOOKUP.",
+  "title": "Pelajaran 3: VLOOKUP, XLOOKUP, INDEX-MATCH & PivotTable",
+  "subtitle": "Kuasai fungsi pencarian data terpopuler dan pengolahan tabel ringkasan PivotTable secara interaktif.",
   "subtopics": [
     {
       "id": "vlookup",
@@ -10,29 +10,85 @@
         {
           "type": "concept",
           "heading": "Apa itu VLOOKUP?",
-          "body": "`VLOOKUP` (Vertical Lookup) dipakai buat **nyari data di tabel vertikal** berdasarkan kata kunci (seperti NIK, ID Karyawan, atau Kode Produk).\n\n**Cara Tulis Rumus:**\n`=VLOOKUP(kode_dicari, tabel_referensi, nomor_kolom, FALSE)`\n\n**Contoh Kasus Sehari-hari:**\nKamu ketik ID Karyawan `EMP003` di cell F2.\nKetik `=VLOOKUP(F2, A2:D6, 4, FALSE)`.\nExcel bakal nyari EMP003 di kolom A, lalu ngambil gaji di kolom ke-4 (Rp 9.800.000)!"
+          "body": "VLOOKUP (Vertical Lookup) dipakai untuk **mencari data di tabel vertikal** berdasarkan kata kunci acuan (seperti NIK, ID Karyawan, atau Kode Produk).\n\n**Cara Tulis Rumus:**\n=VLOOKUP(kode_dicari, tabel_referensi, nomor_kolom, FALSE)\n\n**Contoh Kasus Sehari-hari:**\nKamu mengetik ID Karyawan EMP003 di cell F2.\nKetik =VLOOKUP(F2, A2:D6, 4, FALSE).\nExcel akan mencari EMP003 di kolom A, lalu mengambil gaji di kolom ke-4 (Rp 9.800.000)!"
         }
       ],
       "exercises": [
         "ex-adv-vlookup-01",
         "ex-adv-02",
-        "ex-adv-06"
+        "ex-adv-03",
+        "ex-adv-11"
+      ]
+    },
+    {
+      "id": "xlookup",
+      "title": "2. XLOOKUP",
+      "subtitle": "Pencarian Modern Tanpa Batasan Kolom Kiri",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Keunggulan XLOOKUP di Excel Modern",
+          "body": "XLOOKUP adalah penerus VLOOKUP dan HLOOKUP di Excel modern. Keunggulannya:\n- Bisa mencari data ke arah kiri maupun kanan.\n- Secara default melakukan Exact Match (tidak perlu mengetik FALSE).\n\n**Cara Tulis Rumus:**\n=XLOOKUP(lookup_value, lookup_array, return_array)\n\n**Contoh Kasus:**\nUntuk mencari Departemen dari ID Karyawan EMP004 di F2:\n=XLOOKUP(F2, A2:A6, C2:C6)"
+        }
+      ],
+      "exercises": [
+        "ex-adv-xlookup-01",
+        "ex-adv-05",
+        "ex-adv-12"
+      ]
+    },
+    {
+      "id": "index-match",
+      "title": "3. INDEX & MATCH",
+      "subtitle": "Kombinasi Pencarian Fleksibel Dinamis",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Kombinasi INDEX & MATCH",
+          "body": "INDEX mengambil isi cell berdasarkan posisi baris dan kolom. MATCH mencari posisi nomor baris suatu nilai acuan.\n\n**Cara Tulis Rumus:**\n=INDEX(kolom_hasil, MATCH(lookup_value, kolom_acuan, 0))\n\n**Contoh Kasus:**\n=INDEX(B2:B6, MATCH(E2, A2:A6, 0)) untuk mengambil Nama karyawan secara fleksibel tanpa batas tata letak kolom."
+        }
+      ],
+      "exercises": [
+        "ex-adv-06",
+        "ex-adv-13"
+      ]
+    },
+    {
+      "id": "pivottable",
+      "title": "4. PivotTable",
+      "subtitle": "Ringkasan & Analisis Data Cepat",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Meringkas Ribuan Baris Data dengan PivotTable",
+          "body": "PivotTable adalah fitur berdaya tinggi di Excel untuk meringkas, mengelompokkan, dan menganalisis data besar tanpa perlu rumus manual satu per satu."
+        },
+        {
+          "type": "tip",
+          "heading": "Cara Kerja Ringkasan Data:",
+          "body": "1. Tentukan kategori baris (misal: Departemen atau Wilayah).\n2. Tentukan nilai yang ingin dijumlahkan (SUM) atau dirata-rata (AVERAGE).\n3. Dapatkan laporan statistik instan!"
+        }
+      ],
+      "exercises": [
+        "ex-adv-09",
+        "ex-adv-10"
       ]
     },
     {
       "id": "ujian-campuran",
-      "title": " Ujian Campuran",
-      "subtitle": "Evaluasi Master VLOOKUP & Lookup",
+      "title": "5. Ujian Campuran",
+      "subtitle": "Evaluasi Master VLOOKUP, XLOOKUP, INDEX-MATCH & PivotTable",
       "sections": [
         {
           "type": "warning",
-          "heading": "Ujian VLOOKUP Master:",
-          "body": "Tunjukkan keahlian kamu dalam mencari data antar tabel secara presisi di lembar kerja!"
+          "heading": "Ujian Evaluasi Pelajaran 3:",
+          "body": "Uji pemahaman kamu dalam mencari data antar tabel secara presisi dan meringkas data secara akurat!"
         }
       ],
       "exercises": [
         "ex-adv-07",
         "ex-adv-08",
+        "ex-adv-14",
         "ex-adv-15"
       ]
     }

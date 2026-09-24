@@ -47,7 +47,7 @@ export default function LandingPage() {
                   <div className="w-3.5 h-3.5 rounded-full bg-[#FFADAD]" />
                   <div className="w-3.5 h-3.5 rounded-full bg-[#FFD6A5]" />
                   <div className="w-3.5 h-3.5 rounded-full bg-[#CFFFE5]" />
-                  <span className="ml-2 font-bold text-[#2D2342]">Tampilan Lembar Kerja Excel (Simpel & Mirip Asli)</span>
+                  <span className="ml-2 font-bold text-[#2D2342]">Tampilan Lembar Kerja Excel</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-[#2D2342] font-bold bg-[#E0CFFC] px-3 py-1 rounded-full border border-[#C7CEEA]">
                   <Users className="w-3.5 h-3.5 text-[#FF758F]" />
