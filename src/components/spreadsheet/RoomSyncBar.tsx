@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Users, Wifi, WifiOff, Share2, Check } from "lucide-react";
 import { CellData } from "@/types/exercise";
 
@@ -18,6 +18,21 @@ export function RoomSyncBar({
   const [roomId, setRoomId] = useState<string>("");
   const [isConnected, setIsConnected] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
+  const [connectedCount, setConnectedCount] = useState<number>(1);
+  const [userId, setUserId] = useState<string>("");
+
+  const cloudObjIdRef = useRef<string>("");
+  const lastLocalUpdateRef = useRef<number>(0);
+
+  // Generate unique userId per browser tab on mount
+  useEffect(() => {
+    let uid = sessionStorage.getItem("excel_learn_user_id");
+    if (!uid) {
+      uid = "usr_" + Math.random().toString(36).substring(2, 9);
+      sessionStorage.setItem("excel_learn_user_id", uid);
+    }
+    setUserId(uid);
+  }, []);
 
   // Sync with localStorage on mount & on event
   useEffect(() => {
@@ -29,6 +44,7 @@ export function RoomSyncBar({
           setIsConnected(true);
         } else {
           setIsConnected(false);
+          setConnectedCount(1);
         }
       }
     };
@@ -54,56 +70,77 @@ export function RoomSyncBar({
   // Disconnect Room
   const handleDisconnect = () => {
     setIsConnected(false);
+    setConnectedCount(1);
+    cloudObjIdRef.current = "";
     if (typeof window !== "undefined") {
       localStorage.removeItem("excel_learn_room_id");
       window.dispatchEvent(new Event("room-id-changed"));
     }
   };
 
-  // Poll server for live real-time changes every 1.5s when connected
+  // Poll server and cloud for real-time changes every 700ms when connected
   useEffect(() => {
-    if (!isConnected || !roomId) return;
+    if (!isConnected || !roomId || !userId) return;
 
     const interval = setInterval(async () => {
       try {
-        const res = await fetch(`/api/room/sync?roomId=${encodeURIComponent(roomId)}`);
+        const res = await fetch(`/api/room/sync?roomId=${encodeURIComponent(roomId)}&userId=${encodeURIComponent(userId)}`);
         const data = await res.json();
-        if (data.success && data.roomState && data.roomState.gridData) {
-          if (onGridSynced) {
-            onGridSynced(data.roomState.gridData);
+        
+        if (data.success && data.roomState) {
+          if (data.roomState.connectedCount) {
+            setConnectedCount(data.roomState.connectedCount);
+          }
+          if (data.roomState.cloudObjectId) {
+            cloudObjIdRef.current = data.roomState.cloudObjectId;
+          }
+
+          // If changes came from another user, update grid
+          if (data.roomState.gridData && onGridSynced) {
+            if (Date.now() - lastLocalUpdateRef.current > 600) {
+              onGridSynced(data.roomState.gridData);
+            }
           }
         }
       } catch (err) {
         console.error("Realtime sync error:", err);
       }
-    }, 1500);
+    }, 700);
 
     return () => clearInterval(interval);
-  }, [isConnected, roomId, onGridSynced]);
+  }, [isConnected, roomId, userId, onGridSynced]);
 
   // Broadcast cell edit when currentGridData changes
   useEffect(() => {
-    if (!isConnected || !roomId || !currentGridData) return;
+    if (!isConnected || !roomId || !currentGridData || !userId) return;
+
+    lastLocalUpdateRef.current = Date.now();
 
     const broadcast = async () => {
       try {
-        await fetch("/api/room/sync", {
+        const res = await fetch("/api/room/sync", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             roomId,
             gridData: currentGridData,
             activeCell: activeCellRef,
+            userId,
+            updatedBy: "Pengguna Excel",
           }),
         });
+        const data = await res.json();
+        if (data.success && data.roomState && data.roomState.connectedCount) {
+          setConnectedCount(data.roomState.connectedCount);
+        }
       } catch (e) {
         console.error(e);
       }
     };
 
-    const timer = setTimeout(broadcast, 400);
+    const timer = setTimeout(broadcast, 150);
     return () => clearTimeout(timer);
-  }, [currentGridData, isConnected, roomId, activeCellRef]);
+  }, [currentGridData, isConnected, roomId, userId, activeCellRef]);
 
   const copyRoomCode = () => {
     if (!roomId) return;
@@ -119,7 +156,15 @@ export function RoomSyncBar({
           <Users className="w-5 h-5 text-[#2D2342]" />
         </div>
         <div>
-          <span className="font-black text-[#2D2342] text-sm block">Ruang Belajar Bersama (Realtime Sync)</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="font-black text-[#2D2342] text-sm block">Ruang Belajar Bersama (Realtime Sync)</span>
+            {isConnected && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-emerald-100 text-emerald-800 font-mono font-black text-[11px] rounded-full border border-emerald-300">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                <span>{connectedCount} Orang Terhubung</span>
+              </span>
+            )}
+          </div>
           <span className="text-xs text-slate-600 font-medium">
             Konek dengan teman kamu! Isi cell otomatis ter-update di layar teman kamu saat mengetik.
           </span>
@@ -147,7 +192,7 @@ export function RoomSyncBar({
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 px-4 py-2 bg-[#CFFFE5] border-2 border-[#A0E7E5] text-[#2D2342] rounded-2xl font-mono font-black text-xs shadow-inner">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
-            <span>KODE RUANG: {roomId}</span>
+            <span>KODE RUANG: {roomId} ({connectedCount} Orang)</span>
           </div>
 
           <button
@@ -172,5 +217,3 @@ export function RoomSyncBar({
     </div>
   );
 }
-
-

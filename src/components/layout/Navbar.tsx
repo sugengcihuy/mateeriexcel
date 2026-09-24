@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FileSpreadsheet, BookOpen, Trophy, Sparkles, Users, X, Check, Wifi, Share2 } from "lucide-react";
@@ -16,6 +16,35 @@ export function Navbar() {
   const [inputRoomId, setInputRoomId] = useState<string>("");
   const [activeRoomId, setActiveRoomId] = useState<string>("");
   const [copied, setCopied] = useState<boolean>(false);
+  const [connectedCount, setConnectedCount] = useState<number>(1);
+  const [userId, setUserId] = useState<string>("");
+
+  useEffect(() => {
+    let uid = sessionStorage.getItem("excel_learn_user_id");
+    if (!uid) {
+      uid = "usr_" + Math.random().toString(36).substring(2, 9);
+      sessionStorage.setItem("excel_learn_user_id", uid);
+    }
+    setUserId(uid);
+  }, []);
+
+  useEffect(() => {
+    if (!activeRoomId || !userId) return;
+    const poll = async () => {
+      try {
+        const res = await fetch(`/api/room/sync?roomId=${encodeURIComponent(activeRoomId)}&userId=${encodeURIComponent(userId)}`);
+        const data = await res.json();
+        if (data.success && data.roomState && data.roomState.connectedCount) {
+          setConnectedCount(data.roomState.connectedCount);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    poll();
+    const interval = setInterval(poll, 1500);
+    return () => clearInterval(interval);
+  }, [activeRoomId, userId]);
 
   const handleConnectRoom = (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,7 +139,7 @@ export function Navbar() {
               className="flex items-center gap-2 px-3.5 py-2 bg-[#E0CFFC] hover:bg-[#DBCDF0] text-[#2D2342] text-xs font-extrabold rounded-xl border border-[#C7CEEA] transition-all shadow-sm"
             >
               <Users className="w-4 h-4 text-[#FF758F]" />
-              <span>{activeRoomId ? `Ruang: ${activeRoomId}` : "Konek Belajar Bareng"}</span>
+              <span>{activeRoomId ? `Ruang: ${activeRoomId} (${connectedCount} Orang)` : "Konek Belajar Bareng"}</span>
             </button>
 
             {isHome && (
@@ -177,7 +206,7 @@ export function Navbar() {
               <div className="p-4 bg-[#CFFFE5] border-2 border-[#A0E7E5] rounded-2xl space-y-4 text-center">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full font-mono font-black text-xs border border-emerald-300">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
-                  <span>KODE RUANG AKTIF: {activeRoomId}</span>
+                  <span>KODE RUANG AKTIF: {activeRoomId} ({connectedCount} Orang Terhubung)</span>
                 </div>
                 <p className="text-xs text-slate-700 font-medium">
                   Bagikan kode <strong>{activeRoomId}</strong> ini ke teman kamu supaya kalian terhubung realtime!
