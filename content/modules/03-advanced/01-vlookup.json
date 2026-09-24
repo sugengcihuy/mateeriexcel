@@ -10,7 +10,7 @@
         {
           "type": "concept",
           "heading": "Apa itu VLOOKUP?",
-          "body": "VLOOKUP (Vertical Lookup) dipakai untuk **mencari data di tabel vertikal** berdasarkan kata kunci acuan (seperti NIK, ID Karyawan, atau Kode Produk).\n\n**Cara Tulis Rumus:**\n=VLOOKUP(kode_dicari, tabel_referensi, nomor_kolom, FALSE)\n\n**Contoh Kasus Sehari-hari:**\nKamu mengetik ID Karyawan EMP003 di cell F2.\nKetik =VLOOKUP(F2, A2:D6, 4, FALSE).\nExcel akan mencari EMP003 di kolom A, lalu mengambil gaji di kolom ke-4 (Rp 9.800.000)!"
+          "body": "`VLOOKUP` (Vertical Lookup) dipakai untuk **mencari data di tabel vertikal** berdasarkan acuan pencarian (seperti NIK, ID Karyawan, atau Kode Produk).\n\n**Cara Tulis Rumus:**\n`=VLOOKUP(kode_dicari, tabel_referensi, nomor_kolom, FALSE)`\n\n**Contoh Kasus Sehari-hari:**\nKamu punya tabel master karyawan (A2:D6):\n- A2: EMP001 | B2: Budi  | C2: Finance | D2: Rp 8.500.000\n- A3: EMP002 | B3: Siti  | C3: Market  | D3: Rp 7.200.000\n- A4: EMP003 | B4: Rizky | C4: IT      | D4: Rp 9.800.000\n\nDi sel F2 kamu ketik kode `EMP003`.\nKetik `=VLOOKUP(F2, A2:D6, 4, FALSE)` di sel G2.\nExcel mencari EMP003 di kolom A, lalu mengambil nilai Gaji pada kolom ke-4. Hasilnya: **Rp 9.800.000**!"
         }
       ],
       "exercises": [
@@ -28,7 +28,7 @@
         {
           "type": "concept",
           "heading": "Keunggulan XLOOKUP di Excel Modern",
-          "body": "XLOOKUP adalah penerus VLOOKUP dan HLOOKUP di Excel modern. Keunggulannya:\n- Bisa mencari data ke arah kiri maupun kanan.\n- Secara default melakukan Exact Match (tidak perlu mengetik FALSE).\n\n**Cara Tulis Rumus:**\n=XLOOKUP(lookup_value, lookup_array, return_array)\n\n**Contoh Kasus:**\nUntuk mencari Departemen dari ID Karyawan EMP004 di F2:\n=XLOOKUP(F2, A2:A6, C2:C6)"
+          "body": "`XLOOKUP` adalah penerus VLOOKUP dan HLOOKUP di Excel modern. Keunggulannya:\n- Bisa mencari data ke arah kiri maupun kanan.\n- Secara default melakukan Exact Match (tidak perlu ketik FALSE).\n\n**Cara Tulis Rumus:**\n`=XLOOKUP(lookup_value, lookup_array, return_array)`\n\n**Contoh Kasus Sehari-hari:**\nKamu punya tabel daftar siswa:\n- A2:A6 (Nama Siswa): Budi, Siti, Rizky, Dewi, Andi\n- C2:C6 (ID Siswa): ID101, ID102, ID103, ID104, ID105\n\nDi sel F2 kamu cari ID `ID104`.\nKetik `=XLOOKUP(F2, C2:C6, A2:A6)` di sel G2.\nExcel mencari ke arah kiri dari kolom ID ke kolom Nama, hasilnya: **Dewi**!"
         }
       ],
       "exercises": [
@@ -45,7 +45,7 @@
         {
           "type": "concept",
           "heading": "Kombinasi INDEX & MATCH",
-          "body": "INDEX mengambil isi cell berdasarkan posisi baris dan kolom. MATCH mencari posisi nomor baris suatu nilai acuan.\n\n**Cara Tulis Rumus:**\n=INDEX(kolom_hasil, MATCH(lookup_value, kolom_acuan, 0))\n\n**Contoh Kasus:**\n=INDEX(B2:B6, MATCH(E2, A2:A6, 0)) untuk mengambil Nama karyawan secara fleksibel tanpa batas tata letak kolom."
+          "body": "`INDEX` mengambil isi cell berdasarkan posisi baris dan kolom. `MATCH` mencari posisi nomor baris suatu nilai acuan.\n\n**Cara Tulis Rumus:**\n`=INDEX(kolom_hasil, MATCH(lookup_value, kolom_acuan, 0))`\n\n**Contoh Kasus Sehari-hari:**\nKamu ingin mencari Harga Produk berdasarkan Kode Produk yang terletak di sebelah kanan tabel:\n- A2:A6 (Harga): 150rb, 250rb, 100rb, 300rb, 200rb\n- B2:B6 (Kode): PRD01, PRD02, PRD03, PRD04, PRD05\n\nDi sel E2 kamu cari Kode `PRD02`.\nKetik `=INDEX(A2:A6, MATCH(E2, B2:B6, 0))` di sel F2.\nMATCH mencari baris PRD02 (Baris 2), INDEX mengambil harga di baris 2, hasilnya: **250rb**!"
         }
       ],
       "exercises": [
@@ -66,7 +66,7 @@
         {
           "type": "tip",
           "heading": "Cara Kerja Ringkasan Data:",
-          "body": "1. Tentukan kategori baris (misal: Departemen atau Wilayah).\n2. Tentukan nilai yang ingin dijumlahkan (SUM) atau dirata-rata (AVERAGE).\n3. Dapatkan laporan statistik instan!"
+          "body": "1. Tentukan kategori baris (misal: Departemen atau Wilayah Sales).\n2. Tentukan nilai yang ingin dijumlahkan (SUM) atau dirata-rata (AVERAGE).\n3. Dapatkan laporan statistik instan!"
         }
       ],
       "exercises": [

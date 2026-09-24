@@ -10,12 +10,12 @@
         {
           "type": "concept",
           "heading": "Apa itu SUM?",
-          "body": "Fungsi `SUM` dipake buat menjumlahkan banyak angka secara otomatis tanpa harus nambahin satu-satu pake tanda tambah (`+`).\n\n**Cara Tulis Rumus:**\n`=SUM(cell_awal:cell_akhir)`\n\n**Contoh Kasus Sehari-hari:**\nBayangin kamu lagi nyatet pengeluaran belanja mingguan:\n- C2 (Beras): Rp 50.000\n- C3 (Minyak): Rp 30.000\n- C4 (Telur): Rp 25.000\n\nCukup ketik `=SUM(C2:C4)` di cell C5, Excel langsung ngitung totalnya **Rp 105.000**!"
+          "body": "Fungsi `SUM` digunakan untuk menjumlahkan banyak angka secara otomatis dalam satu rentang sel tanpa harus menambahkannya manual satu per satu (`+`).\n\n**Cara Tulis Rumus:**\n`=SUM(cell_awal:cell_akhir)`\n\n**Contoh Kasus Sehari-hari:**\nBayangin kamu lagi mencatat pengeluaran belanja mingguan:\n- C2 (Beras): Rp 50.000\n- C3 (Minyak Goreng): Rp 30.000\n- C4 (Telur Ayam): Rp 25.000\n\nKetik `=SUM(C2:C4)` di cell C5.\nExcel akan otomatis menjumlahkan dari C2 sampai C4, hasilnya langsung keluar **Rp 105.000**!"
         },
         {
           "type": "tip",
-          "heading": "Tips Pintar:",
-          "body": "Ingat! Setiap rumus di Excel HARUS diawali tanda sama dengan (`=`). Kalo tanpa `=`, Excel cuma ngira kamu ngetik tulisan biasa."
+          "heading": "Tips Penting:",
+          "body": "Setiap rumus di Excel WAJIB diawali tanda sama dengan (`=`). Jika tanpa `=`, Excel akan menganggap ketikan kamu sebagai teks biasa."
         }
       ],
       "exercises": [
@@ -27,12 +27,12 @@
     {
       "id": "average",
       "title": "2. AVERAGE",
-      "subtitle": "Hitung Rata-Rata Tanpa Ribet",
+      "subtitle": "Hitung Rata-Rata Otomatis",
       "sections": [
         {
           "type": "concept",
           "heading": "Apa itu AVERAGE?",
-          "body": "Fungsi `AVERAGE` dipakai buat ngitung nilai rata-rata dari sekelompok angka.\n\n**Cara Tulis Rumus:**\n`=AVERAGE(cell_awal:cell_akhir)`\n\n**Contoh Kasus Sehari-hari:**\nKamu punya nilai ulangan harian Matematika di cell B2 sampai B6 (70, 80, 90, 85, 75).\nKetik `=AVERAGE(B2:B6)` di cell B7, Excel otomatis ngejumlahin semuanya lalu ngebagi dengan jumlah ulanagannya. Hasil rata-ratanya: **80**!"
+          "body": "Fungsi `AVERAGE` digunakan untuk menghitung nilai rata-rata dari sekelompok angka secara cepat.\n\n**Cara Tulis Rumus:**\n`=AVERAGE(cell_awal:cell_akhir)`\n\n**Contoh Kasus Sehari-hari:**\nKamu ingin menghitung rata-rata nilai ujian harian siswa:\n- B2 (Matematika): 70\n- B3 (Bahasa Inggris): 80\n- B4 (IPA): 90\n\nKetik `=AVERAGE(B2:B4)` di cell B5.\nExcel akan menjumlahkan (240) lalu membaginya dengan 3 mata pelajaran. Hasil rata-ratanya: **80**!"
         }
       ],
       "exercises": [
@@ -44,12 +44,12 @@
     {
       "id": "count",
       "title": "3. COUNT",
-      "subtitle": "Hitung Jumlah Data Berisi Angka",
+      "subtitle": "Hitung Banyak Sel Berisi Angka",
       "sections": [
         {
           "type": "concept",
           "heading": "Apa itu COUNT?",
-          "body": "`COUNT` bertugas menghitung berapa banyak cell yang terisi **angka** (cell kosong atau berupa tulisan teks bakal diabaikan).\n\n**Cara Tulis Rumus:**\n`=COUNT(cell_awal:cell_akhir)`\n\n**Contoh Kasus Sehari-hari:**\nKamu punya daftar 10 pelanggan di kolom A. Tapi baru 6 orang yang isi nomor telepon (angka). Ketik `=COUNT(A2:A11)`, hasilnya bakal keluar **6**!"
+          "body": "Fungsi `COUNT` bertugas menghitung berapa banyak sel yang terisi **angka** (sel kosong atau sel berisi huruf/teks akan diabaikan).\n\n**Cara Tulis Rumus:**\n`=COUNT(cell_awal:cell_akhir)`\n\n**Contoh Kasus Sehari-hari:**\nKamu punya daftar pendaftaran anggota di kolom B:\n- B2 (Andi): 0812345678 (Angka No HP)\n- B3 (Siti): 0857123456 (Angka No HP)\n- B4 (Budi): Belum Ada (Teks)\n- B5 (Rizky): 0899123456 (Angka No HP)\n\nKetik `=COUNT(B2:B5)` di cell B6.\nExcel hanya menghitung sel yang ada nomor HP-nya saja, sehingga hasilnya keluar **3**!"
         }
       ],
       "exercises": [
@@ -66,7 +66,7 @@
         {
           "type": "concept",
           "heading": "Apa itu MAX & MIN?",
-          "body": "`MAX` dipakai buat nyari angka **paling gede**, sedangkan `MIN` buat nyari angka **paling kecil** di dalam tabel kamu.\n\n**Cara Tulis Rumus:**\n- `=MAX(range_data)`\n- `=MIN(range_data)`\n\n**Contoh Kasus Sehari-hari:**\nDalam data omset harian sebulan (C2:C31):\n- `=MAX(C2:C31)` ketahuan omset penjualan tertinggi bulan ini.\n- `=MIN(C2:C31)` ketahuan omset terkecil buat bahan evaluasi!"
+          "body": "`MAX` digunakan untuk mencari angka **paling besar**, sedangkan `MIN` digunakan untuk mencari angka **paling kecil** di dalam tabel kamu.\n\n**Cara Tulis Rumus:**\n- `=MAX(range_data)`\n- `=MIN(range_data)`\n\n**Contoh Kasus Sehari-hari:**\nKamu punya daftar suhu harian kota dalam seminggu:\n- D2 (Senin): 28\n- D3 (Selasa): 34\n- D4 (Rabu): 31\n- D5 (Kamis): 26\n- D6 (Jumat): 30\n\nKetik `=MAX(D2:D6)` di D7 -> Hasilnya **34** (Suhu Tertinggi).\nKetik `=MIN(D2:D6)` di D8 -> Hasilnya **26** (Suhu Terendah)."
         }
       ],
       "exercises": [
@@ -77,7 +77,7 @@
     },
     {
       "id": "ujian-campuran",
-      "title": " Ujian Campuran",
+      "title": "5. Ujian Campuran",
       "subtitle": "Uji Kemampuan Gabungan Rumus Dasar",
       "sections": [
         {

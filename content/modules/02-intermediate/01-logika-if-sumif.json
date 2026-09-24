@@ -5,12 +5,12 @@
     {
       "id": "if",
       "title": "1. Logika IF",
-      "subtitle": "Keputusan Otomatis (Kalo... Maka...)",
+      "subtitle": "Keputusan Otomatis (Jika... Maka...)",
       "sections": [
         {
           "type": "concept",
           "heading": "Bagaimana Logika IF Bekerja?",
-          "body": "Fungsi `IF` itu ibarat logika sehari-hari: **\"Kalo nilai kamu di atas 75, kamu LULUS. Kalo enggak, kamu REMIDI.\"**\n\n**Cara Tulis Rumus:**\n`=IF(kondisi_syarat, \"hasil_jika_benar\", \"hasil_jika_salah\")`\n\n**Contoh Kasus Sehari-hari:**\nDi cell B2 ada Nilai Ujian = 80.\nDi cell C2 ketik: `=IF(B2>=75, \"LULUS\", \"REMIDI\")`.\nExcel bakal baca B2 (80 >= 75 adalah BENAR), jadi C2 otomatis berisi **\"LULUS\"**!"
+          "body": "Fungsi `IF` ibarat keputusan bersyarat sehari-hari: **\"Jika nilai kamu di atas atau sama dengan 75, kamu LULUS. Jika di bawah 75, kamu REMIDI.\"**\n\n**Cara Tulis Rumus:**\n`=IF(kondisi_syarat, \"hasil_jika_benar\", \"hasil_jika_salah\")`\n\n**Contoh Kasus Sehari-hari:**\nBayangin kamu menentukan kelulusan siswa:\n- B2 (Nama): Rian\n- C2 (Nilai Ujian): 82\n\nKetik `=IF(C2>=75, \"LULUS\", \"REMIDI\")` di cell D2.\nExcel mengecek apakah 82 >= 75 (BENAR), jadi cell D2 otomatis terisi **\"LULUS\"**!"
         }
       ],
       "exercises": [
@@ -22,12 +22,12 @@
     {
       "id": "sumif",
       "title": "2. SUMIF",
-      "subtitle": "Jumlahkan Angka yang Punya Kriteria Khusus",
+      "subtitle": "Jumlahkan Angka Berdasarkan Kriteria Khusus",
       "sections": [
         {
           "type": "concept",
           "heading": "Apa itu SUMIF?",
-          "body": "`SUMIF` dipake buat menjumlahkan angka **hanya jika** memenuhi syarat tertentu (misal: cuma hitung penjualan kota Jakarta saja).\n\n**Cara Tulis Rumus:**\n`=SUMIF(kolom_kriteria, \"kriteria_dicari\", kolom_angka_dijumlahkan)`\n\n**Contoh Kasus Sehari-hari:**\nKolom B2:B6 berisi nama Kota (Jakarta, Bandung, Jakarta, Surabaya, Jakarta).\nKolom C2:C6 berisi Penjualan (Rp 15jt, 8jt, 12jt, 22jt, 14jt).\n\nKetik `=SUMIF(B2:B6, \"Jakarta\", C2:C6)`.\nExcel otomatis nyari kota 'Jakarta' saja dan totalin omsetnya: **Rp 41.000.000**!"
+          "body": "`SUMIF` digunakan untuk menjumlahkan angka **hanya jika** memenuhi syarat atau kriteria tertentu (misalnya: hanya menghitung pengeluaran kategori Makanan).\n\n**Cara Tulis Rumus:**\n`=SUMIF(kolom_kriteria, \"kriteria_dicari\", kolom_angka_dijumlahkan)`\n\n**Contoh Kasus Sehari-hari:**\nKamu punya catatan pengeluaran harian:\n- B2 (Kategori): Makanan | C2 (Biaya): Rp 40.000\n- B3 (Kategori): Transport | C3 (Biaya): Rp 25.000\n- B4 (Kategori): Makanan | C4 (Biaya): Rp 35.000\n- B5 (Kategori): Pulsa   | C5 (Biaya): Rp 50.000\n\nKetik `=SUMIF(B2:B5, \"Makanan\", C2:C5)` di cell C6.\nExcel hanya menjumlahkan biaya kategori Makanan saja (40.000 + 35.000), hasilnya: **Rp 75.000**!"
         }
       ],
       "exercises": [
@@ -44,7 +44,7 @@
         {
           "type": "concept",
           "heading": "Apa itu COUNTIF?",
-          "body": "`COUNTIF` dipake buat ngitung **berapa kali** suatu kata atau angka muncul dalam tabel.\n\n**Cara Tulis Rumus:**\n`=COUNTIF(kolom_data, \"kata_dicari\")`\n\n**Contoh Kasus Sehari-hari:**\nDi kolom C2:C10 ada status Lulus/Remidi.\nKetik `=COUNTIF(C2:C10, \"LULUS\")`, Excel bakal ngeluarin angka **berapa banyak siswa yang lulus**!"
+          "body": "`COUNTIF` digunakan untuk menghitung **berapa banyak sel** yang berisi kata atau nilai tertentu.\n\n**Cara Tulis Rumus:**\n`=COUNTIF(kolom_data, \"kata_dicari\")`\n\n**Contoh Kasus Sehari-hari:**\nKamu punya daftar inventaris barang toko di kolom B:\n- B2: Ready\n- B3: Habis\n- B4: Ready\n- B5: Ready\n- B6: Habis\n\nKetik `=COUNTIF(B2:B6, \"Ready\")` di cell B7.\nExcel menghitung berapa kali kata Ready muncul, hasilnya langsung keluar **3**!"
         }
       ],
       "exercises": [
@@ -61,7 +61,7 @@
         {
           "type": "concept",
           "heading": "Cara Kerja HLOOKUP",
-          "body": "`HLOOKUP` (Horizontal Lookup) dipake buat nyari data di tabel yang melebarnya ke kanan (baris demi baris).\n\n**Cara Tulis Rumus:**\n`=HLOOKUP(kode_dicari, tabel_sumber, nomor_baris, FALSE)`\n\n**Contoh Kasus Sehari-hari:**\nBaris 1 tabel berisi Kode Barang (A, B, C).\nBaris 2 tabel berisi Harga (10rb, 20rb, 30rb).\nKetik `=HLOOKUP(\"B\", A1:C2, 2, FALSE)`, hasilnya: **20.000**!"
+          "body": "`HLOOKUP` (Horizontal Lookup) digunakan untuk mencari data di tabel yang melebarnya ke kanan (baris demi baris).\n\n**Cara Tulis Rumus:**\n`=HLOOKUP(kode_dicari, tabel_sumber, nomor_baris, FALSE)`\n\n**Contoh Kasus Sehari-hari:**\nKamu punya tabel tarif diskon member mendatar:\n- Baris 1 (Kode): A | B | C\n- Baris 2 (Diskon): 5% | 10% | 15%\n\nIngin mencari diskon untuk Member Kode B:\nKetik `=HLOOKUP(\"B\", A1:C2, 2, FALSE)` di sel hasil.\nExcel melihat kolom B pada baris ke-2, hasilnya: **10%**!"
         }
       ],
       "exercises": [
@@ -72,7 +72,7 @@
     },
     {
       "id": "ujian-campuran",
-      "title": " Ujian Campuran",
+      "title": "5. Ujian Campuran",
       "subtitle": "Evaluasi Logika & Rekap Bersyarat",
       "sections": [
         {
