@@ -2,9 +2,13 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FileSpreadsheet, BookOpen, Trophy, Sparkles, Users, X, Check, Wifi, Share2 } from "lucide-react";
 
 export function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   const [showRoomModal, setShowRoomModal] = useState<boolean>(false);
   const [inputRoomId, setInputRoomId] = useState<string>("");
   const [activeRoomId, setActiveRoomId] = useState<string>("");
@@ -15,7 +19,6 @@ export function Navbar() {
     if (!inputRoomId.trim()) return;
     const clean = inputRoomId.trim().toUpperCase();
     setActiveRoomId(clean);
-    // Save to window / localStorage so exercise grid can listen
     if (typeof window !== "undefined") {
       localStorage.setItem("excel_learn_room_id", clean);
       window.dispatchEvent(new Event("room-id-changed"));
@@ -41,7 +44,7 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#E0CFFC] shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          {/* Brand Logo - Light Pastel Styling */}
+          {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 bg-[#E0CFFC] group-hover:bg-[#FFC8DD] rounded-2xl flex items-center justify-center text-[#2D2342] shadow-sm transition-all border border-[#DBCDF0]">
               <FileSpreadsheet className="w-5 h-5 text-[#2D2342]" />
@@ -70,7 +73,7 @@ export function Navbar() {
             </Link>
           </nav>
 
-          {/* Action Buttons: Konek Realtime & Mulai Belajar */}
+          {/* Action Buttons: Konek Realtime & Mulai Belajar (Shown only on Home) */}
           <div className="flex items-center gap-3">
             <button
               type="button"
@@ -81,13 +84,15 @@ export function Navbar() {
               <span>{activeRoomId ? `Ruang: ${activeRoomId}` : "Konek Belajar Bareng"}</span>
             </button>
 
-            <Link
-              href="/modules"
-              className="hidden sm:flex items-center gap-1.5 px-4 py-2 bg-[#FFC8DD] hover:bg-[#FFADAD] text-[#2D2342] text-xs font-black rounded-xl transition-all shadow-sm border border-[#FFADAD]"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Mulai Belajar</span>
-            </Link>
+            {isHome && (
+              <Link
+                href="/modules"
+                className="hidden sm:flex items-center gap-1.5 px-4 py-2 bg-[#FFC8DD] hover:bg-[#FFADAD] text-[#2D2342] text-xs font-black rounded-xl transition-all shadow-sm border border-[#FFADAD]"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Mulai Belajar</span>
+              </Link>
+            )}
           </div>
         </div>
       </header>
@@ -175,5 +180,3 @@ export function Navbar() {
     </>
   );
 }
-
-
