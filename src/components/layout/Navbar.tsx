@@ -46,13 +46,13 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#E0CFFC] shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 bg-[#E0CFFC] group-hover:bg-[#FFC8DD] rounded-2xl flex items-center justify-center text-[#2D2342] shadow-sm transition-all border border-[#DBCDF0]">
               <FileSpreadsheet className="w-5 h-5 text-[#2D2342]" />
             </div>
-            <span className="font-black text-xl text-[#2D2342] tracking-tight">
+            <span className="font-black text-base sm:text-xl text-[#2D2342] tracking-tight whitespace-nowrap">
               Belajar Excel <span className="text-[#FF758F] underline decoration-[#FFC8DD] underline-offset-4">Ayya</span>
             </span>
           </Link>
