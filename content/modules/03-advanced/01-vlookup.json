@@ -1,0 +1,21 @@
+{
+  "title": "Mencari Data Vertikal dengan VLOOKUP",
+  "subtitle": "Otomatisasi pengambilan informasi karyawan dan harga produk dari tabel referensi master.",
+  "sections": [
+    {
+      "type": "concept",
+      "heading": "1. Struktur & Argumen VLOOKUP",
+      "body": "Fungsi `VLOOKUP` (Vertical Lookup) digunakan untuk mencari nilai kunci di kolom paling kiri dari suatu tabel referensi, lalu mengembalikan nilai dari kolom tertentu pada baris yang sama. Sintaks VLOOKUP adalah:\n\n`=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])`\n\nPenjelasan argumen:\n- `lookup_value`: Nilai kunci yang dicari (misal: ID Karyawan di cell E2).\n- `table_array`: Rentang tabel data master (misal: A2:C6).\n- `col_index_num`: Nomor urut kolom yang nilainya ingin diambil (1 = kolom pertama, 2 = kolom kedua, dst).\n- `range_lookup`: Gunakan `FALSE` atau `0` untuk pencarian persis (Exact Match)."
+    },
+    {
+      "type": "concept",
+      "heading": "2. Contoh Kasus Data Karyawan",
+      "body": "Misalkan kita memiliki Tabel Master Karyawan di `A2:C6` (ID Karyawan, Nama, Departemen, Gaji). Jika kita ingin mencari Gaji karyawan dengan ID **EMP003** di cell E2:\n\n`=VLOOKUP(E2, A2:D6, 4, FALSE)`\n\nFormula ini akan mencari 'EMP003' pada kolom A, lalu mengambil nilai pada kolom ke-4 (Gaji)."
+    },
+    {
+      "type": "warning",
+      "heading": "Perhatian Poin Penting VLOOKUP:",
+      "body": "1. Kolom acuan (lookup key) WAJIB berada di kolom paling kiri dari `table_array`.\n2. Selalu sertakan parameter `FALSE` (atau `0`) pada argumen ke-4 agar hasil pencarian bersifat exact match (persis)!"
+    }
+  ]
+}

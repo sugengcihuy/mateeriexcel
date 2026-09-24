@@ -1,0 +1,63 @@
+{
+  "id": "ex-basic-10",
+  "lessonId": "les-basic-01",
+  "taskNumber": 10,
+  "title": "Soal 10: Total Omset 5 Cabang Toko",
+  "type": "formula",
+  "instruction": "Hitunglah Total Omset dari 5 Cabang Toko di cell B7 menggunakan rumus =SUM(B2:B6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Cabang"
+      },
+      "B1": {
+        "value": "Omset (Rp)"
+      },
+      "A2": {
+        "value": "Jakarta Selatan"
+      },
+      "B2": {
+        "value": 45000000
+      },
+      "A3": {
+        "value": "Bandung Barat"
+      },
+      "B3": {
+        "value": 30000000
+      },
+      "A4": {
+        "value": "Surabaya Pusat"
+      },
+      "B4": {
+        "value": 50000000
+      },
+      "A5": {
+        "value": "Medan Kota"
+      },
+      "B5": {
+        "value": 25000000
+      },
+      "A6": {
+        "value": "Semarang Tim"
+      },
+      "B6": {
+        "value": 30000000
+      },
+      "A7": {
+        "value": "Total Omset"
+      },
+      "B7": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "B7",
+    "expectedValue": 180000000,
+    "requiredFormulaPattern": "SUM",
+    "checkType": "both"
+  },
+  "hint": "=SUM(B2:B6)"
+}

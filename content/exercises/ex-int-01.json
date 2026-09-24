@@ -1,0 +1,87 @@
+{
+  "id": "ex-int-01",
+  "lessonId": "les-int-01",
+  "taskNumber": 1,
+  "title": "Soal 1: Penjualan Wilayah Jakarta (SUMIF)",
+  "type": "formula",
+  "instruction": "Hitung Total Penjualan khusus wilayah Jakarta di cell F2 pake rumus =SUMIF(B2:B6, \"Jakarta\", C2:C6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "ID"
+      },
+      "B1": {
+        "value": "Wilayah"
+      },
+      "C1": {
+        "value": "Penjualan (Rp)"
+      },
+      "E1": {
+        "value": "Cari"
+      },
+      "F1": {
+        "value": "Total Jakarta"
+      },
+      "A2": {
+        "value": "001"
+      },
+      "B2": {
+        "value": "Jakarta"
+      },
+      "C2": {
+        "value": 15000000
+      },
+      "A3": {
+        "value": "002"
+      },
+      "B3": {
+        "value": "Bandung"
+      },
+      "C3": {
+        "value": 8500000
+      },
+      "A4": {
+        "value": "003"
+      },
+      "B4": {
+        "value": "Jakarta"
+      },
+      "C4": {
+        "value": 12000000
+      },
+      "A5": {
+        "value": "004"
+      },
+      "B5": {
+        "value": "Surabaya"
+      },
+      "C5": {
+        "value": 22000000
+      },
+      "A6": {
+        "value": "005"
+      },
+      "B6": {
+        "value": "Jakarta"
+      },
+      "C6": {
+        "value": 14000000
+      },
+      "E2": {
+        "value": "Jakarta"
+      },
+      "F2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 41000000,
+    "requiredFormulaPattern": "SUMIF",
+    "checkType": "both"
+  },
+  "hint": "=SUMIF(B2:B6, \"Jakarta\", C2:C6)"
+}

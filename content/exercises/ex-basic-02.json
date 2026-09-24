@@ -1,0 +1,63 @@
+{
+  "id": "ex-basic-02",
+  "lessonId": "les-basic-01",
+  "taskNumber": 2,
+  "title": "Soal 2: Rata-rata Penjualan Toko",
+  "type": "formula",
+  "instruction": "Hitung Rata-rata Penjualan di cell B8 menggunakan rumus =AVERAGE(B2:B6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Bulan"
+      },
+      "B1": {
+        "value": "Penjualan (Rp)"
+      },
+      "A2": {
+        "value": "Januari"
+      },
+      "B2": {
+        "value": 15000000
+      },
+      "A3": {
+        "value": "Februari"
+      },
+      "B3": {
+        "value": 18500000
+      },
+      "A4": {
+        "value": "Maret"
+      },
+      "B4": {
+        "value": 22000000
+      },
+      "A5": {
+        "value": "April"
+      },
+      "B5": {
+        "value": 19000000
+      },
+      "A6": {
+        "value": "Mei"
+      },
+      "B6": {
+        "value": 25500000
+      },
+      "A8": {
+        "value": "Rata-rata"
+      },
+      "B8": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "B8",
+    "expectedValue": 20000000,
+    "requiredFormulaPattern": "AVERAGE",
+    "checkType": "both"
+  },
+  "hint": "=AVERAGE(B2:B6)"
+}

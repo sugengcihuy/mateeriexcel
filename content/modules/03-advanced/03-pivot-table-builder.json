@@ -1,0 +1,16 @@
+{
+  "title": "PivotTable Builder: Analisis Data Cepat",
+  "subtitle": "Belajar meringkas ribuan baris data mentah secara dinamis dengan PivotTable.",
+  "sections": [
+    {
+      "type": "concept",
+      "heading": "1. Apa itu PivotTable?",
+      "body": "PivotTable adalah fitur paling sakti di Excel untuk meringkas, mengelompokkan, dan menganalisis data besar tanpa perlu mengetikkan formula manual satu per satu."
+    },
+    {
+      "type": "tip",
+      "heading": "Cara Menggunakan Builder di Bawah:",
+      "body": "1. Pilih Field yang ingin dijadikan Baris (Rows), misalnya **Region** atau **Salesperson**.\n2. Pilih Fungsi Agregasi (SUM / AVERAGE / COUNT).\n3. Klik tombol **Generate PivotTable** untuk melihat ringkasan otomatisnya!"
+    }
+  ]
+}

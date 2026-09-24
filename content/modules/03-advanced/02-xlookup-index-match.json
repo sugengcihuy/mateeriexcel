@@ -1,0 +1,16 @@
+{
+  "title": "Pencarian Modern: XLOOKUP & INDEX-MATCH",
+  "subtitle": "Generasi baru pencarian data tanpa batasan kolom paling kiri.",
+  "sections": [
+    {
+      "type": "concept",
+      "heading": "1. Keunggulan XLOOKUP",
+      "body": "`XLOOKUP` adalah penerus VLOOKUP dan HLOOKUP di Excel modern. Keunggulannya:\n- Bisa mencari ke arah kiri maupun kanan.\n- Secara default melakukan Exact Match (tidak perlu ngetik FALSE lagi).\n\nSintaks:\n`=XLOOKUP(lookup_value, lookup_array, return_array)`"
+    },
+    {
+      "type": "concept",
+      "heading": "2. Kombinasi INDEX & MATCH",
+      "body": "`INDEX` mengambil isi cell berdasarkan baris dan kolom. `MATCH` mencari nomor baris suatu nilai.\n\nSintaks:\n`=INDEX(kolom_hasil, MATCH(lookup_value, kolom_acuan, 0))`"
+    }
+  ]
+}

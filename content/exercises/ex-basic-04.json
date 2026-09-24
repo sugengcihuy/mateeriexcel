@@ -1,0 +1,63 @@
+{
+  "id": "ex-basic-04",
+  "lessonId": "les-basic-01",
+  "taskNumber": 4,
+  "title": "Soal 4: Penjualan Paling Tinggi",
+  "type": "formula",
+  "instruction": "Cari nilai Penjualan Paling Tinggi di cell B8 menggunakan rumus =MAX(B2:B6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Bulan"
+      },
+      "B1": {
+        "value": "Penjualan"
+      },
+      "A2": {
+        "value": "Jan"
+      },
+      "B2": {
+        "value": 15000000
+      },
+      "A3": {
+        "value": "Feb"
+      },
+      "B3": {
+        "value": 18500000
+      },
+      "A4": {
+        "value": "Mar"
+      },
+      "B4": {
+        "value": 22000000
+      },
+      "A5": {
+        "value": "Apr"
+      },
+      "B5": {
+        "value": 19000000
+      },
+      "A6": {
+        "value": "Mei"
+      },
+      "B6": {
+        "value": 25500000
+      },
+      "A8": {
+        "value": "Penjualan Tertinggi"
+      },
+      "B8": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "B8",
+    "expectedValue": 25500000,
+    "requiredFormulaPattern": "MAX",
+    "checkType": "both"
+  },
+  "hint": "=MAX(B2:B6)"
+}

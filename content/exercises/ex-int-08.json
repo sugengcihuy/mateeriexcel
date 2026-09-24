@@ -1,0 +1,87 @@
+{
+  "id": "ex-int-08",
+  "lessonId": "les-int-02",
+  "taskNumber": 8,
+  "title": "Soal 8: Total Bonus Sales Budi (SUMIF)",
+  "type": "formula",
+  "instruction": "Hitung total bonus khusus untuk Budi di cell F2 pake =SUMIF(A2:A6, \"Budi\", C2:C6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Nama"
+      },
+      "B1": {
+        "value": "Item"
+      },
+      "C1": {
+        "value": "Bonus"
+      },
+      "E1": {
+        "value": "Target"
+      },
+      "F1": {
+        "value": "Total Bonus Budi"
+      },
+      "A2": {
+        "value": "Budi"
+      },
+      "B2": {
+        "value": "Laptop"
+      },
+      "C2": {
+        "value": 2000000
+      },
+      "A3": {
+        "value": "Siti"
+      },
+      "B3": {
+        "value": "Mouse"
+      },
+      "C3": {
+        "value": 500000
+      },
+      "A4": {
+        "value": "Budi"
+      },
+      "B4": {
+        "value": "Keyboard"
+      },
+      "C4": {
+        "value": 2500000
+      },
+      "A5": {
+        "value": "Rizky"
+      },
+      "B5": {
+        "value": "Monitor"
+      },
+      "C5": {
+        "value": 1500000
+      },
+      "A6": {
+        "value": "Siti"
+      },
+      "B6": {
+        "value": "Laptop"
+      },
+      "C6": {
+        "value": 2000000
+      },
+      "E2": {
+        "value": "Budi"
+      },
+      "F2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 4500000,
+    "requiredFormulaPattern": "SUMIF",
+    "checkType": "both"
+  },
+  "hint": "=SUMIF(A2:A6, \"Budi\", C2:C6)"
+}

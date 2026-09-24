@@ -1,0 +1,105 @@
+{
+  "id": "ex-adv-vlookup-01",
+  "lessonId": "les-adv-01",
+  "taskNumber": 1,
+  "title": "Soal 1: Cari Gaji EMP003 (VLOOKUP)",
+  "type": "formula",
+  "instruction": "Cari Gaji karyawan dengan ID EMP003 di cell G2 pake =VLOOKUP(F2, A2:D6, 4, FALSE).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "ID Karyawan"
+      },
+      "B1": {
+        "value": "Nama"
+      },
+      "C1": {
+        "value": "Departemen"
+      },
+      "D1": {
+        "value": "Gaji (Rp)"
+      },
+      "F1": {
+        "value": "ID Dicari"
+      },
+      "G1": {
+        "value": "Hasil Gaji"
+      },
+      "A2": {
+        "value": "EMP001"
+      },
+      "B2": {
+        "value": "Budi Santoso"
+      },
+      "C2": {
+        "value": "Finance"
+      },
+      "D2": {
+        "value": 8500000
+      },
+      "A3": {
+        "value": "EMP002"
+      },
+      "B3": {
+        "value": "Siti Nurhaliza"
+      },
+      "C3": {
+        "value": "Marketing"
+      },
+      "D3": {
+        "value": 7200000
+      },
+      "A4": {
+        "value": "EMP003"
+      },
+      "B4": {
+        "value": "Rizky Febian"
+      },
+      "C4": {
+        "value": "IT Support"
+      },
+      "D4": {
+        "value": 9800000
+      },
+      "A5": {
+        "value": "EMP004"
+      },
+      "B5": {
+        "value": "Dewi Persik"
+      },
+      "C5": {
+        "value": "HRD"
+      },
+      "D5": {
+        "value": 6900000
+      },
+      "A6": {
+        "value": "EMP005"
+      },
+      "B6": {
+        "value": "Andi Wijaya"
+      },
+      "C6": {
+        "value": "Operations"
+      },
+      "D6": {
+        "value": 11000000
+      },
+      "F2": {
+        "value": "EMP003"
+      },
+      "G2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": 9800000,
+    "requiredFormulaPattern": "VLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=VLOOKUP(F2, A2:D6, 4, FALSE)"
+}

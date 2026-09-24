@@ -1,0 +1,57 @@
+{
+  "id": "ex-adv-10",
+  "lessonId": "les-adv-02",
+  "taskNumber": 10,
+  "title": "Soal 10: Cari Gaji EMP005 (XLOOKUP)",
+  "type": "formula",
+  "instruction": "Cari Gaji karyawan EMP005 di cell G2 pake =XLOOKUP(F2, A2:A6, D2:D6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "ID Karyawan"
+      },
+      "B1": {
+        "value": "Nama"
+      },
+      "C1": {
+        "value": "Departemen"
+      },
+      "D1": {
+        "value": "Gaji (Rp)"
+      },
+      "F1": {
+        "value": "ID Dicari"
+      },
+      "G1": {
+        "value": "Hasil Gaji"
+      },
+      "A2": {
+        "value": "EMP005"
+      },
+      "B2": {
+        "value": "Andi Wijaya"
+      },
+      "C2": {
+        "value": "Operations"
+      },
+      "D2": {
+        "value": 11000000
+      },
+      "F2": {
+        "value": "EMP005"
+      },
+      "G2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": 11000000,
+    "requiredFormulaPattern": "XLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=XLOOKUP(F2, A2:A6, D2:D6)"
+}

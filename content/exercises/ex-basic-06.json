@@ -1,0 +1,81 @@
+{
+  "id": "ex-basic-06",
+  "lessonId": "les-basic-01",
+  "taskNumber": 6,
+  "title": "Soal 6: Total Gaji Karyawan",
+  "type": "formula",
+  "instruction": "Hitung Total Gaji seluruh staf di cell C7 menggunakan rumus =SUM(C2:C6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Nama"
+      },
+      "B1": {
+        "value": "Divisi"
+      },
+      "C1": {
+        "value": "Gaji (Rp)"
+      },
+      "A2": {
+        "value": "Budi"
+      },
+      "B2": {
+        "value": "Finance"
+      },
+      "C2": {
+        "value": 8500000
+      },
+      "A3": {
+        "value": "Siti"
+      },
+      "B3": {
+        "value": "Marketing"
+      },
+      "C3": {
+        "value": 7200000
+      },
+      "A4": {
+        "value": "Rizky"
+      },
+      "B4": {
+        "value": "IT"
+      },
+      "C4": {
+        "value": 9800000
+      },
+      "A5": {
+        "value": "Dewi"
+      },
+      "B5": {
+        "value": "HRD"
+      },
+      "C5": {
+        "value": 6900000
+      },
+      "A6": {
+        "value": "Andi"
+      },
+      "B6": {
+        "value": "Ops"
+      },
+      "C6": {
+        "value": 11000000
+      },
+      "B7": {
+        "value": "Total Gaji"
+      },
+      "C7": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C7",
+    "expectedValue": 43400000,
+    "requiredFormulaPattern": "SUM",
+    "checkType": "both"
+  },
+  "hint": "=SUM(C2:C6)"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "ex-basic-03",
+  "lessonId": "les-basic-01",
+  "taskNumber": 3,
+  "title": "Soal 3: Jumlah Bulan Transaksi",
+  "type": "formula",
+  "instruction": "Hitung ada berapa banyak bulan transaksi di cell B7 menggunakan rumus =COUNT(B2:B6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Bulan"
+      },
+      "B1": {
+        "value": "Nilai Penjualan"
+      },
+      "A2": {
+        "value": "Jan"
+      },
+      "B2": {
+        "value": 15000000
+      },
+      "A3": {
+        "value": "Feb"
+      },
+      "B3": {
+        "value": 18500000
+      },
+      "A4": {
+        "value": "Mar"
+      },
+      "B4": {
+        "value": 22000000
+      },
+      "A5": {
+        "value": "Apr"
+      },
+      "B5": {
+        "value": 19000000
+      },
+      "A6": {
+        "value": "Mei"
+      },
+      "B6": {
+        "value": 25500000
+      },
+      "A7": {
+        "value": "Jumlah Transaksi"
+      },
+      "B7": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "B7",
+    "expectedValue": 5,
+    "requiredFormulaPattern": "COUNT",
+    "checkType": "both"
+  },
+  "hint": "=COUNT(B2:B6)"
+}

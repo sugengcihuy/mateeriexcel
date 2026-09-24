@@ -1,0 +1,38 @@
+{
+  "id": "ex-int-hlookup-01",
+  "lessonId": "les-int-02",
+  "type": "formula",
+  "instruction": "Tabel di bawah disusun secara horizontal (Baris 1 = Kode Produk, Baris 2 = Nama Produk, Baris 3 = Harga). Gunakan fungsi `=HLOOKUP(B6, B1:E3, 3, FALSE)` pada cell **C6** untuk mencari **Harga** dari Kode Produk di cell B6 ('PRD03').",
+  "dataset": {
+    "rows": 7,
+    "cols": 5,
+    "headers": ["Field", "Col 1", "Col 2", "Col 3", "Col 4"],
+    "data": {
+      "A1": { "value": "Kode Produk" },
+      "B1": { "value": "PRD01" },
+      "C1": { "value": "PRD02" },
+      "D1": { "value": "PRD03" },
+      "E1": { "value": "PRD04" },
+      "A2": { "value": "Nama Produk" },
+      "B2": { "value": "Laptop" },
+      "C2": { "value": "Mouse" },
+      "D2": { "value": "Keyboard" },
+      "E2": { "value": "Monitor" },
+      "A3": { "value": "Harga (Rp)" },
+      "B3": { "value": 12000000 },
+      "C3": { "value": 250000 },
+      "D3": { "value": 750000 },
+      "E3": { "value": 3500000 },
+      "A6": { "value": "Cari Kode:" },
+      "B6": { "value": "PRD03" },
+      "C6": { "value": "" }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C6",
+    "expectedValue": 750000,
+    "requiredFormulaPattern": "HLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "Gunakan formula =HLOOKUP(B6, B1:E3, 3, FALSE) di cell C6."
+}

@@ -1,0 +1,81 @@
+{
+  "id": "ex-int-04",
+  "lessonId": "les-int-01",
+  "taskNumber": 4,
+  "title": "Soal 4: Hitung Berapa Orang Lulus (COUNTIF)",
+  "type": "formula",
+  "instruction": "Hitung ada berapa siswa yang \"LULUS\" di cell E2 pake rumus =COUNTIF(C2:C6, \"LULUS\").",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Nama"
+      },
+      "B1": {
+        "value": "Nilai"
+      },
+      "C1": {
+        "value": "Status"
+      },
+      "E1": {
+        "value": "Jumlah Lulus"
+      },
+      "A2": {
+        "value": "Ayya"
+      },
+      "B2": {
+        "value": 95
+      },
+      "C2": {
+        "value": "LULUS"
+      },
+      "A3": {
+        "value": "Budi"
+      },
+      "B3": {
+        "value": 60
+      },
+      "C3": {
+        "value": "REMIDI"
+      },
+      "A4": {
+        "value": "Siti"
+      },
+      "B4": {
+        "value": 85
+      },
+      "C4": {
+        "value": "LULUS"
+      },
+      "A5": {
+        "value": "Rizky"
+      },
+      "B5": {
+        "value": 78
+      },
+      "C5": {
+        "value": "LULUS"
+      },
+      "A6": {
+        "value": "Dewi"
+      },
+      "B6": {
+        "value": 90
+      },
+      "C6": {
+        "value": "LULUS"
+      },
+      "E2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "E2",
+    "expectedValue": 4,
+    "requiredFormulaPattern": "COUNTIF",
+    "checkType": "both"
+  },
+  "hint": "=COUNTIF(C2:C6, \"LULUS\")"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "ex-basic-01",
+  "lessonId": "les-basic-01",
+  "taskNumber": 1,
+  "title": "Soal 1: Total Penjualan Toko Q1",
+  "type": "formula",
+  "instruction": "Hitunglah Total Penjualan di cell B7 menggunakan rumus =SUM(B2:B6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Bulan"
+      },
+      "B1": {
+        "value": "Penjualan (Rp)"
+      },
+      "A2": {
+        "value": "Januari"
+      },
+      "B2": {
+        "value": 15000000
+      },
+      "A3": {
+        "value": "Februari"
+      },
+      "B3": {
+        "value": 18500000
+      },
+      "A4": {
+        "value": "Maret"
+      },
+      "B4": {
+        "value": 22000000
+      },
+      "A5": {
+        "value": "April"
+      },
+      "B5": {
+        "value": 19000000
+      },
+      "A6": {
+        "value": "Mei"
+      },
+      "B6": {
+        "value": 25500000
+      },
+      "A7": {
+        "value": "Total Q1"
+      },
+      "B7": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "B7",
+    "expectedValue": 100000000,
+    "requiredFormulaPattern": "SUM",
+    "checkType": "both"
+  },
+  "hint": "=SUM(B2:B6)"
+}

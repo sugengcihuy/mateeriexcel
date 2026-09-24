@@ -1,0 +1,63 @@
+{
+  "id": "ex-basic-08",
+  "lessonId": "les-basic-01",
+  "taskNumber": 8,
+  "title": "Soal 8: Nilai Ujian Paling Tinggi",
+  "type": "formula",
+  "instruction": "Cari Nilai Ujian Paling Tinggi di cell B8 menggunakan rumus =MAX(B2:B6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Siswa"
+      },
+      "B1": {
+        "value": "Nilai Ujian"
+      },
+      "A2": {
+        "value": "Ayya"
+      },
+      "B2": {
+        "value": 95
+      },
+      "A3": {
+        "value": "Budi"
+      },
+      "B3": {
+        "value": 80
+      },
+      "A4": {
+        "value": "Siti"
+      },
+      "B4": {
+        "value": 85
+      },
+      "A5": {
+        "value": "Rizky"
+      },
+      "B5": {
+        "value": 75
+      },
+      "A6": {
+        "value": "Dewi"
+      },
+      "B6": {
+        "value": 90
+      },
+      "A8": {
+        "value": "Nilai Tertinggi"
+      },
+      "B8": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "B8",
+    "expectedValue": 95,
+    "requiredFormulaPattern": "MAX",
+    "checkType": "both"
+  },
+  "hint": "=MAX(B2:B6)"
+}

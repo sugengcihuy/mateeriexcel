@@ -1,0 +1,16 @@
+{
+  "title": "Fungsi Statistik: COUNT, MAX & MIN",
+  "subtitle": "Kuasai pencarian nilai ekstrem dan penghitungan jumlah entri data.",
+  "sections": [
+    {
+      "type": "concept",
+      "heading": "1. Fungsi MAX & MIN",
+      "body": "Gunakan `=MAX(range)` untuk mencari nilai tertinggi dalam suatu rentang data angka. Sebaliknya, gunakan `=MIN(range)` untuk mencari nilai terendah.\n\nContoh:\n`=MAX(B2:B6)` mengecek angka paling besar di cell B2 sampai B6."
+    },
+    {
+      "type": "concept",
+      "heading": "2. Fungsi COUNT",
+      "body": "Gunakan `=COUNT(range)` untuk menghitung ada berapa banyak cell yang berisi data angka (numeric) di dalam rentang tersebut."
+    }
+  ]
+}

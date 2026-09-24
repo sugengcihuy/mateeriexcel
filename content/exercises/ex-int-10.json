@@ -1,0 +1,75 @@
+{
+  "id": "ex-int-10",
+  "lessonId": "les-int-02",
+  "taskNumber": 10,
+  "title": "Soal 10: Cari Tarif Ongkir (HLOOKUP)",
+  "type": "formula",
+  "instruction": "Cari Tarif Ongkir ke Kota JKT di cell C6 pake =HLOOKUP(B6, B1:E3, 3, FALSE).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Kode Kota"
+      },
+      "B1": {
+        "value": "JKT"
+      },
+      "C1": {
+        "value": "BDG"
+      },
+      "D1": {
+        "value": "SBY"
+      },
+      "E1": {
+        "value": "MDN"
+      },
+      "A2": {
+        "value": "Kota"
+      },
+      "B2": {
+        "value": "Jakarta"
+      },
+      "C2": {
+        "value": "Bandung"
+      },
+      "D2": {
+        "value": "Surabaya"
+      },
+      "E2": {
+        "value": "Medan"
+      },
+      "A3": {
+        "value": "Ongkir (Rp)"
+      },
+      "B3": {
+        "value": 10000
+      },
+      "C3": {
+        "value": 15000
+      },
+      "D3": {
+        "value": 20000
+      },
+      "E3": {
+        "value": 35000
+      },
+      "A6": {
+        "value": "Cari Kode:"
+      },
+      "B6": {
+        "value": "JKT"
+      },
+      "C6": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C6",
+    "expectedValue": 10000,
+    "requiredFormulaPattern": "HLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=HLOOKUP(B6, B1:E3, 3, FALSE)"
+}

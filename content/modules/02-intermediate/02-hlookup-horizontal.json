@@ -1,0 +1,11 @@
+{
+  "title": "Pencarian Data Horizontal dengan HLOOKUP",
+  "subtitle": "Mengambil nilai dari tabel master yang disusun mendatar (Horizontal).",
+  "sections": [
+    {
+      "type": "concept",
+      "heading": "1. Pengenalan HLOOKUP",
+      "body": "Fungsi `HLOOKUP` (Horizontal Lookup) digunakan untuk mencari nilai pada baris pertama tabel referensi yang berbentuk horizontal (menyamping), lalu mengambil nilai pada baris di bawahnya.\n\nSintaks:\n`=HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup])`\n\nContoh:\n`=HLOOKUP(B1, A1:E3, 2, FALSE)` mencari nilai B1 di baris 1 lalu mengambil isi baris ke-2."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  name         String?
+  passwordHash String?
+  provider     String        @default("credentials")
+  createdAt    DateTime      @default(now())
+  progress     Progress[]
+  quizAttempts QuizAttempt[]
+}
+
+model Module {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String?
+  level       String   // "basic" | "intermediate" | "advanced"
+  order       Int
+  lessons     Lesson[]
+}
+
+model Lesson {
+  id          String     @id @default(cuid())
+  slug        String
+  moduleId    String
+  module      Module     @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  title       String
+  order       Int
+  contentPath String     // path to MDX in /content/modules
+  exercises   Exercise[]
+
+  @@unique([moduleId, slug])
+}
+
+model Exercise {
+  id             String   @id @default(cuid())
+  lessonId       String
+  lesson         Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  type           String   // "formula" | "pivot" | "cell-value"
+  datasetPath    String   // path to JSON in /content/exercises
+  instruction    String
+  expectedAnswer String   // JSON string defining correct cell answers
+  hint           String?
+}
+
+model Progress {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId  String
+  status    String   // "not-started" | "in-progress" | "completed"
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, lessonId])
+}
+
+model QuizAttempt {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  moduleId  String
+  score     Int
+  createdAt DateTime @default(now())
+}

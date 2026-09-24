@@ -1,0 +1,21 @@
+{
+  "title": "Menggunakan Formula Dasar: SUM & AVERAGE",
+  "subtitle": "Kuasai teknik penjumlahan cepat dan kalkulasi rata-rata angka di spreadsheet.",
+  "sections": [
+    {
+      "type": "concept",
+      "heading": "1. Pengenalan Formula SUM di Excel",
+      "body": "Formula `SUM` digunakan untuk menjumlahkan sekumpulan angka dalam rentang (range) cell secara cepat tanpa harus menjumlahkan satu per satu (`=A1+A2+A3`). Sintaks standar formula SUM adalah:\n\n`=SUM(cell_awal:cell_akhir)`\n\n**Contoh:** `=SUM(B2:B6)` akan menjumlahkan seluruh nilai dari cell B2 sampai B6."
+    },
+    {
+      "type": "concept",
+      "heading": "2. Pengenalan Formula AVERAGE",
+      "body": "Formula `AVERAGE` digunakan untuk menghitung nilai rata-rata aritmatika dari rentang data angka. Sintaks penulisan AVERAGE adalah:\n\n`=AVERAGE(cell_awal:cell_akhir)`\n\n**Contoh:** `=AVERAGE(C2:C6)` akan mengambil total seluruh angka di C2 hingga C6 lalu membaginya dengan jumlah banyaknya data."
+    },
+    {
+      "type": "tip",
+      "heading": "Tips Praktis Excel:",
+      "body": "Selalu awali penulisan formula dengan tanda sama dengan (`=`). Jika Anda lupa memasukkan tanda `=`, Excel akan menganggap teks yang Anda ketik sebagai string teks biasa, bukan formula matematika."
+    }
+  ]
+}

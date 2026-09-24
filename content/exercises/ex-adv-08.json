@@ -1,0 +1,57 @@
+{
+  "id": "ex-adv-08",
+  "lessonId": "les-adv-02",
+  "taskNumber": 8,
+  "title": "Soal 8: Cari Nama via ID (XLOOKUP)",
+  "type": "formula",
+  "instruction": "Cari Nama karyawan EMP001 di cell G2 pake =XLOOKUP(F2, A2:A6, B2:B6).",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "ID Karyawan"
+      },
+      "B1": {
+        "value": "Nama"
+      },
+      "C1": {
+        "value": "Departemen"
+      },
+      "D1": {
+        "value": "Gaji (Rp)"
+      },
+      "F1": {
+        "value": "ID Dicari"
+      },
+      "G1": {
+        "value": "Hasil Nama"
+      },
+      "A2": {
+        "value": "EMP001"
+      },
+      "B2": {
+        "value": "Budi Santoso"
+      },
+      "C2": {
+        "value": "Finance"
+      },
+      "D2": {
+        "value": 8500000
+      },
+      "F2": {
+        "value": "EMP001"
+      },
+      "G2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": "Budi Santoso",
+    "requiredFormulaPattern": "XLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=XLOOKUP(F2, A2:A6, B2:B6)"
+}

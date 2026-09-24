@@ -1,0 +1,48 @@
+{
+  "id": "ex-int-09",
+  "lessonId": "les-int-01",
+  "taskNumber": 9,
+  "title": "Soal 9: Kelayakan Diskon (IF)",
+  "type": "formula",
+  "instruction": "Hitung status Diskon di cell C2: jika Belanja (B2) > 500000 maka \"DAPAT DISKON\", jika tidak \"TIDAK DAPAT\": =IF(B2>500000, \"DAPAT DISKON\", \"TIDAK DAPAT\").",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Pelanggan"
+      },
+      "B1": {
+        "value": "Total Belanja"
+      },
+      "C1": {
+        "value": "Status Diskon"
+      },
+      "A2": {
+        "value": "Ayya"
+      },
+      "B2": {
+        "value": 750000
+      },
+      "C2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "Budi"
+      },
+      "B3": {
+        "value": 300000
+      },
+      "C3": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C2",
+    "expectedValue": "DAPAT DISKON",
+    "requiredFormulaPattern": "IF",
+    "checkType": "both"
+  },
+  "hint": "=IF(B2>500000, \"DAPAT DISKON\", \"TIDAK DAPAT\")"
+}

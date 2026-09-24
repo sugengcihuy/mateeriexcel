@@ -1,0 +1,48 @@
+{
+  "id": "ex-int-03",
+  "lessonId": "les-int-01",
+  "taskNumber": 3,
+  "title": "Soal 3: Status Kelulusan Nilai (IF)",
+  "type": "formula",
+  "instruction": "Ketik rumus IF di cell C2: jika Nilai (B2) >= 75 maka \"LULUS\", jika tidak \"REMIDI\": =IF(B2>=75, \"LULUS\", \"REMIDI\").",
+  "dataset": {
+    "rows": 9,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Nama"
+      },
+      "B1": {
+        "value": "Nilai"
+      },
+      "C1": {
+        "value": "Status"
+      },
+      "A2": {
+        "value": "Ayya"
+      },
+      "B2": {
+        "value": 90
+      },
+      "C2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "Budi"
+      },
+      "B3": {
+        "value": 65
+      },
+      "C3": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C2",
+    "expectedValue": "LULUS",
+    "requiredFormulaPattern": "IF",
+    "checkType": "both"
+  },
+  "hint": "=IF(B2>=75, \"LULUS\", \"REMIDI\")"
+}

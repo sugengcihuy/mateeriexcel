@@ -1,0 +1,16 @@
+{
+  "title": "Fungsi Logika IF & SUMIF",
+  "subtitle": "Kalkulasi angka secara otomatis berdasarkan kriteria atau kondisi tertentu.",
+  "sections": [
+    {
+      "type": "concept",
+      "heading": "1. Fungsi Logika IF",
+      "body": "Fungsi `IF` menguji apakah suatu kondisi terpenuhi (TRUE) atau tidak (FALSE).\n\nSintaks:\n`=IF(tes_logika, nilai_jika_benar, nilai_jika_salah)`\n\nContoh:\n`=IF(B2>=10000000, \"Lulus Target\", \"Belum Lulus\")`"
+    },
+    {
+      "type": "concept",
+      "heading": "2. Penjumlahan Bersyarat SUMIF",
+      "body": "Fungsi `SUMIF` digunakan untuk menjumlahkan hanya angka yang memenuhi kriteria tertentu.\n\nSintaks:\n`=SUMIF(range_kriteria, kriteria, [sum_range])`\n\nContoh:\n`=SUMIF(A2:A6, \"Jakarta\", B2:B6)` hanya akan menjumlahkan penjualan untuk wilayah Jakarta."
+    }
+  ]
+}
