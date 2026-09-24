@@ -1,0 +1,69 @@
+{
+  "id": "ex-adv-11",
+  "lessonId": "les-adv-01",
+  "taskNumber": 3,
+  "title": "Soal 3 VLOOKUP: Cari Gaji Karyawan",
+  "type": "formula",
+  "instruction": "Cari Gaji Karyawan dengan ID EMP003 di cell E2.",
+  "dataset": {
+    "rows": 7,
+    "cols": 6,
+    "data": {
+      "A1": {
+        "value": "ID"
+      },
+      "B1": {
+        "value": "Nama"
+      },
+      "C1": {
+        "value": "Gaji (Rp)"
+      },
+      "A2": {
+        "value": "EMP001"
+      },
+      "B2": {
+        "value": "Budi"
+      },
+      "C2": {
+        "value": 6000000
+      },
+      "A3": {
+        "value": "EMP002"
+      },
+      "B3": {
+        "value": "Siti"
+      },
+      "C3": {
+        "value": 7500000
+      },
+      "A4": {
+        "value": "EMP003"
+      },
+      "B4": {
+        "value": "Andi"
+      },
+      "C4": {
+        "value": 9000000
+      },
+      "E1": {
+        "value": "Cari ID"
+      },
+      "F1": {
+        "value": "Hasil Gaji"
+      },
+      "E2": {
+        "value": "EMP003"
+      },
+      "F2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 9000000,
+    "requiredFormulaPattern": "VLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=VLOOKUP(E2, A2:C4, 3, FALSE)"
+}

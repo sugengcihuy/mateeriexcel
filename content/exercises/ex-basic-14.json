@@ -1,0 +1,57 @@
+{
+  "id": "ex-basic-14",
+  "lessonId": "les-basic-01",
+  "taskNumber": 2,
+  "title": "Soal 2 Ujian Campuran: Rata-Rata Omset Toko",
+  "type": "formula",
+  "instruction": "Hitunglah Rata-Rata Omset Toko dari seluruh cabang pada cell B8.",
+  "dataset": {
+    "rows": 10,
+    "cols": 5,
+    "data": {
+      "A1": {
+        "value": "Cabang"
+      },
+      "B1": {
+        "value": "Omset (Rp)"
+      },
+      "A2": {
+        "value": "Jakarta"
+      },
+      "B2": {
+        "value": 50000000
+      },
+      "A3": {
+        "value": "Bandung"
+      },
+      "B3": {
+        "value": 40000000
+      },
+      "A4": {
+        "value": "Surabaya"
+      },
+      "B4": {
+        "value": 60000000
+      },
+      "A5": {
+        "value": "Medan"
+      },
+      "B5": {
+        "value": 50000000
+      },
+      "A8": {
+        "value": "Rata-Rata Omset"
+      },
+      "B8": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "B8",
+    "expectedValue": 50000000,
+    "requiredFormulaPattern": "AVERAGE",
+    "checkType": "both"
+  },
+  "hint": "=AVERAGE(B2:B5)"
+}

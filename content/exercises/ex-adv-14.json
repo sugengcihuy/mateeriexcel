@@ -1,0 +1,51 @@
+{
+  "id": "ex-adv-14",
+  "lessonId": "les-adv-01",
+  "taskNumber": 2,
+  "title": "Soal 2 Ujian Campuran: Xlookup Harga Barang",
+  "type": "formula",
+  "instruction": "Cari Harga Barang untuk kode PRD01 di cell F2.",
+  "dataset": {
+    "rows": 7,
+    "cols": 6,
+    "data": {
+      "A1": {
+        "value": "Kode"
+      },
+      "B1": {
+        "value": "Harga (Rp)"
+      },
+      "A2": {
+        "value": "PRD01"
+      },
+      "B2": {
+        "value": 150000
+      },
+      "A3": {
+        "value": "PRD02"
+      },
+      "B3": {
+        "value": 250000
+      },
+      "E1": {
+        "value": "Cari Kode"
+      },
+      "F1": {
+        "value": "Hasil Harga"
+      },
+      "E2": {
+        "value": "PRD01"
+      },
+      "F2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 150000,
+    "requiredFormulaPattern": "XLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=XLOOKUP(E2, A2:A3, B2:B3)"
+}

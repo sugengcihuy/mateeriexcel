@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { ModuleData, LessonData } from "@/types/module";
+import { ModuleData, LessonData, LessonContentData } from "@/types/module";
 import { ExerciseData } from "@/types/exercise";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -45,7 +45,7 @@ export function getLessonBySlug(moduleSlug: string, lessonSlug: string): { modul
   return { module: moduleData, lesson };
 }
 
-export function getLessonContent(contentPath: string): { title?: string; subtitle?: string; sections?: Array<{ type: "concept" | "tip" | "warning"; heading: string; body: string }> } | null {
+export function getLessonContent(contentPath: string): LessonContentData | null {
   const fullPath = path.join(CONTENT_DIR, "modules", contentPath);
   if (!fs.existsSync(fullPath)) return null;
 

@@ -1,21 +1,91 @@
 {
-  "title": "Mencari Data Vertikal dengan VLOOKUP",
-  "subtitle": "Otomatisasi pengambilan informasi karyawan dan harga produk dari tabel referensi master.",
-  "sections": [
+  "title": "Pelajaran 3: VLOOKUP, XLOOKUP, INDEX-MATCH & PivotTable",
+  "subtitle": "Teknik pencarian vertikal profesional dan analisis ringkasan tabel.",
+  "subtopics": [
     {
-      "type": "concept",
-      "heading": "1. Struktur & Argumen VLOOKUP",
-      "body": "Fungsi `VLOOKUP` (Vertical Lookup) digunakan untuk mencari nilai kunci di kolom paling kiri dari suatu tabel referensi, lalu mengembalikan nilai dari kolom tertentu pada baris yang sama. Sintaks VLOOKUP adalah:\n\n`=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])`\n\nPenjelasan argumen:\n- `lookup_value`: Nilai kunci yang dicari (misal: ID Karyawan di cell E2).\n- `table_array`: Rentang tabel data master (misal: A2:C6).\n- `col_index_num`: Nomor urut kolom yang nilainya ingin diambil (1 = kolom pertama, 2 = kolom kedua, dst).\n- `range_lookup`: Gunakan `FALSE` atau `0` untuk pencarian persis (Exact Match)."
+      "id": "vlookup",
+      "title": "1. Formula VLOOKUP",
+      "subtitle": "Pencarian Data Vertikal",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Pengenalan Formula VLOOKUP",
+          "body": "Fungsi `VLOOKUP` mencari nilai di kolom paling kiri dari tabel referensi master.\n\nSintaks:\n`=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])`\n\nContoh:\n`=VLOOKUP(E2, A2:C6, 2, FALSE)`"
+        }
+      ],
+      "exercises": [
+        "ex-adv-vlookup-01",
+        "ex-adv-02",
+        "ex-adv-11"
+      ]
     },
     {
-      "type": "concept",
-      "heading": "2. Contoh Kasus Data Karyawan",
-      "body": "Misalkan kita memiliki Tabel Master Karyawan di `A2:C6` (ID Karyawan, Nama, Departemen, Gaji). Jika kita ingin mencari Gaji karyawan dengan ID **EMP003** di cell E2:\n\n`=VLOOKUP(E2, A2:D6, 4, FALSE)`\n\nFormula ini akan mencari 'EMP003' pada kolom A, lalu mengambil nilai pada kolom ke-4 (Gaji)."
+      "id": "xlookup",
+      "title": "2. Formula XLOOKUP",
+      "subtitle": "Pencarian Modern Fleksibel",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Pengenalan Formula XLOOKUP",
+          "body": "Fungsi `XLOOKUP` merupakan generasi modern pencarian Excel tanpa batasan posisi kolom.\n\nSintaks:\n`=XLOOKUP(lookup_value, lookup_array, return_array)`"
+        }
+      ],
+      "exercises": [
+        "ex-adv-xlookup-01",
+        "ex-adv-03",
+        "ex-adv-12"
+      ]
     },
     {
-      "type": "warning",
-      "heading": "Perhatian Poin Penting VLOOKUP:",
-      "body": "1. Kolom acuan (lookup key) WAJIB berada di kolom paling kiri dari `table_array`.\n2. Selalu sertakan parameter `FALSE` (atau `0`) pada argumen ke-4 agar hasil pencarian bersifat exact match (persis)!"
+      "id": "index-match",
+      "title": "3. INDEX & MATCH",
+      "subtitle": "Kombinasi Pencarian Dua Arah",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Pengenalan INDEX & MATCH",
+          "body": "Kombinasi `INDEX` dan `MATCH` memberikan fleksibilitas penuh untuk mencari data di mana saja.\n\nSintaks:\n`=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))`"
+        }
+      ],
+      "exercises": [
+        "ex-adv-05",
+        "ex-adv-06",
+        "ex-adv-13"
+      ]
+    },
+    {
+      "id": "pivottable",
+      "title": "4. PivotTable",
+      "subtitle": "Analisis Ringkasan Data Interaktif",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Pengenalan PivotTable",
+          "body": "PivotTable memungkinkan pengelompokan dan pemrosesan ringkasan laporan keuangan secara cepat tanpa mengetik rumus manual."
+        }
+      ],
+      "exercises": [
+        "ex-adv-07",
+        "ex-adv-08",
+        "ex-adv-10"
+      ]
+    },
+    {
+      "id": "ujian-campuran",
+      "title": "🏆 Ujian Campuran",
+      "subtitle": "Evaluasi Komprehensif Tingkat Sepuh",
+      "sections": [
+        {
+          "type": "warning",
+          "heading": "Ujian Integrasi Advanced:",
+          "body": "Ujian akhir tingkat Sepuh menguji penguasaan VLOOKUP, XLOOKUP, INDEX-MATCH, dan PivotTable secara komprehensif."
+        }
+      ],
+      "exercises": [
+        "ex-adv-09",
+        "ex-adv-14",
+        "ex-adv-15"
+      ]
     }
   ]
 }

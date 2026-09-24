@@ -16,7 +16,7 @@ export interface LessonData {
   title: string;
   order: number;
   summary?: string;
-  contentPath: string; // MDX path relative to content root
+  contentPath: string;
   exercises: string[];
 }
 
@@ -26,4 +26,26 @@ export interface QuizQuestion {
   options: string[];
   correctAnswer: number;
   explanation: string;
+}
+
+export interface SubtopicSection {
+  type: "concept" | "tip" | "warning";
+  heading: string;
+  body: string;
+}
+
+export interface SubtopicData {
+  id: string;
+  title: string;
+  icon?: string;
+  subtitle?: string;
+  sections: SubtopicSection[];
+  exercises: string[]; // 3 exercise IDs per subtopic
+}
+
+export interface LessonContentData {
+  title: string;
+  subtitle?: string;
+  sections?: SubtopicSection[];
+  subtopics?: SubtopicData[];
 }

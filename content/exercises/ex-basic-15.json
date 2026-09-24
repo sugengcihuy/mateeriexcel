@@ -1,0 +1,51 @@
+{
+  "id": "ex-basic-15",
+  "lessonId": "les-basic-01",
+  "taskNumber": 3,
+  "title": "Soal 3 Ujian Campuran: Total Nilai Penjualan",
+  "type": "formula",
+  "instruction": "Hitunglah Total Nilai Penjualan seluruh cabang pada cell B7.",
+  "dataset": {
+    "rows": 10,
+    "cols": 5,
+    "data": {
+      "A1": {
+        "value": "Cabang"
+      },
+      "B1": {
+        "value": "Penjualan (Rp)"
+      },
+      "A2": {
+        "value": "Jakarta"
+      },
+      "B2": {
+        "value": 30000000
+      },
+      "A3": {
+        "value": "Bandung"
+      },
+      "B3": {
+        "value": 25000000
+      },
+      "A4": {
+        "value": "Surabaya"
+      },
+      "B4": {
+        "value": 45000000
+      },
+      "A7": {
+        "value": "Total Penjualan"
+      },
+      "B7": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "B7",
+    "expectedValue": 100000000,
+    "requiredFormulaPattern": "SUM",
+    "checkType": "both"
+  },
+  "hint": "=SUM(B2:B4)"
+}

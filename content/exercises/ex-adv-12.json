@@ -1,0 +1,60 @@
+{
+  "id": "ex-adv-12",
+  "lessonId": "les-adv-01",
+  "taskNumber": 3,
+  "title": "Soal 3 XLOOKUP: Cari Stok Barang",
+  "type": "formula",
+  "instruction": "Cari Stok Barang untuk Kode PRD02 pada cell E2.",
+  "dataset": {
+    "rows": 7,
+    "cols": 6,
+    "data": {
+      "A1": {
+        "value": "Kode"
+      },
+      "B1": {
+        "value": "Stok"
+      },
+      "C1": {
+        "value": "Barang"
+      },
+      "A2": {
+        "value": "PRD01"
+      },
+      "B2": {
+        "value": 50
+      },
+      "C2": {
+        "value": "Mouse"
+      },
+      "A3": {
+        "value": "PRD02"
+      },
+      "B3": {
+        "value": 120
+      },
+      "C3": {
+        "value": "Keyboard"
+      },
+      "E1": {
+        "value": "Cari Kode"
+      },
+      "F1": {
+        "value": "Hasil Stok"
+      },
+      "E2": {
+        "value": "PRD02"
+      },
+      "F2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 120,
+    "requiredFormulaPattern": "XLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=XLOOKUP(E2, A2:A3, B2:B3)"
+}

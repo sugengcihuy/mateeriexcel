@@ -1,0 +1,51 @@
+{
+  "id": "ex-int-12",
+  "lessonId": "les-int-01",
+  "taskNumber": 3,
+  "title": "Soal 3 SUMIF: Total Pengeluaran Operasional",
+  "type": "formula",
+  "instruction": "Hitung Total Biaya khusus kategori 'Operasional' di cell C7.",
+  "dataset": {
+    "rows": 8,
+    "cols": 5,
+    "data": {
+      "A1": {
+        "value": "Kategori"
+      },
+      "B1": {
+        "value": "Biaya (Rp)"
+      },
+      "A2": {
+        "value": "Operasional"
+      },
+      "B2": {
+        "value": 5000000
+      },
+      "A3": {
+        "value": "Gaji"
+      },
+      "B3": {
+        "value": 12000000
+      },
+      "A4": {
+        "value": "Operasional"
+      },
+      "B4": {
+        "value": 7000000
+      },
+      "A7": {
+        "value": "Total Operasional"
+      },
+      "C7": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C7",
+    "expectedValue": 12000000,
+    "requiredFormulaPattern": "SUMIF",
+    "checkType": "both"
+  },
+  "hint": "=SUMIF(A2:A4, \"Operasional\", B2:B4)"
+}

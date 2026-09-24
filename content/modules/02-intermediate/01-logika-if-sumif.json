@@ -1,16 +1,91 @@
 {
-  "title": "Fungsi Logika IF & SUMIF",
-  "subtitle": "Kalkulasi angka secara otomatis berdasarkan kriteria atau kondisi tertentu.",
-  "sections": [
+  "title": "Pelajaran 2: Logika IF, SUMIF, COUNTIF & HLOOKUP",
+  "subtitle": "Evaluasi data bersyarat dan pencarian data horizontal.",
+  "subtopics": [
     {
-      "type": "concept",
-      "heading": "1. Fungsi Logika IF",
-      "body": "Fungsi `IF` menguji apakah suatu kondisi terpenuhi (TRUE) atau tidak (FALSE).\n\nSintaks:\n`=IF(tes_logika, nilai_jika_benar, nilai_jika_salah)`\n\nContoh:\n`=IF(B2>=10000000, \"Lulus Target\", \"Belum Lulus\")`"
+      "id": "if",
+      "title": "1. Logika IF",
+      "subtitle": "Pengujian Kondisi Benar atau Salah",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Pengenalan Fungsi IF",
+          "body": "Fungsi `IF` menguji apakah suatu kondisi terpenuhi (TRUE) atau tidak (FALSE).\n\nSintaks:\n`=IF(tes_logika, nilai_jika_benar, nilai_jika_salah)`\n\nContoh:\n`=IF(B2>=75, \"LULUS\", \"REMIDI\")`"
+        }
+      ],
+      "exercises": [
+        "ex-int-01",
+        "ex-int-02",
+        "ex-int-11"
+      ]
     },
     {
-      "type": "concept",
-      "heading": "2. Penjumlahan Bersyarat SUMIF",
-      "body": "Fungsi `SUMIF` digunakan untuk menjumlahkan hanya angka yang memenuhi kriteria tertentu.\n\nSintaks:\n`=SUMIF(range_kriteria, kriteria, [sum_range])`\n\nContoh:\n`=SUMIF(A2:A6, \"Jakarta\", B2:B6)` hanya akan menjumlahkan penjualan untuk wilayah Jakarta."
+      "id": "sumif",
+      "title": "2. Formula SUMIF",
+      "subtitle": "Penjumlahan Berdasarkan 1 Kriteria",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Pengenalan Formula SUMIF",
+          "body": "Fungsi `SUMIF` menjumlahkan nilai pada rentang data tertentu yang memenuhi kriteria spesifik.\n\nSintaks:\n`=SUMIF(range_kriteria, kriteria, [sum_range])`\n\nContoh:\n`=SUMIF(A2:A6, \"Jakarta\", B2:B6)`"
+        }
+      ],
+      "exercises": [
+        "ex-int-03",
+        "ex-int-04",
+        "ex-int-12"
+      ]
+    },
+    {
+      "id": "countif",
+      "title": "3. Formula COUNTIF",
+      "subtitle": "Menghitung Jumlah Data Bersyarat",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Pengenalan Formula COUNTIF",
+          "body": "Fungsi `COUNTIF` menghitung jumlah cell yang memenuhi kriteria tertentu.\n\nSintaks:\n`=COUNTIF(range_kriteria, kriteria)`\n\nContoh:\n`=COUNTIF(C2:C7, \"LULUS\")`"
+        }
+      ],
+      "exercises": [
+        "ex-int-05",
+        "ex-int-06",
+        "ex-int-13"
+      ]
+    },
+    {
+      "id": "hlookup",
+      "title": "4. Formula HLOOKUP",
+      "subtitle": "Pencarian Data Mendatar (Horizontal)",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Pengenalan Formula HLOOKUP",
+          "body": "Fungsi `HLOOKUP` mencari nilai di baris teratas tabel referensi, lalu mengembalikan nilai dari baris yang ditentukan.\n\nSintaks:\n`=HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup])`"
+        }
+      ],
+      "exercises": [
+        "ex-int-07",
+        "ex-int-08",
+        "ex-int-hlookup-01"
+      ]
+    },
+    {
+      "id": "ujian-campuran",
+      "title": "🏆 Ujian Campuran",
+      "subtitle": "Evaluasi Gabungan Logika & HLOOKUP",
+      "sections": [
+        {
+          "type": "warning",
+          "heading": "Ujian Integrasi Intermediate:",
+          "body": "Ujian ini menguji kombinasi fungsi logika IF, SUMIF, COUNTIF, dan HLOOKUP secara simultan."
+        }
+      ],
+      "exercises": [
+        "ex-int-09",
+        "ex-int-10",
+        "ex-int-14"
+      ]
     }
   ]
 }

@@ -1,0 +1,51 @@
+{
+  "id": "ex-adv-15",
+  "lessonId": "les-adv-01",
+  "taskNumber": 3,
+  "title": "Soal 3 Ujian Campuran: Index Match Nilai Ujian",
+  "type": "formula",
+  "instruction": "Cari Nilai Ujian siswa dengan NIM 102 di cell F2.",
+  "dataset": {
+    "rows": 7,
+    "cols": 6,
+    "data": {
+      "A1": {
+        "value": "NIM"
+      },
+      "B1": {
+        "value": "Nilai"
+      },
+      "A2": {
+        "value": "101"
+      },
+      "B2": {
+        "value": 85
+      },
+      "A3": {
+        "value": "102"
+      },
+      "B3": {
+        "value": 95
+      },
+      "E1": {
+        "value": "NIM"
+      },
+      "F1": {
+        "value": "Hasil Nilai"
+      },
+      "E2": {
+        "value": "102"
+      },
+      "F2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 95,
+    "requiredFormulaPattern": "INDEX",
+    "checkType": "both"
+  },
+  "hint": "=INDEX(B2:B3, MATCH(E2, A2:A3, 0))"
+}

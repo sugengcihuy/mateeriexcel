@@ -1,0 +1,39 @@
+{
+  "id": "ex-int-11",
+  "lessonId": "les-int-01",
+  "taskNumber": 3,
+  "title": "Soal 3 IF: Tentukan Kategori Penjualan",
+  "type": "formula",
+  "instruction": "Tentukan Kategori di cell C2. Jika B2 >= 15000000 maka 'TINGGI', jika tidak 'NORMAL'.",
+  "dataset": {
+    "rows": 6,
+    "cols": 5,
+    "data": {
+      "A1": {
+        "value": "Sales"
+      },
+      "B1": {
+        "value": "Omset (Rp)"
+      },
+      "C1": {
+        "value": "Kategori"
+      },
+      "A2": {
+        "value": "Doni"
+      },
+      "B2": {
+        "value": 18000000
+      },
+      "C2": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C2",
+    "expectedValue": "TINGGI",
+    "requiredFormulaPattern": "IF",
+    "checkType": "both"
+  },
+  "hint": "=IF(B2>=15000000, \"TINGGI\", \"NORMAL\")"
+}
