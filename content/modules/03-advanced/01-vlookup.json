@@ -4,12 +4,12 @@
   "subtopics": [
     {
       "id": "vlookup",
-      "title": "1. Formula VLOOKUP",
+      "title": "1. VLOOKUP",
       "subtitle": "Pencarian Data Vertikal",
       "sections": [
         {
           "type": "concept",
-          "heading": "Pengenalan Formula VLOOKUP",
+          "heading": "Pengenalan VLOOKUP",
           "body": "Fungsi `VLOOKUP` mencari nilai di kolom paling kiri dari tabel referensi master.\n\nSintaks:\n`=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])`\n\nContoh:\n`=VLOOKUP(E2, A2:C6, 2, FALSE)`"
         }
       ],
@@ -21,12 +21,12 @@
     },
     {
       "id": "xlookup",
-      "title": "2. Formula XLOOKUP",
+      "title": "2. XLOOKUP",
       "subtitle": "Pencarian Modern Fleksibel",
       "sections": [
         {
           "type": "concept",
-          "heading": "Pengenalan Formula XLOOKUP",
+          "heading": "Pengenalan XLOOKUP",
           "body": "Fungsi `XLOOKUP` merupakan generasi modern pencarian Excel tanpa batasan posisi kolom.\n\nSintaks:\n`=XLOOKUP(lookup_value, lookup_array, return_array)`"
         }
       ],
@@ -72,7 +72,7 @@
     },
     {
       "id": "ujian-campuran",
-      "title": "🏆 Ujian Campuran",
+      "title": " Ujian Campuran",
       "subtitle": "Evaluasi Komprehensif Tingkat Sepuh",
       "sections": [
         {

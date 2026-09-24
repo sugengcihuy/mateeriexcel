@@ -21,12 +21,12 @@
     },
     {
       "id": "sumif",
-      "title": "2. Formula SUMIF",
+      "title": "2. SUMIF",
       "subtitle": "Penjumlahan Berdasarkan 1 Kriteria",
       "sections": [
         {
           "type": "concept",
-          "heading": "Pengenalan Formula SUMIF",
+          "heading": "Pengenalan SUMIF",
           "body": "Fungsi `SUMIF` menjumlahkan nilai pada rentang data tertentu yang memenuhi kriteria spesifik.\n\nSintaks:\n`=SUMIF(range_kriteria, kriteria, [sum_range])`\n\nContoh:\n`=SUMIF(A2:A6, \"Jakarta\", B2:B6)`"
         }
       ],
@@ -38,12 +38,12 @@
     },
     {
       "id": "countif",
-      "title": "3. Formula COUNTIF",
+      "title": "3. COUNTIF",
       "subtitle": "Menghitung Jumlah Data Bersyarat",
       "sections": [
         {
           "type": "concept",
-          "heading": "Pengenalan Formula COUNTIF",
+          "heading": "Pengenalan COUNTIF",
           "body": "Fungsi `COUNTIF` menghitung jumlah cell yang memenuhi kriteria tertentu.\n\nSintaks:\n`=COUNTIF(range_kriteria, kriteria)`\n\nContoh:\n`=COUNTIF(C2:C7, \"LULUS\")`"
         }
       ],
@@ -55,12 +55,12 @@
     },
     {
       "id": "hlookup",
-      "title": "4. Formula HLOOKUP",
+      "title": "4. HLOOKUP",
       "subtitle": "Pencarian Data Mendatar (Horizontal)",
       "sections": [
         {
           "type": "concept",
-          "heading": "Pengenalan Formula HLOOKUP",
+          "heading": "Pengenalan HLOOKUP",
           "body": "Fungsi `HLOOKUP` mencari nilai di baris teratas tabel referensi, lalu mengembalikan nilai dari baris yang ditentukan.\n\nSintaks:\n`=HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup])`"
         }
       ],
@@ -72,7 +72,7 @@
     },
     {
       "id": "ujian-campuran",
-      "title": "🏆 Ujian Campuran",
+      "title": " Ujian Campuran",
       "subtitle": "Evaluasi Gabungan Logika & HLOOKUP",
       "sections": [
         {

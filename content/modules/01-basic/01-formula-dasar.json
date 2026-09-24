@@ -1,16 +1,16 @@
 {
-  "title": "Pelajaran 1: Formula Utama & Statistik Dasar",
+  "title": "Pelajaran 1: Utama & Statistik Dasar",
   "subtitle": "Kuasai fungsi dasar terpopuler Excel: SUM, AVERAGE, COUNT, MAX & MIN.",
   "subtopics": [
     {
       "id": "sum",
-      "title": "1. Formula SUM",
+      "title": "1. SUM",
       "subtitle": "Penjumlahan Cepat Rentang Cell",
       "sections": [
         {
           "type": "concept",
-          "heading": "Pengenalan Formula SUM",
-          "body": "Formula `SUM` digunakan untuk menjumlahkan sekumpulan angka dalam rentang (range) cell secara otomatis.\n\nSintaks Standar:\n`=SUM(cell_awal:cell_akhir)`\n\nContoh:\n`=SUM(B2:B6)` menjumlahkan seluruh nilai di kolom B dari baris 2 sampai 6."
+          "heading": "Pengenalan SUM",
+          "body": "`SUM` digunakan untuk menjumlahkan sekumpulan angka dalam rentang (range) cell secara otomatis.\n\nSintaks Standar:\n`=SUM(cell_awal:cell_akhir)`\n\nContoh:\n`=SUM(B2:B6)` menjumlahkan seluruh nilai di kolom B dari baris 2 sampai 6."
         },
         {
           "type": "tip",
@@ -26,13 +26,13 @@
     },
     {
       "id": "average",
-      "title": "2. Formula AVERAGE",
+      "title": "2. AVERAGE",
       "subtitle": "Kalkulasi Rata-Rata Aritmatika",
       "sections": [
         {
           "type": "concept",
-          "heading": "Pengenalan Formula AVERAGE",
-          "body": "Formula `AVERAGE` digunakan untuk menghitung nilai rata-rata dari sekelompok data angka.\n\nSintaks Standar:\n`=AVERAGE(cell_awal:cell_akhir)`\n\nContoh:\n`=AVERAGE(C2:C6)` mengambil total nilai C2:C6 lalu membaginya dengan jumlah banyaknya data."
+          "heading": "Pengenalan AVERAGE",
+          "body": "`AVERAGE` digunakan untuk menghitung nilai rata-rata dari sekelompok data angka.\n\nSintaks Standar:\n`=AVERAGE(cell_awal:cell_akhir)`\n\nContoh:\n`=AVERAGE(C2:C6)` mengambil total nilai C2:C6 lalu membaginya dengan jumlah banyaknya data."
         }
       ],
       "exercises": [
@@ -43,13 +43,13 @@
     },
     {
       "id": "count",
-      "title": "3. Formula COUNT",
+      "title": "3. COUNT",
       "subtitle": "Menghitung Jumlah Cell Berisi Angka",
       "sections": [
         {
           "type": "concept",
-          "heading": "Pengenalan Formula COUNT",
-          "body": "Formula `COUNT` berfungsi menghitung banyaknya cell yang berisi angka dalam suatu rentang data.\n\nSintaks Standar:\n`=COUNT(cell_awal:cell_akhir)`\n\nContoh:\n`=COUNT(A2:A10)` menghitung berapa banyak baris transaksi yang terisi angka."
+          "heading": "Pengenalan COUNT",
+          "body": "`COUNT` berfungsi menghitung banyaknya cell yang berisi angka dalam suatu rentang data.\n\nSintaks Standar:\n`=COUNT(cell_awal:cell_akhir)`\n\nContoh:\n`=COUNT(A2:A10)` menghitung berapa banyak baris transaksi yang terisi angka."
         }
       ],
       "exercises": [
@@ -77,12 +77,12 @@
     },
     {
       "id": "ujian-campuran",
-      "title": "🏆 Ujian Campuran",
-      "subtitle": "Evaluasi Gabungan Seluruh Formula Dasar",
+      "title": " Ujian Campuran",
+      "subtitle": "Evaluasi Gabungan Seluruh Dasar",
       "sections": [
         {
           "type": "warning",
-          "heading": "Ujian Integrasi Formula Dasar:",
+          "heading": "Ujian Integrasi Dasar:",
           "body": "Ujian ini menguji kemampuan kamu dalam menerapkan kombinasi SUM, AVERAGE, COUNT, MAX & MIN pada kasus nyata dunia kerja."
         }
       ],
