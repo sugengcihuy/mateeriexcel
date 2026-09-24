@@ -21,8 +21,8 @@ export default function RootLayout({
       <body className={`${inter.className} h-full bg-slate-950 text-slate-100 flex flex-col antialiased`}>
         <Navbar />
         <main className="flex-1">{children}</main>
-        <footer className="py-6 border-t border-slate-900 text-center text-xs text-slate-500">
-          Dibuat khusus untuk Ayya &bull; Belajar Excel Ayya &copy; {new Date().getFullYear()}
+        <footer className="py-6 border-t border-[#E0CFFC] bg-white text-center text-xs font-bold text-[#2D2342] shadow-sm">
+          Dev By Tama &bull; Belajar Excel Ayya &copy; {new Date().getFullYear()}
         </footer>
       </body>
     </html>
