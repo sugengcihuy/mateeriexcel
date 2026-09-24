@@ -4,7 +4,7 @@
   "taskNumber": 10,
   "title": "Soal 10: Cari Tarif Ongkir (HLOOKUP)",
   "type": "formula",
-  "instruction": "Cari Tarif Ongkir ke Kota JKT di cell C6 pake =HLOOKUP(B6, B1:E3, 3, FALSE).",
+  "instruction": "Cari Tarif Ongkir ke Kota JKT di cell C6.",
   "dataset": {
     "rows": 9,
     "cols": 7,

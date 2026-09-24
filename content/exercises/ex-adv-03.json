@@ -4,7 +4,7 @@
   "taskNumber": 3,
   "title": "Soal 3: Cari Nama Karyawan EMP005 (VLOOKUP)",
   "type": "formula",
-  "instruction": "Cari Nama karyawan EMP005 di cell G2 pake =VLOOKUP(F2, A2:D6, 2, FALSE).",
+  "instruction": "Cari Nama karyawan EMP005 di cell G2.",
   "dataset": {
     "rows": 9,
     "cols": 7,

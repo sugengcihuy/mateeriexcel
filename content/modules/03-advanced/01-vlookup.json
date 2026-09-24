@@ -1,89 +1,38 @@
 {
-  "title": "Pelajaran 3: VLOOKUP, XLOOKUP, INDEX-MATCH & PivotTable",
-  "subtitle": "Teknik pencarian vertikal profesional dan analisis ringkasan tabel.",
+  "title": "Pelajaran 3: VLOOKUP & XLOOKUP Master",
+  "subtitle": "Cari data otomatis antar tabel dengan VLOOKUP, INDEX-MATCH, dan XLOOKUP.",
   "subtopics": [
     {
       "id": "vlookup",
       "title": "1. VLOOKUP",
-      "subtitle": "Pencarian Data Vertikal",
+      "subtitle": "Pencarian Vertikal Paling Populer",
       "sections": [
         {
           "type": "concept",
-          "heading": "Pengenalan VLOOKUP",
-          "body": "Fungsi `VLOOKUP` mencari nilai di kolom paling kiri dari tabel referensi master.\n\nSintaks:\n`=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])`\n\nContoh:\n`=VLOOKUP(E2, A2:C6, 2, FALSE)`"
+          "heading": "Apa itu VLOOKUP?",
+          "body": "`VLOOKUP` (Vertical Lookup) dipakai buat **nyari data di tabel vertikal** berdasarkan kata kunci (seperti NIK, ID Karyawan, atau Kode Produk).\n\n**Cara Tulis Rumus:**\n`=VLOOKUP(kode_dicari, tabel_referensi, nomor_kolom, FALSE)`\n\n**Contoh Kasus Sehari-hari:**\nKamu ketik ID Karyawan `EMP003` di cell F2.\nKetik `=VLOOKUP(F2, A2:D6, 4, FALSE)`.\nExcel bakal nyari EMP003 di kolom A, lalu ngambil gaji di kolom ke-4 (Rp 9.800.000)!"
         }
       ],
       "exercises": [
         "ex-adv-vlookup-01",
         "ex-adv-02",
-        "ex-adv-11"
-      ]
-    },
-    {
-      "id": "xlookup",
-      "title": "2. XLOOKUP",
-      "subtitle": "Pencarian Modern Fleksibel",
-      "sections": [
-        {
-          "type": "concept",
-          "heading": "Pengenalan XLOOKUP",
-          "body": "Fungsi `XLOOKUP` merupakan generasi modern pencarian Excel tanpa batasan posisi kolom.\n\nSintaks:\n`=XLOOKUP(lookup_value, lookup_array, return_array)`"
-        }
-      ],
-      "exercises": [
-        "ex-adv-xlookup-01",
-        "ex-adv-03",
-        "ex-adv-12"
-      ]
-    },
-    {
-      "id": "index-match",
-      "title": "3. INDEX & MATCH",
-      "subtitle": "Kombinasi Pencarian Dua Arah",
-      "sections": [
-        {
-          "type": "concept",
-          "heading": "Pengenalan INDEX & MATCH",
-          "body": "Kombinasi `INDEX` dan `MATCH` memberikan fleksibilitas penuh untuk mencari data di mana saja.\n\nSintaks:\n`=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))`"
-        }
-      ],
-      "exercises": [
-        "ex-adv-05",
-        "ex-adv-06",
-        "ex-adv-13"
-      ]
-    },
-    {
-      "id": "pivottable",
-      "title": "4. PivotTable",
-      "subtitle": "Analisis Ringkasan Data Interaktif",
-      "sections": [
-        {
-          "type": "concept",
-          "heading": "Pengenalan PivotTable",
-          "body": "PivotTable memungkinkan pengelompokan dan pemrosesan ringkasan laporan keuangan secara cepat tanpa mengetik rumus manual."
-        }
-      ],
-      "exercises": [
-        "ex-adv-07",
-        "ex-adv-08",
-        "ex-adv-10"
+        "ex-adv-06"
       ]
     },
     {
       "id": "ujian-campuran",
       "title": " Ujian Campuran",
-      "subtitle": "Evaluasi Komprehensif Tingkat Sepuh",
+      "subtitle": "Evaluasi Master VLOOKUP & Lookup",
       "sections": [
         {
           "type": "warning",
-          "heading": "Ujian Integrasi Advanced:",
-          "body": "Ujian akhir tingkat Sepuh menguji penguasaan VLOOKUP, XLOOKUP, INDEX-MATCH, dan PivotTable secara komprehensif."
+          "heading": "Ujian VLOOKUP Master:",
+          "body": "Tunjukkan keahlian kamu dalam mencari data antar tabel secara presisi di lembar kerja!"
         }
       ],
       "exercises": [
-        "ex-adv-09",
-        "ex-adv-14",
+        "ex-adv-07",
+        "ex-adv-08",
         "ex-adv-15"
       ]
     }

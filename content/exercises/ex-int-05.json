@@ -4,7 +4,7 @@
   "taskNumber": 5,
   "title": "Soal 5: Hitung Berapa Orang Remidi (COUNTIF)",
   "type": "formula",
-  "instruction": "Hitung berapa siswa yang \"REMIDI\" di cell E2 pake rumus =COUNTIF(C2:C6, \"REMIDI\").",
+  "instruction": "Hitung berapa siswa yang \"REMIDI\" di cell E2.",
   "dataset": {
     "rows": 9,
     "cols": 7,

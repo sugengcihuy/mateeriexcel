@@ -4,7 +4,7 @@
   "taskNumber": 1,
   "title": "Soal 1: Cari Gaji EMP003 (VLOOKUP)",
   "type": "formula",
-  "instruction": "Cari Gaji karyawan dengan ID EMP003 di cell G2 pake =VLOOKUP(F2, A2:D6, 4, FALSE).",
+  "instruction": "Cari Gaji karyawan dengan ID EMP003 di cell G2.",
   "dataset": {
     "rows": 9,
     "cols": 7,

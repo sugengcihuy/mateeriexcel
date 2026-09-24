@@ -4,7 +4,7 @@
   "taskNumber": 5,
   "title": "Soal 5: Cari Gaji EMP002 (XLOOKUP)",
   "type": "formula",
-  "instruction": "Cari Gaji karyawan EMP002 di cell G2 pake =XLOOKUP(F2, A2:A6, D2:D6).",
+  "instruction": "Cari Gaji karyawan EMP002 di cell G2.",
   "dataset": {
     "rows": 9,
     "cols": 7,

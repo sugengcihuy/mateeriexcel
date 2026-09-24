@@ -4,7 +4,7 @@
   "taskNumber": 2,
   "title": "Soal 2: Penjualan Wilayah Bandung (SUMIF)",
   "type": "formula",
-  "instruction": "Hitung Total Penjualan khusus wilayah Bandung di cell F2 pake rumus =SUMIF(B2:B6, \"Bandung\", C2:C6).",
+  "instruction": "Hitung Total Penjualan khusus wilayah Bandung di cell F2.",
   "dataset": {
     "rows": 9,
     "cols": 7,

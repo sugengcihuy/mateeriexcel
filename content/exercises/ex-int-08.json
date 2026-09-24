@@ -4,7 +4,7 @@
   "taskNumber": 8,
   "title": "Soal 8: Total Bonus Sales Budi (SUMIF)",
   "type": "formula",
-  "instruction": "Hitung total bonus khusus untuk Budi di cell F2 pake =SUMIF(A2:A6, \"Budi\", C2:C6).",
+  "instruction": "Hitung total bonus khusus untuk Budi di cell F2.",
   "dataset": {
     "rows": 9,
     "cols": 7,

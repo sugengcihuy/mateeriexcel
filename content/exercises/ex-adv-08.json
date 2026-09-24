@@ -4,7 +4,7 @@
   "taskNumber": 8,
   "title": "Soal 8: Cari Nama via ID (XLOOKUP)",
   "type": "formula",
-  "instruction": "Cari Nama karyawan EMP001 di cell G2 pake =XLOOKUP(F2, A2:A6, B2:B6).",
+  "instruction": "Cari Nama karyawan EMP001 di cell G2.",
   "dataset": {
     "rows": 9,
     "cols": 7,

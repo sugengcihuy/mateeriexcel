@@ -4,7 +4,7 @@
   "taskNumber": 2,
   "title": "Soal 2: Cari Departemen EMP001 (VLOOKUP)",
   "type": "formula",
-  "instruction": "Cari Departemen karyawan EMP001 di cell G2 pake =VLOOKUP(F2, A2:D6, 3, FALSE).",
+  "instruction": "Cari Departemen karyawan EMP001 di cell G2.",
   "dataset": {
     "rows": 9,
     "cols": 7,

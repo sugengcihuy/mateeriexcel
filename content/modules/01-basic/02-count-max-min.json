@@ -1,16 +1,39 @@
 {
-  "title": "Fungsi Statistik: COUNT, MAX & MIN",
-  "subtitle": "Kuasai pencarian nilai ekstrem dan penghitungan jumlah entri data.",
-  "sections": [
+  "title": "Pelajaran 2: Statistik Lanjutan & Pengolahan Data",
+  "subtitle": "Pahami perbedaan COUNT, COUNTA, serta kombinasi pencarian nilai ekstrem.",
+  "subtopics": [
     {
-      "type": "concept",
-      "heading": "1. Fungsi MAX & MIN",
-      "body": "Gunakan `=MAX(range)` untuk mencari nilai tertinggi dalam suatu rentang data angka. Sebaliknya, gunakan `=MIN(range)` untuk mencari nilai terendah.\n\nContoh:\n`=MAX(B2:B6)` mengecek angka paling besar di cell B2 sampai B6."
+      "id": "counta",
+      "title": "1. COUNTA",
+      "subtitle": "Hitung Semua Cell yang Ada Isinya",
+      "sections": [
+        {
+          "type": "concept",
+          "heading": "Bedanya COUNT vs COUNTA",
+          "body": "Kalau `COUNT` cuma ngitung cell angka, `COUNTA` ngitung **semua cell yang tidak kosong** (baik angka, teks, maupun simbol).\n\n**Cara Tulis Rumus:**\n`=COUNTA(cell_awal:cell_akhir)`\n\n**Contoh Kasus Sehari-hari:**\nDalam daftar presensi siswa di A2:A20:\n- Terdapat nama siswa, angka absen, dan teks 'Hadir'.\n- Ketik `=COUNTA(A2:A20)` buat ngitung total siswa yang sudah absen!"
+        }
+      ],
+      "exercises": [
+        "ex-basic-11",
+        "ex-basic-12"
+      ]
     },
     {
-      "type": "concept",
-      "heading": "2. Fungsi COUNT",
-      "body": "Gunakan `=COUNT(range)` untuk menghitung ada berapa banyak cell yang berisi data angka (numeric) di dalam rentang tersebut."
+      "id": "ujian-campuran",
+      "title": " Ujian Campuran",
+      "subtitle": "Evaluasi Data Statistik",
+      "sections": [
+        {
+          "type": "warning",
+          "heading": "Ujian Kombinasi Statistik:",
+          "body": "Kerjakan soal integrasi statistik di sebelah kanan!"
+        }
+      ],
+      "exercises": [
+        "ex-basic-13",
+        "ex-basic-14",
+        "ex-basic-15"
+      ]
     }
   ]
 }

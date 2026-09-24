@@ -199,8 +199,8 @@ export function SpreadsheetGrid({
 
   const gridContent = (
     <div className="flex flex-col gap-3 w-full focus:outline-none" tabIndex={0} onKeyDown={handleKeyDown}>
-      {/* Header controls */}
-      <div className="flex items-center justify-between">
+      {/* Header controls with clean mobile responsive layout */}
+      <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
         <FormulaBar
           activeCellRef={activeCell}
           value={formulaBarCurrentVal}
@@ -210,7 +210,7 @@ export function SpreadsheetGrid({
         <button
           type="button"
           onClick={() => setIsFullscreen(!isFullscreen)}
-          className="ml-2 px-3.5 py-2 bg-[#E0CFFC] hover:bg-[#DBCDF0] text-[#2D2342] border border-[#C7CEEA] rounded-2xl text-xs font-black flex items-center gap-1.5 shrink-0 transition-colors shadow-sm"
+          className="px-3.5 py-2 bg-[#E0CFFC] hover:bg-[#DBCDF0] text-[#2D2342] border border-[#C7CEEA] rounded-full text-xs font-black flex items-center gap-1.5 shrink-0 whitespace-nowrap transition-all shadow-sm"
         >
           {isFullscreen ? <Minimize2 className="w-4 h-4 text-[#FF758F]" /> : <Maximize2 className="w-4 h-4 text-[#FF758F]" />}
           <span>{isFullscreen ? "Tutup Mode Fullscreen" : "Mode Fullscreen Excel"}</span>

@@ -4,7 +4,7 @@
   "taskNumber": 9,
   "title": "Soal 9: Cari Bonus Karyawan (VLOOKUP)",
   "type": "formula",
-  "instruction": "Cari Bonus karyawan EMP001 di cell G2 pake =VLOOKUP(F2, A2:D6, 4, FALSE).",
+  "instruction": "Cari Bonus karyawan EMP001 di cell G2.",
   "dataset": {
     "rows": 9,
     "cols": 7,
