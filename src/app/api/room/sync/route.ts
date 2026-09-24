@@ -66,9 +66,9 @@ export async function GET(req: Request) {
     room.activeUsers[userId] = now;
   }
 
-  // Count active connected users within last 8 seconds
+  // Count active connected users within last 3.5 seconds
   const connectedCount = Object.values(room.activeUsers).filter(
-    (t) => now - t < 8000
+    (t) => now - t < 3500
   ).length;
 
   return NextResponse.json({
@@ -102,7 +102,7 @@ export async function POST(req: Request) {
     if (isDisconnect && userId) {
       delete room.activeUsers[userId];
       const connectedCount = Object.values(room.activeUsers).filter(
-        (t) => now - t < 8000
+        (t) => now - t < 3500
       ).length;
 
       try {
@@ -142,7 +142,7 @@ export async function POST(req: Request) {
     }
 
     const connectedCount = Object.values(room.activeUsers).filter(
-      (t) => now - t < 8000
+      (t) => now - t < 3500
     ).length;
 
     if (isHeartbeat) {
@@ -166,7 +166,7 @@ export async function POST(req: Request) {
     room.updatedBy = updatedBy || "Pengguna Excel";
     room.updatedAt = now;
 
-    // Sync to Cloud Store (restful-api.dev)
+    // Sync to Cloud Store
     try {
       if (!room.cloudObjectId) {
         const createRes = await fetch("https://api.restful-api.dev/objects", {

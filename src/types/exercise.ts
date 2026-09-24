@@ -2,6 +2,7 @@ export interface CellData {
   value: string | number | boolean | null;
   formula?: string;
   format?: string;
+  updatedAt?: number;
 }
 
 export interface GridDataset {

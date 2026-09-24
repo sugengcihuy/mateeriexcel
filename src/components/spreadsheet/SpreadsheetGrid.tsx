@@ -91,12 +91,31 @@ export function SpreadsheetGrid({
   // Sync internal gridData state when external gridData prop updates from remote room sync
   useEffect(() => {
     if (externalGridData && Object.keys(externalGridData).length > 0) {
-      setGridData((prev) => ({
-        ...prev,
-        ...externalGridData,
-      }));
+      setGridData((prev) => {
+        const merged = { ...prev };
+        let hasChanges = false;
+
+        Object.entries(externalGridData).forEach(([cellRef, remoteCell]) => {
+          // Do not overwrite the cell currently being edited by local user
+          if (cellRef === editingCell) return;
+
+          const localCell = prev[cellRef];
+          const remoteTime = remoteCell?.updatedAt || 0;
+          const localTime = localCell?.updatedAt || 0;
+
+          // If remote cell is newer or local cell doesn't exist, accept remote update
+          if (!localCell || remoteTime >= localTime) {
+            if (JSON.stringify(localCell) !== JSON.stringify(remoteCell)) {
+              merged[cellRef] = remoteCell;
+              hasChanges = true;
+            }
+          }
+        });
+
+        return hasChanges ? merged : prev;
+      });
     }
-  }, [externalGridData]);
+  }, [externalGridData, editingCell]);
 
   useEffect(() => {
     recalculateGrid(gridData);
@@ -108,8 +127,8 @@ export function SpreadsheetGrid({
       const isFormula = trimmed.startsWith("=");
 
       const updatedCell: CellData = isFormula
-        ? { value: "", formula: trimmed }
-        : { value: isNaN(Number(trimmed)) || trimmed === "" ? trimmed : Number(trimmed), formula: undefined };
+        ? { value: "", formula: trimmed, updatedAt: Date.now() }
+        : { value: isNaN(Number(trimmed)) || trimmed === "" ? trimmed : Number(trimmed), formula: undefined, updatedAt: Date.now() };
 
       const newGrid = {
         ...gridData,

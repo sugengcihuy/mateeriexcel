@@ -55,6 +55,28 @@ export function RoomSyncBar({
     return () => window.removeEventListener("room-id-changed", checkRoom);
   }, []);
 
+  // Send beacon disconnect on tab close/unload
+  useEffect(() => {
+    if (!isConnected || !roomId || !userId) return;
+
+    const handleUnload = () => {
+      try {
+        const data = JSON.stringify({ roomId, userId, isDisconnect: true });
+        navigator.sendBeacon("/api/room/sync", data);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    window.addEventListener("beforeunload", handleUnload);
+    window.addEventListener("pagehide", handleUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleUnload);
+      window.removeEventListener("pagehide", handleUnload);
+    };
+  }, [isConnected, roomId, userId]);
+
   // Connect / Join Room
   const handleConnect = (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,7 +90,7 @@ export function RoomSyncBar({
     }
   };
 
-  // Disconnect Room with instant server broadcast
+  // Disconnect Room with instant server broadcast & beacon
   const handleDisconnect = async () => {
     if (roomId && userId) {
       try {
@@ -94,7 +116,7 @@ export function RoomSyncBar({
     }
   };
 
-  // Poll server and cloud for real-time changes every 600ms when connected
+  // Fast Poll server and cloud for real-time changes every 350ms when connected
   useEffect(() => {
     if (!isConnected || !roomId || !userId) return;
 
@@ -113,7 +135,7 @@ export function RoomSyncBar({
 
           // If changes came from another user, update grid
           if (data.roomState.gridData && onGridSynced) {
-            if (Date.now() - lastLocalUpdateRef.current > 500) {
+            if (Date.now() - lastLocalUpdateRef.current > 400) {
               onGridSynced(data.roomState.gridData);
             }
           }
@@ -121,12 +143,12 @@ export function RoomSyncBar({
       } catch (err) {
         console.error("Realtime sync error:", err);
       }
-    }, 600);
+    }, 350);
 
     return () => clearInterval(interval);
   }, [isConnected, roomId, userId, onGridSynced]);
 
-  // Broadcast cell edit when currentGridData changes
+  // Fast Broadcast cell edit when currentGridData changes
   useEffect(() => {
     if (!isConnected || !roomId || !currentGridData || !userId) return;
 
@@ -154,7 +176,7 @@ export function RoomSyncBar({
       }
     };
 
-    const timer = setTimeout(broadcast, 100);
+    const timer = setTimeout(broadcast, 50);
     return () => clearTimeout(timer);
   }, [currentGridData, isConnected, roomId, userId, activeCellRef]);
 
