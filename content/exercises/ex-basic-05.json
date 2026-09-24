@@ -4,7 +4,7 @@
   "taskNumber": 5,
   "title": "Soal 5: Penjualan Paling Rendah",
   "type": "formula",
-  "instruction": "Cari nilai Penjualan Paling Rendah di cell B8 menggunakan rumus =MIN(B2:B6).",
+  "instruction": "Cari nilai Penjualan Paling Rendah di cell B8.",
   "dataset": {
     "rows": 9,
     "cols": 7,

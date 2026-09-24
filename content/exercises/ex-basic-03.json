@@ -4,7 +4,7 @@
   "taskNumber": 3,
   "title": "Soal 3: Jumlah Bulan Transaksi",
   "type": "formula",
-  "instruction": "Hitung ada berapa banyak bulan transaksi di cell B7 menggunakan rumus =COUNT(B2:B6).",
+  "instruction": "Hitung ada berapa banyak bulan transaksi di cell B7.",
   "dataset": {
     "rows": 9,
     "cols": 7,

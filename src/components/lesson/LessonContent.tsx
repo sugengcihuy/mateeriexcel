@@ -17,14 +17,14 @@ interface LessonContentProps {
 
 export function LessonContent({ title, subtitle, sections }: LessonContentProps) {
   return (
-    <div className="space-y-6 bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-sm text-slate-100">
-      <div className="border-b border-slate-800 pb-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-950 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-800 mb-3">
-          <BookOpen className="w-3.5 h-3.5" />
+    <div className="space-y-6 bg-white p-6 rounded-3xl border-2 border-[#FFC8DD] shadow-md text-[#2D2342]">
+      <div className="border-b border-[#E0CFFC] pb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#FFC8DD] text-[#2D2342] text-xs font-black rounded-full border border-[#FFADAD] mb-3 shadow-sm">
+          <BookOpen className="w-3.5 h-3.5 text-[#FF758F]" />
           <span>Penjelasan Singkat</span>
         </div>
-        <h1 className="text-2xl font-bold text-slate-100">{title}</h1>
-        {subtitle && <p className="text-sm text-slate-400 mt-1">{subtitle}</p>}
+        <h1 className="text-2xl font-black text-[#2D2342]">{title}</h1>
+        {subtitle && <p className="text-sm text-slate-600 mt-1 font-semibold">{subtitle}</p>}
       </div>
 
       <div className="space-y-5">
@@ -33,13 +33,13 @@ export function LessonContent({ title, subtitle, sections }: LessonContentProps)
             return (
               <div
                 key={idx}
-                className="p-4 bg-emerald-950/40 border border-emerald-800 rounded-xl text-slate-200"
+                className="p-4 bg-[#CFFFE5] border border-[#A0E7E5] rounded-2xl text-[#2D2342] shadow-sm"
               >
-                <div className="flex items-center gap-2 font-bold text-emerald-400 text-sm mb-1">
-                  <CheckCircle className="w-4 h-4 text-emerald-400" />
+                <div className="flex items-center gap-2 font-black text-emerald-800 text-sm mb-1">
+                  <CheckCircle className="w-4 h-4 text-emerald-600" />
                   {sec.heading}
                 </div>
-                <p className="text-xs leading-relaxed opacity-90">{sec.body}</p>
+                <p className="text-xs leading-relaxed font-semibold">{sec.body}</p>
               </div>
             );
           }
@@ -48,21 +48,21 @@ export function LessonContent({ title, subtitle, sections }: LessonContentProps)
             return (
               <div
                 key={idx}
-                className="p-4 bg-amber-950/40 border border-amber-800 rounded-xl text-slate-200"
+                className="p-4 bg-[#FFF1C1] border border-[#FFD6A5] rounded-2xl text-[#2D2342] shadow-sm"
               >
-                <div className="flex items-center gap-2 font-bold text-amber-400 text-sm mb-1">
-                  <HelpCircle className="w-4 h-4 text-amber-400" />
+                <div className="flex items-center gap-2 font-black text-amber-900 text-sm mb-1">
+                  <HelpCircle className="w-4 h-4 text-amber-600" />
                   {sec.heading}
                 </div>
-                <p className="text-xs leading-relaxed opacity-90 whitespace-pre-line">{sec.body}</p>
+                <p className="text-xs leading-relaxed font-semibold whitespace-pre-line">{sec.body}</p>
               </div>
             );
           }
 
           return (
             <div key={idx} className="space-y-2">
-              <h3 className="text-base font-bold text-slate-100">{sec.heading}</h3>
-              <p className="text-sm text-slate-300 leading-relaxed whitespace-pre-line">
+              <h3 className="text-base font-black text-[#2D2342]">{sec.heading}</h3>
+              <p className="text-sm text-slate-700 leading-relaxed font-semibold whitespace-pre-line">
                 {sec.body}
               </p>
             </div>

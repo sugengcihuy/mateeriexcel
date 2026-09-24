@@ -48,40 +48,42 @@ export default function LessonPage({
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-      {/* Top Breadcrumb Navigation */}
-      <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
-        <Link href="/modules" className="hover:text-emerald-400 flex items-center gap-1">
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Daftar Pelajaran</span>
-        </Link>
-        <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-        <span className="text-slate-300 font-medium">{mod.title}</span>
-        <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-        <span className="text-emerald-400 font-bold">{lesson.title}</span>
-      </div>
-
-      {/* Main Grid Workspace Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Reading Content */}
-        <div className="lg:col-span-5 space-y-6">
-          {content ? (
-            <LessonContent
-              title={content.title || lesson.title}
-              subtitle={content.subtitle}
-              sections={content.sections || []}
-            />
-          ) : (
-            <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800">
-              <h2 className="font-bold text-lg text-slate-100">{lesson.title}</h2>
-              <p className="text-sm text-slate-400 mt-2">{lesson.summary}</p>
-            </div>
-          )}
+    <div className="min-h-screen bg-[#FFF0F5] text-[#2D2342] py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        {/* Top Breadcrumb Navigation */}
+        <div className="flex items-center gap-2 text-xs font-bold text-[#2D2342] bg-white/90 p-3 rounded-2xl border-2 border-[#FFC8DD] shadow-sm">
+          <Link href="/modules" className="hover:text-[#FF758F] flex items-center gap-1 font-black">
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Daftar Pelajaran</span>
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-600 font-bold">{mod.title}</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-[#FF758F] font-black">{lesson.title}</span>
         </div>
 
-        {/* Right Column: Interactive Sandbox & Exercise */}
-        <div className="lg:col-span-7 space-y-6 bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-sm">
-          <ExercisePanel exerciseList={exerciseList} nextLessonUrl={nextLessonUrl} />
+        {/* Main Grid Workspace Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Reading Content */}
+          <div className="lg:col-span-5 space-y-6">
+            {content ? (
+              <LessonContent
+                title={content.title || lesson.title}
+                subtitle={content.subtitle}
+                sections={content.sections || []}
+              />
+            ) : (
+              <div className="p-6 bg-white rounded-3xl border-2 border-[#FFC8DD] shadow-md">
+                <h2 className="font-black text-lg text-[#2D2342]">{lesson.title}</h2>
+                <p className="text-sm text-slate-600 mt-2">{lesson.summary}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Right Column: Interactive Sandbox & Exercise */}
+          <div className="lg:col-span-7 space-y-6 bg-white p-6 rounded-3xl border-2 border-[#FFC8DD] shadow-md">
+            <ExercisePanel exerciseList={exerciseList} nextLessonUrl={nextLessonUrl} />
+          </div>
         </div>
       </div>
     </div>

@@ -6,26 +6,68 @@
   "dataset": {
     "rows": 7,
     "cols": 5,
-    "headers": ["Field", "Col 1", "Col 2", "Col 3", "Col 4"],
+    "headers": [
+      "Field",
+      "Col 1",
+      "Col 2",
+      "Col 3",
+      "Col 4"
+    ],
     "data": {
-      "A1": { "value": "Kode Produk" },
-      "B1": { "value": "PRD01" },
-      "C1": { "value": "PRD02" },
-      "D1": { "value": "PRD03" },
-      "E1": { "value": "PRD04" },
-      "A2": { "value": "Nama Produk" },
-      "B2": { "value": "Laptop" },
-      "C2": { "value": "Mouse" },
-      "D2": { "value": "Keyboard" },
-      "E2": { "value": "Monitor" },
-      "A3": { "value": "Harga (Rp)" },
-      "B3": { "value": 12000000 },
-      "C3": { "value": 250000 },
-      "D3": { "value": 750000 },
-      "E3": { "value": 3500000 },
-      "A6": { "value": "Cari Kode:" },
-      "B6": { "value": "PRD03" },
-      "C6": { "value": "" }
+      "A1": {
+        "value": "Kode Produk"
+      },
+      "B1": {
+        "value": "PRD01"
+      },
+      "C1": {
+        "value": "PRD02"
+      },
+      "D1": {
+        "value": "PRD03"
+      },
+      "E1": {
+        "value": "PRD04"
+      },
+      "A2": {
+        "value": "Nama Produk"
+      },
+      "B2": {
+        "value": "Laptop"
+      },
+      "C2": {
+        "value": "Mouse"
+      },
+      "D2": {
+        "value": "Keyboard"
+      },
+      "E2": {
+        "value": "Monitor"
+      },
+      "A3": {
+        "value": "Harga (Rp)"
+      },
+      "B3": {
+        "value": 12000000
+      },
+      "C3": {
+        "value": 250000
+      },
+      "D3": {
+        "value": 750000
+      },
+      "E3": {
+        "value": 3500000
+      },
+      "A6": {
+        "value": "Cari Kode:"
+      },
+      "B6": {
+        "value": "PRD03"
+      },
+      "C6": {
+        "value": ""
+      }
     }
   },
   "expectedAnswer": {

@@ -4,7 +4,7 @@
   "taskNumber": 8,
   "title": "Soal 8: Nilai Ujian Paling Tinggi",
   "type": "formula",
-  "instruction": "Cari Nilai Ujian Paling Tinggi di cell B8 menggunakan rumus =MAX(B2:B6).",
+  "instruction": "Cari Nilai Ujian Paling Tinggi di cell B8.",
   "dataset": {
     "rows": 9,
     "cols": 7,

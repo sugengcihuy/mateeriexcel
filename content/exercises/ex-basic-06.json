@@ -4,7 +4,7 @@
   "taskNumber": 6,
   "title": "Soal 6: Total Gaji Karyawan",
   "type": "formula",
-  "instruction": "Hitung Total Gaji seluruh staf di cell C7 menggunakan rumus =SUM(C2:C6).",
+  "instruction": "Hitung Total Gaji seluruh staf di cell C7.",
   "dataset": {
     "rows": 9,
     "cols": 7,

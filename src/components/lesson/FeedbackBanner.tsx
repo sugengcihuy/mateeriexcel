@@ -53,7 +53,7 @@ export function FeedbackBanner({
                 ) : (
                   <>
                     <Lightbulb className="w-4 h-4 text-amber-700" />
-                    <span>Waduh, Dikit Lagi Nih!</span>
+                    <span>Waduh, Jawaban Belum Tepat!</span>
                   </>
                 )}
               </h4>
@@ -66,14 +66,26 @@ export function FeedbackBanner({
 
             <p className="text-xs sm:text-sm font-semibold leading-relaxed text-[#2D2342]">{message}</p>
 
-            {/* Error Breakdown Explanation */}
+            {/* Explanation Breakdown for Correct */}
+            {correct && howToFix && (
+              <div className="mt-3 p-4 bg-white rounded-2xl border border-[#A0E7E5] space-y-2 text-xs shadow-sm">
+                <div className="flex items-start gap-2 text-[#2D2342]">
+                  <Sparkles className="w-4 h-4 shrink-0 text-emerald-600 mt-0.5" />
+                  <div>
+                    <strong className="text-emerald-800 font-black">Alasan Benar:</strong> {howToFix}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Explanation Breakdown for Incorrect */}
             {!correct && (whyWrong || howToFix) && (
               <div className="mt-3 p-4 bg-white rounded-2xl border border-[#FFADAD] space-y-2 text-xs shadow-sm">
                 {whyWrong && (
                   <div className="flex items-start gap-2 text-[#2D2342]">
                     <HelpCircle className="w-4 h-4 shrink-0 text-rose-500 mt-0.5" />
                     <div>
-                      <strong className="text-rose-700 font-black">Kenapa Salah:</strong> {whyWrong}
+                      <strong className="text-rose-700 font-black">Alasan Salah:</strong> {whyWrong}
                     </div>
                   </div>
                 )}
@@ -102,5 +114,3 @@ export function FeedbackBanner({
     </FadeIn>
   );
 }
-
-

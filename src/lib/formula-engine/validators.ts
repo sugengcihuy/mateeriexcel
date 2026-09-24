@@ -14,7 +14,7 @@ export function validateExerciseAnswer(
       message: `Cell ${targetCell} belum diisi nih, Ayya!`,
       targetCell,
       whyWrong: `Kamu belum mengisikan jawaban atau rumus apapun di kotak ${targetCell}.`,
-      howToFix: `Klik kotak ${targetCell} lalu ketikkan rumus yang diminta (misal: =${requiredFormulaPattern || "SUM"}(...)).`,
+      howToFix: `Klik kotak ${targetCell} lalu ketikkan rumus yang diminta (contoh: =${requiredFormulaPattern || "SUM"}(...)).`,
     };
   }
 
@@ -35,8 +35,8 @@ export function validateExerciseAnswer(
         correct: false,
         message: `Oops! Kamu ngetik angka mentah langsung tanpa pakai rumus di cell ${targetCell}.`,
         targetCell,
-        whyWrong: `Di Excel, kalau kamu ngetik angka langsung misal '${cellInput.value}', angkanya gak bakal kehitung otomatis kalau data di atasnya berubah.`,
-        howToFix: `Awali jawaban kamu dengan tanda sama dengan ('='). Contoh: =${requiredFormulaPattern || "SUM"}(...)`,
+        whyWrong: `Di Excel, kalau kamu ngetik angka langsung misal '${cellInput.value}', angkanya tidak akan otomatis terhitung saat data berubah.`,
+        howToFix: `Awali jawaban kamu dengan tanda sama dengan ('='). Contoh: =${requiredFormulaPattern || "SUM"}(...).`,
         actualValue: safeEvaluatedValue,
         userFormula: "",
       };
@@ -49,7 +49,7 @@ export function validateExerciseAnswer(
           correct: false,
           message: `Rumus di cell ${targetCell} harus menggunakan fungsi ${pattern}.`,
           targetCell,
-          whyWrong: `Kamu mengetikkan rumus '${cellInput.formula}', padahal tugas kali ini minta menggunakan fungsi ${pattern}.`,
+          whyWrong: `Kamu mengetikkan rumus '${cellInput.formula}', padahal latihan ini membutuhkan fungsi ${pattern}.`,
           howToFix: `Ganti rumus di cell ${targetCell} supaya menggunakan =${pattern}(...).`,
           actualValue: safeEvaluatedValue,
           userFormula: cellInput.formula,
@@ -91,7 +91,7 @@ export function validateExerciseAnswer(
         message: `Hasil perhitungan cell ${targetCell} adalah '${safeEvaluatedValue}', padahal yang benar harusnya '${expectedValue}'.`,
         targetCell,
         whyWrong: `Hitungan rumusnya belum pas. Hasil saat ini '${safeEvaluatedValue}', beda dengan target jawaban '${expectedValue}'.`,
-        howToFix: `Cek rentang data di dalam rumus kamu (misal pastikan dari B2 sampai B6).`,
+        howToFix: `Cek rentang data di dalam rumus kamu dan pastikan acuan cell sudah benar.`,
         actualValue: safeEvaluatedValue,
         userFormula: cellInput.formula,
       };
@@ -104,6 +104,6 @@ export function validateExerciseAnswer(
     targetCell,
     actualValue: safeEvaluatedValue,
     userFormula: cellInput.formula,
+    howToFix: `Kamu telah menggunakan rumus ${cellInput.formula} dengan sangat tepat pada cell ${targetCell} sehingga menghasilkan nilai ${safeEvaluatedValue} secara presisi.`,
   };
 }
-

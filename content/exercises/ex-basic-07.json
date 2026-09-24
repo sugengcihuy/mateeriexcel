@@ -4,7 +4,7 @@
   "taskNumber": 7,
   "title": "Soal 7: Rata-rata Nilai Ujian",
   "type": "formula",
-  "instruction": "Hitung Rata-rata Nilai Ujian siswa di cell B7 menggunakan rumus =AVERAGE(B2:B6).",
+  "instruction": "Hitung Rata-rata Nilai Ujian siswa di cell B7.",
   "dataset": {
     "rows": 9,
     "cols": 7,

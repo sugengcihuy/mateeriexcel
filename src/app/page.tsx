@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Table, CheckCircle2, Zap, Sparkles, Trophy, Heart, Users, GraduationCap } from "lucide-react";
+import { ArrowRight, Table, CheckCircle2, Zap, Sparkles, Trophy, Users, GraduationCap } from "lucide-react";
 import { FadeIn } from "@/components/motion/FadeIn";
 
 export default function LandingPage() {
@@ -9,12 +9,7 @@ export default function LandingPage() {
       <section className="relative overflow-hidden pt-12 pb-12 bg-gradient-to-b from-[#E0CFFC]/60 via-[#FAF5FF] to-[#FAF5FF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto space-y-6">
-            <FadeIn direction="down">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FFC8DD] border border-[#FFADAD] rounded-full text-[#2D2342] text-xs font-black shadow-sm">
-                <Heart className="w-4 h-4 text-[#FF758F] fill-[#FF758F]/40" />
-                <span>Khusus Buat Belajar Excel Asyik & Simpel</span>
-              </div>
-            </FadeIn>
+            
 
             <FadeIn delay={0.1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#2D2342] leading-tight">

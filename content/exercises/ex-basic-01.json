@@ -4,7 +4,7 @@
   "taskNumber": 1,
   "title": "Soal 1: Total Penjualan Toko Q1",
   "type": "formula",
-  "instruction": "Hitunglah Total Penjualan di cell B7 menggunakan rumus =SUM(B2:B6).",
+  "instruction": "Hitunglah Total Penjualan di cell B7.",
   "dataset": {
     "rows": 9,
     "cols": 7,

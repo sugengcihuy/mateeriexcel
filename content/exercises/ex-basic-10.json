@@ -4,7 +4,7 @@
   "taskNumber": 10,
   "title": "Soal 10: Total Omset 5 Cabang Toko",
   "type": "formula",
-  "instruction": "Hitunglah Total Omset dari 5 Cabang Toko di cell B7 menggunakan rumus =SUM(B2:B6).",
+  "instruction": "Hitunglah Total Omset dari 5 Cabang Toko di cell B7.",
   "dataset": {
     "rows": 9,
     "cols": 7,
