@@ -53,7 +53,7 @@ export function Navbar() {
               <FileSpreadsheet className="w-5 h-5 text-[#2D2342]" />
             </div>
             <span className="font-black text-base sm:text-xl text-[#2D2342] tracking-tight whitespace-nowrap">
-              Belajar Excel <span className="text-[#FF758F] underline decoration-[#FFC8DD] underline-offset-4">Ayya</span>
+              Belajar Excel <span className="animated-gradient-text underline decoration-[#FFC8DD] underline-offset-4">Ayya</span>
             </span>
           </Link>
 

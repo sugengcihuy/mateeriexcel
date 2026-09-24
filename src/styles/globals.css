@@ -71,3 +71,29 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Ultra-Lightweight GPU-Accelerated Flowing Gradient Text */
+.animated-gradient-text {
+  background: linear-gradient(
+    90deg,
+    #FF758F 0%,
+    #FF8E9E 25%,
+    #7B61FF 50%,
+    #FF477E 75%,
+    #FF758F 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flowingGradient 3.5s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes flowingGradient {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

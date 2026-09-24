@@ -15,7 +15,7 @@ export default function LandingPage() {
           <div className="text-center max-w-3xl mx-auto space-y-6">
             <FadeIn delay={0.1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#2D2342] leading-tight">
-                Belajar Excel <span className="bg-gradient-to-r from-[#FF758F] via-[#BDE0FE] to-[#E0CFFC] bg-clip-text text-transparent underline decoration-[#FFC8DD] underline-offset-8">Ayya</span>
+                Belajar Excel <span className="animated-gradient-text underline decoration-[#FFC8DD] underline-offset-8">Ayya</span>
               </h1>
             </FadeIn>
 

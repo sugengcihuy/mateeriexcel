@@ -17,7 +17,7 @@ export function IntroOverlay() {
       console.error(e);
     }
 
-    // Longer duration ~ 4.2 seconds for full motion graphic enjoyment
+    // Longer duration ~ 4.2 seconds for full motion graphic experience
     const timer = setTimeout(() => {
       setShowIntro(false);
       try {
@@ -63,27 +63,27 @@ export function IntroOverlay() {
 
           {/* Motion Graphic Typography Container */}
           <div className="relative z-10 text-center space-y-4 sm:space-y-6 max-w-2xl mx-auto">
-            {/* Main Title: Belajar Excel Ayya */}
+            {/* Main Title: Belajar Excel Ayya with Clipped Light Sweep Beam */}
             <motion.div
               initial={{ y: 28, opacity: 0, scale: 0.9, filter: "blur(10px)" }}
               animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.95, ease: [0.175, 0.885, 0.32, 1.275] }}
               className="relative inline-block"
             >
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#2D2342] tracking-tight leading-none">
+              <h1 className="relative inline-block text-3xl sm:text-5xl md:text-6xl font-black text-[#2D2342] tracking-tight leading-none overflow-hidden py-2 px-3 rounded-3xl">
                 Belajar Excel{" "}
-                <span className="relative inline-block bg-gradient-to-r from-[#FF758F] via-[#FF8E9E] to-[#FF477E] bg-clip-text text-transparent drop-shadow-[0_4px_20px_rgba(255,117,143,0.45)]">
+                <span className="relative inline-block animated-gradient-text drop-shadow-[0_4px_20px_rgba(255,117,143,0.45)]">
                   Ayya
                 </span>
-              </h1>
 
-              {/* Specular Light Sweep Beam Effect (Repeats smoothly twice) */}
-              <motion.div
-                initial={{ x: "-100%", opacity: 0 }}
-                animate={{ x: ["-100%", "220%"], opacity: [0, 1, 1, 0] }}
-                transition={{ duration: 1.5, delay: 0.5, repeat: 1, repeatDelay: 0.8, ease: "easeInOut" }}
-                className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/80 to-transparent skew-x-[-25deg] pointer-events-none mix-blend-overlay"
-              />
+                {/* Specular Light Sweep Beam Effect strictly clipped inside h1 */}
+                <motion.div
+                  initial={{ x: "-100%", opacity: 0 }}
+                  animate={{ x: ["-100%", "200%"], opacity: [0, 1, 1, 0] }}
+                  transition={{ duration: 1.5, delay: 0.5, repeat: 1, repeatDelay: 0.8, ease: "easeInOut" }}
+                  className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/80 to-transparent skew-x-[-25deg] pointer-events-none mix-blend-overlay"
+                />
+              </h1>
             </motion.div>
 
             {/* Subtitle: Developed By Tama */}
