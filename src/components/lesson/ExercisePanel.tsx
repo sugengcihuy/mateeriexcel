@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { ExerciseData, CellData } from "@/types/exercise";
 import { SpreadsheetGrid } from "@/components/spreadsheet/SpreadsheetGrid";
 import { FeedbackBanner } from "./FeedbackBanner";
-import { RoomSyncBar } from "@/components/spreadsheet/RoomSyncBar";
 import { Send, ArrowRight, HelpCircle, RotateCcw, CheckCircle2, Sparkles, Trophy } from "lucide-react";
 import confetti from "canvas-confetti";
 import Link from "next/link";
@@ -73,16 +72,6 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
 
   const handleGridChange = (newGrid: Record<string, CellData>) => {
     setCurrentGridData(newGrid);
-  };
-
-  const handleRemoteGridSynced = (syncedGrid: Record<string, CellData>) => {
-    if (syncedGrid && Object.keys(syncedGrid).length > 0 && currentExercise) {
-      const baseDataset = JSON.parse(JSON.stringify(currentExercise.dataset?.data || {}));
-      setCurrentGridData({
-        ...baseDataset,
-        ...syncedGrid,
-      });
-    }
   };
 
   const handleValidate = async () => {
@@ -169,14 +158,7 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
 
   return (
     <div className="space-y-6">
-      {/* Realtime Room Sync Bar for Ayya & Friend */}
-      <RoomSyncBar
-        exerciseId={currentExercise?.id}
-        currentGridData={currentGridData}
-        onGridSynced={handleRemoteGridSynced}
-      />
-
-      {/* Task Switcher Selector Bar */}
+            {/* Task Switcher Selector Bar */}
       <div className="p-4 bg-white border-2 border-[#E0CFFC] rounded-3xl space-y-3 shadow-md">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">

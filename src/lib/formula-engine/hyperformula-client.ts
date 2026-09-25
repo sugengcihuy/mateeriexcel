@@ -1,17 +1,34 @@
 import { HyperFormula } from "hyperformula";
 
+export function normalizeFormulaForEngine(formula: string): string {
+  if (!formula) return "";
+  let trimmed = formula.trim();
+  if (!trimmed.startsWith("=")) trimmed = `=${trimmed}`;
+
+  // Normalize FALSE -> 0 and TRUE -> 1 inside VLOOKUP/HLOOKUP parameters to prevent #NAME? errors
+  trimmed = trimmed
+    .replace(/,\s*(FALSE|false)\b/gi, ", 0")
+    .replace(/,\s*(TRUE|true)\b/gi, ", 1");
+
+  // Auto-close unbalanced parentheses if any
+  const openParen = (trimmed.match(/\(/g) || []).length;
+  const closeParen = (trimmed.match(/\)/g) || []).length;
+  if (openParen > closeParen) {
+    trimmed = trimmed + ")".repeat(openParen - closeParen);
+  }
+
+  return trimmed;
+}
 
 export function buildHyperFormulaEngine(
   gridData: Record<string, { value: string | number | boolean | null; formula?: string }>,
   maxRows: number = 20,
   maxCols: number = 10
 ) {
-  
   const sheetData: (string | number | boolean | null)[][] = Array.from({ length: maxRows }, () =>
     Array.from({ length: maxCols }, () => null)
   );
 
-  
   const parseCellRef = (ref: string) => {
     const match = ref.match(/^([A-Z]+)([0-9]+)$/i);
     if (!match) return null;
@@ -29,8 +46,7 @@ export function buildHyperFormulaEngine(
     const coords = parseCellRef(cellRef);
     if (coords && coords.row < maxRows && coords.col < maxCols) {
       if (cell.formula) {
-        
-        const formulaStr = cell.formula.startsWith("=") ? cell.formula : `=${cell.formula}`;
+        const formulaStr = normalizeFormulaForEngine(cell.formula);
         sheetData[coords.row][coords.col] = formulaStr;
       } else if (cell.value !== undefined && cell.value !== "") {
         sheetData[coords.row][coords.col] = cell.value;

@@ -91,6 +91,11 @@ export function SpreadsheetGrid({
                 let formula = cell.formula.trim();
                 if (!formula.startsWith("=")) formula = `=${formula}`;
 
+                // Normalize FALSE -> 0 and TRUE -> 1 to prevent HyperFormula #NAME? errors
+                formula = formula
+                  .replace(/,\s*(FALSE|false)\b/gi, ", 0")
+                  .replace(/,\s*(TRUE|true)\b/gi, ", 1");
+
                 const openParen = (formula.match(/\(/g) || []).length;
                 const closeParen = (formula.match(/\)/g) || []).length;
                 if (openParen > closeParen) {
