@@ -36,7 +36,8 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
     correct: null,
     message: "",
   });
-  const [showHint, setShowHint] = useState<boolean>(false);
+  const [showKissModal, setShowKissModal] = useState<boolean>(false);
+  const [showHintTimer, setShowHintTimer] = useState<boolean>(false);
 
   // Load saved completed tasks from localStorage
   useEffect(() => {
@@ -50,12 +51,12 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
     }
   }, []);
 
-  // Update current grid when switching task index
+  // Update current grid only when currentTaskIndex or currentExercise.id actually changes
   useEffect(() => {
     if (currentExercise) {
       setCurrentGridData(currentExercise.dataset?.data || {});
       setValidationResult({ correct: null, message: "" });
-      setShowHint(false);
+      setShowHintTimer(false);
     }
   }, [currentTaskIndex, currentExercise]);
 
@@ -125,11 +126,24 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
     }
   };
 
+  
+  const handleOpenKissModal = () => {
+    setShowKissModal(true);
+  };
+
+  const handleKissConfirmed = () => {
+    setShowKissModal(false);
+    setShowHintTimer(true);
+    setTimeout(() => {
+      setShowHintTimer(false);
+    }, 1500);
+  };
+
   const handleReset = () => {
     if (currentExercise) {
       setCurrentGridData(currentExercise.dataset?.data || {});
       setValidationResult({ correct: null, message: "" });
-      setShowHint(false);
+      setShowHintTimer(false);
     }
   };
 
@@ -247,11 +261,11 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
           <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
             <button
               type="button"
-              onClick={() => setShowHint(!showHint)}
-              className="flex items-center gap-1.5 text-xs text-[#2D2342] hover:text-[#FF758F] font-extrabold"
+              onClick={handleOpenKissModal}
+              className="flex items-center gap-1.5 text-xs text-[#2D2342] hover:text-[#FF758F] font-extrabold bg-[#FFF1C1] hover:bg-[#FFD6A5] px-3.5 py-2 rounded-full border border-[#FFD6A5] transition-all shadow-sm"
             >
-              <HelpCircle className="w-4 h-4 text-amber-600" />
-              <span>{showHint ? "Tutup Bocoran" : "Butuh Bocoran Rumus?"}</span>
+              <HelpCircle className="w-4 h-4 text-amber-700" />
+              <span>Butuh Bocoran Rumus?</span>
             </button>
 
             <div className="flex items-center gap-3">
@@ -288,9 +302,31 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
           </div>
 
           {/* Optional Hint Box */}
-          {showHint && currentExercise.hint && (
-            <div className="p-4 bg-[#FFF1C1] border-2 border-[#FFD6A5] rounded-2xl text-xs text-[#2D2342] leading-relaxed shadow-sm">
-              <strong className="text-amber-800 font-black">Bocoran Rumus:</strong> {currentExercise.hint}
+          {showHintTimer && currentExercise.hint && (
+            <div className="p-4 bg-[#FFF1C1] border-2 border-[#FFD6A5] rounded-2xl text-xs text-[#2D2342] leading-relaxed shadow-md animate-in fade-in duration-200">
+              <strong className="text-amber-800 font-black">Bocoran Rumus (Tampil 1.5 Detik):</strong> {currentExercise.hint}
+            </div>
+          )}
+
+          {/* Kiss Dulu Modal Popup */}
+          {showKissModal && (
+            <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
+              <div className="bg-white border-4 border-[#FF758F] rounded-3xl p-6 max-w-sm w-full text-center space-y-4 shadow-2xl animate-in zoom-in-95 duration-200">
+                <div className="w-16 h-16 bg-[#FFE5EC] border-2 border-[#FF758F] rounded-full flex items-center justify-center mx-auto text-3xl shadow-sm">
+                  💋
+                </div>
+                <h3 className="text-xl font-black text-[#2D2342]">Kiss Dulu 💋</h3>
+                <p className="text-xs text-slate-600 font-bold leading-relaxed">
+                  Muah! Minta cium dulu baru dikasih bocoran rumusnya ya~ 😘
+                </p>
+                <button
+                  type="button"
+                  onClick={handleKissConfirmed}
+                  className="w-full py-3 bg-[#FFC8DD] hover:bg-[#FFADAD] active:scale-95 text-[#2D2342] font-black rounded-2xl border-2 border-[#FFADAD] shadow-md transition-all text-sm flex items-center justify-center gap-2"
+                >
+                  <span>Sudah 💖</span>
+                </button>
+              </div>
             </div>
           )}
         </>

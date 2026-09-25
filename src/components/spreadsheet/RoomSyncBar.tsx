@@ -34,18 +34,13 @@ export function RoomSyncBar({
     setUserId(uid);
   }, []);
 
-  // Sync with localStorage on mount & on event
+  // Sync room ID from input/storage without auto-connecting on page load
   useEffect(() => {
     const checkRoom = () => {
       if (typeof window !== "undefined") {
         const saved = localStorage.getItem("excel_learn_room_id");
         if (saved) {
           setRoomId(saved);
-          setIsConnected(true);
-        } else {
-          setRoomId("");
-          setIsConnected(false);
-          setConnectedCount(1);
         }
       }
     };
