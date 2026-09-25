@@ -54,7 +54,7 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
   // Update current grid only when currentTaskIndex or currentExercise.id actually changes
   useEffect(() => {
     if (currentExercise) {
-      setCurrentGridData(currentExercise.dataset?.data || {});
+      setCurrentGridData(JSON.parse(JSON.stringify(currentExercise.dataset?.data || {})));
       setValidationResult({ correct: null, message: "" });
       setShowHintTimer(false);
     }
@@ -159,6 +159,7 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
     <div className="space-y-6">
       {/* Realtime Room Sync Bar for Ayya & Friend */}
       <RoomSyncBar
+        exerciseId={currentExercise?.id}
         currentGridData={currentGridData}
         onGridSynced={handleRemoteGridSynced}
       />

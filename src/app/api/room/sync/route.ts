@@ -4,7 +4,7 @@ export const dynamic = "force-dynamic";
 
 interface RoomData {
   roomId: string;
-  gridData: Record<string, unknown>;
+  gridDataPerExercise: Record<string, Record<string, unknown>>;
   activeCell?: string;
   updatedAt: number;
   updatedBy?: string;
@@ -20,7 +20,7 @@ async function getCloudRoom(roomId: string): Promise<RoomData> {
   if (!memoryStore[cleanId]) {
     memoryStore[cleanId] = {
       roomId: cleanId,
-      gridData: {},
+      gridDataPerExercise: {},
       updatedAt: Date.now(),
       activeUsers: {},
     };
@@ -28,7 +28,6 @@ async function getCloudRoom(roomId: string): Promise<RoomData> {
 
   const room = memoryStore[cleanId];
 
-  // Sync state from cloud store if cloudObjectId exists
   if (room.cloudObjectId) {
     try {
       const res = await fetch(`https://api.restful-api.dev/objects/${room.cloudObjectId}`, {
@@ -37,7 +36,7 @@ async function getCloudRoom(roomId: string): Promise<RoomData> {
       if (res.ok) {
         const json = await res.json();
         if (json.data && json.data.updatedAt > room.updatedAt) {
-          room.gridData = json.data.gridData || room.gridData;
+          room.gridDataPerExercise = json.data.gridDataPerExercise || room.gridDataPerExercise;
           room.activeCell = json.data.activeCell || room.activeCell;
           room.updatedAt = json.data.updatedAt;
           room.updatedBy = json.data.updatedBy;
@@ -58,6 +57,7 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const roomId = (searchParams.get("roomId") || "DEFAULT").toUpperCase();
   const userId = searchParams.get("userId") || "";
+  const exerciseId = searchParams.get("exerciseId") || "default";
 
   const room = await getCloudRoom(roomId);
 
@@ -66,16 +66,18 @@ export async function GET(req: Request) {
     room.activeUsers[userId] = now;
   }
 
-  // Count active connected users within last 3.5 seconds
   const connectedCount = Object.values(room.activeUsers).filter(
     (t) => now - t < 3500
   ).length;
+
+  const exerciseGridData = room.gridDataPerExercise[exerciseId] || {};
 
   return NextResponse.json({
     success: true,
     roomState: {
       roomId: room.roomId,
-      gridData: room.gridData,
+      gridData: exerciseGridData,
+      exerciseId,
       activeCell: room.activeCell,
       updatedAt: room.updatedAt,
       updatedBy: room.updatedBy,
@@ -87,10 +89,10 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    const { roomId, gridData, activeCell, updatedBy, userId, isHeartbeat, isDisconnect } = await req.json();
+    const { roomId, exerciseId = "default", gridData, activeCell, updatedBy, userId, isHeartbeat, isDisconnect } = await req.json();
 
     if (!roomId) {
-      return NextResponse.json({ error: "Kode Ruang (Room ID) wajib diisi" }, { status: 400 });
+      return NextResponse.json({ error: "Kode Ruang wajib diisi" }, { status: 400 });
     }
 
     const cleanRoomId = String(roomId).toUpperCase().trim();
@@ -98,40 +100,17 @@ export async function POST(req: Request) {
 
     const now = Date.now();
 
-    // Handle Disconnect action
     if (isDisconnect && userId) {
       delete room.activeUsers[userId];
       const connectedCount = Object.values(room.activeUsers).filter(
         (t) => now - t < 3500
       ).length;
 
-      try {
-        if (room.cloudObjectId) {
-          await fetch(`https://api.restful-api.dev/objects/${room.cloudObjectId}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              name: `EXCEL_ROOM_${cleanRoomId}`,
-              data: {
-                roomId: cleanRoomId,
-                gridData: room.gridData,
-                activeCell: room.activeCell,
-                updatedBy: room.updatedBy,
-                updatedAt: room.updatedAt,
-                activeUsers: room.activeUsers,
-              },
-            }),
-          });
-        }
-      } catch (e) {
-        console.error(e);
-      }
-
       return NextResponse.json({
         success: true,
         roomState: {
           roomId: room.roomId,
-          gridData: room.gridData,
+          gridData: room.gridDataPerExercise[exerciseId] || {},
           connectedCount: Math.max(1, connectedCount),
         },
       });
@@ -150,7 +129,8 @@ export async function POST(req: Request) {
         success: true,
         roomState: {
           roomId: room.roomId,
-          gridData: room.gridData,
+          gridData: room.gridDataPerExercise[exerciseId] || {},
+          exerciseId,
           activeCell: room.activeCell,
           updatedAt: room.updatedAt,
           updatedBy: room.updatedBy,
@@ -160,29 +140,31 @@ export async function POST(req: Request) {
       });
     }
 
-    // Update grid data
-    room.gridData = gridData || room.gridData;
+    if (gridData && exerciseId) {
+      room.gridDataPerExercise[exerciseId] = gridData;
+    }
     room.activeCell = activeCell || room.activeCell;
     room.updatedBy = updatedBy || "Pengguna Excel";
     room.updatedAt = now;
 
-    // Sync to Cloud Store
     try {
+      const payload = {
+        name: `EXCEL_ROOM_${cleanRoomId}`,
+        data: {
+          roomId: cleanRoomId,
+          gridDataPerExercise: room.gridDataPerExercise,
+          activeCell: room.activeCell,
+          updatedBy: room.updatedBy,
+          updatedAt: room.updatedAt,
+          activeUsers: room.activeUsers,
+        },
+      };
+
       if (!room.cloudObjectId) {
         const createRes = await fetch("https://api.restful-api.dev/objects", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: `EXCEL_ROOM_${cleanRoomId}`,
-            data: {
-              roomId: cleanRoomId,
-              gridData: room.gridData,
-              activeCell: room.activeCell,
-              updatedBy: room.updatedBy,
-              updatedAt: room.updatedAt,
-              activeUsers: room.activeUsers,
-            },
-          }),
+          body: JSON.stringify(payload),
         });
         if (createRes.ok) {
           const createJson = await createRes.json();
@@ -192,17 +174,7 @@ export async function POST(req: Request) {
         await fetch(`https://api.restful-api.dev/objects/${room.cloudObjectId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: `EXCEL_ROOM_${cleanRoomId}`,
-            data: {
-              roomId: cleanRoomId,
-              gridData: room.gridData,
-              activeCell: room.activeCell,
-              updatedBy: room.updatedBy,
-              updatedAt: room.updatedAt,
-              activeUsers: room.activeUsers,
-            },
-          }),
+          body: JSON.stringify(payload),
         });
       }
     } catch (err) {
@@ -213,7 +185,8 @@ export async function POST(req: Request) {
       success: true,
       roomState: {
         roomId: room.roomId,
-        gridData: room.gridData,
+        gridData: room.gridDataPerExercise[exerciseId] || {},
+        exerciseId,
         activeCell: room.activeCell,
         updatedAt: room.updatedAt,
         updatedBy: room.updatedBy,

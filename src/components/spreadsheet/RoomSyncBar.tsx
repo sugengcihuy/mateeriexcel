@@ -5,12 +5,14 @@ import { Users, Wifi, WifiOff, Share2, Check } from "lucide-react";
 import { CellData } from "@/types/exercise";
 
 interface RoomSyncBarProps {
+  exerciseId?: string;
   onGridSynced?: (gridData: Record<string, CellData>) => void;
   currentGridData?: Record<string, CellData>;
   activeCellRef?: string;
 }
 
 export function RoomSyncBar({
+  exerciseId = "default",
   onGridSynced,
   currentGridData,
   activeCellRef,
@@ -24,7 +26,6 @@ export function RoomSyncBar({
   const cloudObjIdRef = useRef<string>("");
   const lastLocalUpdateRef = useRef<number>(0);
 
-  // Generate unique userId per browser tab on mount
   useEffect(() => {
     let uid = sessionStorage.getItem("excel_learn_user_id");
     if (!uid) {
@@ -34,13 +35,19 @@ export function RoomSyncBar({
     setUserId(uid);
   }, []);
 
-  // Sync room ID from input/storage without auto-connecting on page load
+  // Listen to unified room connection state from window event
   useEffect(() => {
     const checkRoom = () => {
       if (typeof window !== "undefined") {
-        const saved = localStorage.getItem("excel_learn_room_id");
-        if (saved) {
-          setRoomId(saved);
+        const savedRoom = localStorage.getItem("excel_learn_room_id");
+        const savedConn = localStorage.getItem("excel_learn_room_connected");
+        if (savedRoom && savedConn === "true") {
+          setRoomId(savedRoom);
+          setIsConnected(true);
+        } else {
+          setRoomId(savedRoom || "");
+          setIsConnected(false);
+          setConnectedCount(1);
         }
       }
     };
@@ -50,13 +57,12 @@ export function RoomSyncBar({
     return () => window.removeEventListener("room-id-changed", checkRoom);
   }, []);
 
-  // Send beacon disconnect on tab close/unload
   useEffect(() => {
     if (!isConnected || !roomId || !userId) return;
 
     const handleUnload = () => {
       try {
-        const data = JSON.stringify({ roomId, userId, isDisconnect: true });
+        const data = JSON.stringify({ roomId, userId, exerciseId, isDisconnect: true });
         navigator.sendBeacon("/api/room/sync", data);
       } catch (e) {
         console.error(e);
@@ -70,9 +76,8 @@ export function RoomSyncBar({
       window.removeEventListener("beforeunload", handleUnload);
       window.removeEventListener("pagehide", handleUnload);
     };
-  }, [isConnected, roomId, userId]);
+  }, [isConnected, roomId, userId, exerciseId]);
 
-  // Connect / Join Room
   const handleConnect = (e: React.FormEvent) => {
     e.preventDefault();
     if (!roomId.trim()) return;
@@ -81,11 +86,11 @@ export function RoomSyncBar({
     setIsConnected(true);
     if (typeof window !== "undefined") {
       localStorage.setItem("excel_learn_room_id", clean);
+      localStorage.setItem("excel_learn_room_connected", "true");
       window.dispatchEvent(new Event("room-id-changed"));
     }
   };
 
-  // Disconnect Room with instant server broadcast & beacon
   const handleDisconnect = async () => {
     if (roomId && userId) {
       try {
@@ -95,6 +100,7 @@ export function RoomSyncBar({
           body: JSON.stringify({
             roomId,
             userId,
+            exerciseId,
             isDisconnect: true,
           }),
         });
@@ -106,18 +112,18 @@ export function RoomSyncBar({
     setConnectedCount(1);
     cloudObjIdRef.current = "";
     if (typeof window !== "undefined") {
-      localStorage.removeItem("excel_learn_room_id");
+      localStorage.removeItem("excel_learn_room_connected");
       window.dispatchEvent(new Event("room-id-changed"));
     }
   };
 
-  // Fast Poll server and cloud for real-time changes every 350ms when connected
+  // Poll server for live updates strictly for current exerciseId
   useEffect(() => {
     if (!isConnected || !roomId || !userId) return;
 
     const interval = setInterval(async () => {
       try {
-        const res = await fetch(`/api/room/sync?roomId=${encodeURIComponent(roomId)}&userId=${encodeURIComponent(userId)}`);
+        const res = await fetch(`/api/room/sync?roomId=${encodeURIComponent(roomId)}&userId=${encodeURIComponent(userId)}&exerciseId=${encodeURIComponent(exerciseId)}`);
         const data = await res.json();
         
         if (data.success && data.roomState) {
@@ -128,8 +134,7 @@ export function RoomSyncBar({
             cloudObjIdRef.current = data.roomState.cloudObjectId;
           }
 
-          // If changes came from another user, update grid
-          if (data.roomState.gridData && onGridSynced) {
+          if (data.roomState.gridData && onGridSynced && data.roomState.exerciseId === exerciseId) {
             if (Date.now() - lastLocalUpdateRef.current > 400) {
               onGridSynced(data.roomState.gridData);
             }
@@ -141,9 +146,9 @@ export function RoomSyncBar({
     }, 350);
 
     return () => clearInterval(interval);
-  }, [isConnected, roomId, userId, onGridSynced]);
+  }, [isConnected, roomId, userId, exerciseId, onGridSynced]);
 
-  // Fast Broadcast cell edit when currentGridData changes
+  // Broadcast cell edits for current exerciseId
   useEffect(() => {
     if (!isConnected || !roomId || !currentGridData || !userId) return;
 
@@ -156,6 +161,7 @@ export function RoomSyncBar({
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             roomId,
+            exerciseId,
             gridData: currentGridData,
             activeCell: activeCellRef,
             userId,
@@ -173,7 +179,7 @@ export function RoomSyncBar({
 
     const timer = setTimeout(broadcast, 50);
     return () => clearTimeout(timer);
-  }, [currentGridData, isConnected, roomId, userId, activeCellRef]);
+  }, [currentGridData, isConnected, roomId, userId, activeCellRef, exerciseId]);
 
   const copyRoomCode = () => {
     if (!roomId) return;
@@ -193,7 +199,7 @@ export function RoomSyncBar({
             <span className="font-black text-[#2D2342] text-sm block">Ruang Belajar Bersama (Realtime Sync)</span>
             {isConnected && (
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-emerald-100 text-emerald-800 font-mono font-black text-[11px] rounded-full border border-emerald-300">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
                 <span>{connectedCount} Orang Terhubung</span>
               </span>
             )}

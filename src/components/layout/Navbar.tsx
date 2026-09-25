@@ -32,11 +32,12 @@ export function Navbar() {
   useEffect(() => {
     const checkRoom = () => {
       if (typeof window !== "undefined") {
-        const saved = localStorage.getItem("excel_learn_room_id");
-        if (saved) {
-          setActiveRoomId(saved);
+        const savedRoom = localStorage.getItem("excel_learn_room_id");
+        const savedConn = localStorage.getItem("excel_learn_room_connected");
+        if (savedRoom && savedConn === "true") {
+          setActiveRoomId(savedRoom);
         } else {
-          setActiveRoomId("");
+          setActiveRoomId(savedRoom || "");
           setConnectedCount(1);
         }
       }
@@ -97,6 +98,7 @@ export function Navbar() {
     setActiveRoomId(clean);
     if (typeof window !== "undefined") {
       localStorage.setItem("excel_learn_room_id", clean);
+      localStorage.setItem("excel_learn_room_connected", "true");
       window.dispatchEvent(new Event("room-id-changed"));
     }
   };
@@ -120,7 +122,7 @@ export function Navbar() {
     setActiveRoomId("");
     setConnectedCount(1);
     if (typeof window !== "undefined") {
-      localStorage.removeItem("excel_learn_room_id");
+      localStorage.removeItem("excel_learn_room_connected");
       window.dispatchEvent(new Event("room-id-changed"));
     }
   };
