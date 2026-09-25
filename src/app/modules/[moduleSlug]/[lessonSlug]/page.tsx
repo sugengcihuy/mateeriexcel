@@ -16,10 +16,10 @@ export default function LessonPage({
   const { module: mod, lesson } = data;
   const content = getLessonContent(lesson.contentPath);
 
-  // Load all exercises into map
+  
   const exerciseMap: Record<string, ExerciseData> = {};
 
-  // If content has subtopics, gather all exercise IDs
+  
   if (content && content.subtopics) {
     for (const st of content.subtopics) {
       for (const exId of st.exercises || []) {
@@ -34,7 +34,7 @@ export default function LessonPage({
     }
   }
 
-  // Determine next lesson URL
+  
   const allModules = getAllModules();
   let nextLessonUrl: string | undefined = undefined;
 

@@ -33,14 +33,14 @@ export function SpreadsheetGrid({
   const getColLetter = (index: number) => String.fromCharCode(65 + index);
   const getColIndex = (letter: string) => letter.toUpperCase().charCodeAt(0) - 65;
 
-  // Auto-focus inline input when cell editing starts
+  
   useEffect(() => {
     if (editingCell && inlineInputRef.current) {
       inlineInputRef.current.focus();
     }
   }, [editingCell]);
 
-  // Recalculate HyperFormula live evaluation on client
+  
   const recalculateGrid = useCallback(
     (currentData: Record<string, CellData>) => {
       try {
@@ -88,7 +88,7 @@ export function SpreadsheetGrid({
     setGridData(initialDataset.data || {});
   }, [initialDataset]);
 
-  // Sync internal gridData state when external gridData prop updates from remote room sync
+  
   useEffect(() => {
     if (externalGridData && Object.keys(externalGridData).length > 0) {
       setGridData((prev) => {
@@ -96,14 +96,14 @@ export function SpreadsheetGrid({
         let hasChanges = false;
 
         Object.entries(externalGridData).forEach(([cellRef, remoteCell]) => {
-          // Do not overwrite the cell currently being edited by local user
+          
           if (cellRef === editingCell) return;
 
           const localCell = prev[cellRef];
           const remoteTime = remoteCell?.updatedAt || 0;
           const localTime = localCell?.updatedAt || 0;
 
-          // If remote cell is newer or local cell doesn't exist, accept remote update
+          
           if (!localCell || remoteTime >= localTime) {
             if (JSON.stringify(localCell) !== JSON.stringify(remoteCell)) {
               merged[cellRef] = remoteCell;
