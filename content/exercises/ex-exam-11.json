@@ -1,0 +1,142 @@
+{
+  "id": "ex-exam-11",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 11,
+  "title": "Soal 11: Total Gaji Divisi IT (SUMIF)",
+  "type": "formula",
+  "instruction": "Hitung Total Gaji khusus untuk karyawan divisi 'IT Support' di cell F2.",
+  "dataset": {
+    "rows": 11,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "ID"
+      },
+      "B1": {
+        "value": "Nama"
+      },
+      "C1": {
+        "value": "Divisi"
+      },
+      "D1": {
+        "value": "Gaji (Rp)"
+      },
+      "E1": {
+        "value": "Divisi Cari"
+      },
+      "F1": {
+        "value": "Total Gaji IT"
+      },
+      "A2": {
+        "value": "K01"
+      },
+      "B2": {
+        "value": "Andi Wijaya"
+      },
+      "C2": {
+        "value": "IT Support"
+      },
+      "D2": {
+        "value": 9800000
+      },
+      "E2": {
+        "value": "IT Support"
+      },
+      "F2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "K02"
+      },
+      "B3": {
+        "value": "Budi Santoso"
+      },
+      "C3": {
+        "value": "Finance"
+      },
+      "D3": {
+        "value": 8500000
+      },
+      "A4": {
+        "value": "K03"
+      },
+      "B4": {
+        "value": "Chandra Kirana"
+      },
+      "C4": {
+        "value": "IT Support"
+      },
+      "D4": {
+        "value": 11500000
+      },
+      "A5": {
+        "value": "K04"
+      },
+      "B5": {
+        "value": "Dewi Persik"
+      },
+      "C5": {
+        "value": "HRD"
+      },
+      "D5": {
+        "value": 6900000
+      },
+      "A6": {
+        "value": "K05"
+      },
+      "B6": {
+        "value": "Erick Thohir"
+      },
+      "C6": {
+        "value": "Marketing"
+      },
+      "D6": {
+        "value": 7500000
+      },
+      "A7": {
+        "value": "K06"
+      },
+      "B7": {
+        "value": "Ferry Irawan"
+      },
+      "C7": {
+        "value": "Finance"
+      },
+      "D7": {
+        "value": 8200000
+      },
+      "A8": {
+        "value": "K07"
+      },
+      "B8": {
+        "value": "Gita Savitri"
+      },
+      "C8": {
+        "value": "Marketing"
+      },
+      "D8": {
+        "value": 7000000
+      },
+      "A9": {
+        "value": "K09"
+      },
+      "B9": {
+        "value": "Hendra Setiawan"
+      },
+      "C9": {
+        "value": "HRD"
+      },
+      "D9": {
+        "value": 6800000
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 21300000,
+    "requiredFormulaPattern": "SUMIF",
+    "checkType": "both"
+  },
+  "hint": "=SUMIF(C2:C9, \"IT Support\", D2:D9)",
+  "explanation": "Fungsi =SUMIF(C2:C9, \"IT Support\", D2:D9) mencari karyawan ber-divisi IT Support di kolom C lalu menjumlahkan gajinya di kolom D."
+}

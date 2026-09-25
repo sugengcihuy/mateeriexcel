@@ -1,0 +1,109 @@
+{
+  "id": "ex-exam-03",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 3,
+  "title": "Soal 3: Hitung Jumlah Sel Angka Gaji (COUNT)",
+  "type": "formula",
+  "instruction": "Hitung berapa banyak karyawan yang sudah menerima gaji (berisi angka) di cell C10.",
+  "dataset": {
+    "rows": 11,
+    "cols": 6,
+    "data": {
+      "A1": {
+        "value": "ID"
+      },
+      "B1": {
+        "value": "Nama Karyawan"
+      },
+      "C1": {
+        "value": "Status Gaji (Rp)"
+      },
+      "A2": {
+        "value": "E01"
+      },
+      "B2": {
+        "value": "Budi Santoso"
+      },
+      "C2": {
+        "value": 8500000
+      },
+      "A3": {
+        "value": "E02"
+      },
+      "B3": {
+        "value": "Siti Aminah"
+      },
+      "C3": {
+        "value": 7200000
+      },
+      "A4": {
+        "value": "E03"
+      },
+      "B4": {
+        "value": "Rizky Febian"
+      },
+      "C4": {
+        "value": "Belum Transfer"
+      },
+      "A5": {
+        "value": "E04"
+      },
+      "B5": {
+        "value": "Dewi Persik"
+      },
+      "C5": {
+        "value": 6900000
+      },
+      "A6": {
+        "value": "E05"
+      },
+      "B6": {
+        "value": "Andi Wijaya"
+      },
+      "C6": {
+        "value": 11000000
+      },
+      "A7": {
+        "value": "E06"
+      },
+      "B7": {
+        "value": "Fajar Sadboy"
+      },
+      "C7": {
+        "value": "Pending HRD"
+      },
+      "A8": {
+        "value": "E07"
+      },
+      "B8": {
+        "value": "Gita Savitri"
+      },
+      "C8": {
+        "value": 9500000
+      },
+      "A9": {
+        "value": "E08"
+      },
+      "B9": {
+        "value": "Heri Pratama"
+      },
+      "C9": {
+        "value": 8000000
+      },
+      "B10": {
+        "value": "Jumlah Sudah Transfer"
+      },
+      "C10": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C10",
+    "expectedValue": 6,
+    "requiredFormulaPattern": "COUNT",
+    "checkType": "both"
+  },
+  "hint": "=COUNT(C2:C9)",
+  "explanation": "Fungsi =COUNT(C2:C9) hanya menghitung sel yang terisi angka numerik dan secara otomatis mengabaikan teks seperti 'Belum Transfer'."
+}

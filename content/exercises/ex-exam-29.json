@@ -1,0 +1,142 @@
+{
+  "id": "ex-exam-29",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 29,
+  "title": "Soal 29: Cari Manajer Proyek PRJ004 (INDEX & MATCH)",
+  "type": "formula",
+  "instruction": "Gunakan INDEX & MATCH di cell G2 untuk mencari Nama Manajer proyek kode PRJ004.",
+  "dataset": {
+    "rows": 11,
+    "cols": 8,
+    "data": {
+      "A1": {
+        "value": "Kode Proyek"
+      },
+      "B1": {
+        "value": "Manajer Proyek"
+      },
+      "C1": {
+        "value": "Kategori"
+      },
+      "D1": {
+        "value": "Anggaran (Rp)"
+      },
+      "F1": {
+        "value": "Kode Dicari"
+      },
+      "G1": {
+        "value": "Hasil Manajer"
+      },
+      "A2": {
+        "value": "PRJ001"
+      },
+      "B2": {
+        "value": "Iwan Fals"
+      },
+      "C2": {
+        "value": "Infrastruktur"
+      },
+      "D2": {
+        "value": 450000000
+      },
+      "F2": {
+        "value": "PRJ004"
+      },
+      "G2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "PRJ002"
+      },
+      "B3": {
+        "value": "Katon Bagaskara"
+      },
+      "C3": {
+        "value": "Teknologi"
+      },
+      "D3": {
+        "value": 280000000
+      },
+      "A4": {
+        "value": "PRJ003"
+      },
+      "B4": {
+        "value": "Lukman Laksmana"
+      },
+      "C4": {
+        "value": "Konstruksi"
+      },
+      "D4": {
+        "value": 620000000
+      },
+      "A5": {
+        "value": "PRJ004"
+      },
+      "B5": {
+        "value": "Maya Ahmad"
+      },
+      "C5": {
+        "value": "Pemasaran"
+      },
+      "D5": {
+        "value": 150000000
+      },
+      "A6": {
+        "value": "PRJ005"
+      },
+      "B6": {
+        "value": "Nicky Astria"
+      },
+      "C6": {
+        "value": "Infrastruktur"
+      },
+      "D6": {
+        "value": 850000000
+      },
+      "A7": {
+        "value": "PRJ006"
+      },
+      "B7": {
+        "value": "Opick Tombo"
+      },
+      "C7": {
+        "value": "Teknologi"
+      },
+      "D7": {
+        "value": 320000000
+      },
+      "A8": {
+        "value": "PRJ007"
+      },
+      "B8": {
+        "value": "Piyu Padi"
+      },
+      "C8": {
+        "value": "Riset"
+      },
+      "D8": {
+        "value": 190000000
+      },
+      "A9": {
+        "value": "PRJ008"
+      },
+      "B9": {
+        "value": "Rossa Roslaina"
+      },
+      "C9": {
+        "value": "Desain"
+      },
+      "D9": {
+        "value": 210000000
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": "Maya Ahmad",
+    "requiredFormulaPattern": "INDEX",
+    "checkType": "both"
+  },
+  "hint": "=INDEX(B2:B9, MATCH(F2, A2:A9, 0))",
+  "explanation": "Fungsi MATCH(F2, A2:A9, 0) menemukan posisi baris ke-4 untuk PRJ004, lalu INDEX(B2:B9, 4) mengembalikan 'Maya Ahmad'."
+}

@@ -1,0 +1,109 @@
+{
+  "id": "ex-exam-27",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 27,
+  "title": "Soal 27: Rata-Rata Biaya Operasional (AVERAGE)",
+  "type": "formula",
+  "instruction": "Hitung Rata-Rata Biaya Operasional dari 8 cabang di cell C10.",
+  "dataset": {
+    "rows": 11,
+    "cols": 5,
+    "data": {
+      "A1": {
+        "value": "No"
+      },
+      "B1": {
+        "value": "Nama Cabang"
+      },
+      "C1": {
+        "value": "Biaya Operasional (Rp)"
+      },
+      "A2": {
+        "value": 1
+      },
+      "B2": {
+        "value": "Cabang Kebayoran"
+      },
+      "C2": {
+        "value": 22000000
+      },
+      "A3": {
+        "value": 2
+      },
+      "B3": {
+        "value": "Cabang Kelapa Gading"
+      },
+      "C3": {
+        "value": 25000000
+      },
+      "A4": {
+        "value": 3
+      },
+      "B4": {
+        "value": "Cabang Bintaro"
+      },
+      "C4": {
+        "value": 18000000
+      },
+      "A5": {
+        "value": 4
+      },
+      "B5": {
+        "value": "Cabang Depok"
+      },
+      "C5": {
+        "value": 15000000
+      },
+      "A6": {
+        "value": 5
+      },
+      "B6": {
+        "value": "Cabang Bekasi"
+      },
+      "C6": {
+        "value": 16000000
+      },
+      "A7": {
+        "value": 6
+      },
+      "B7": {
+        "value": "Cabang Bogor"
+      },
+      "C7": {
+        "value": 14000000
+      },
+      "A8": {
+        "value": 7
+      },
+      "B8": {
+        "value": "Cabang Serpong"
+      },
+      "C8": {
+        "value": 19000000
+      },
+      "A9": {
+        "value": 8
+      },
+      "B9": {
+        "value": "Cabang BSD"
+      },
+      "C9": {
+        "value": 15000000
+      },
+      "B10": {
+        "value": "Rata-Rata Biaya"
+      },
+      "C10": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C10",
+    "expectedValue": 18000000,
+    "requiredFormulaPattern": "AVERAGE",
+    "checkType": "both"
+  },
+  "hint": "=AVERAGE(C2:C9)",
+  "explanation": "Fungsi =AVERAGE(C2:C9) menjumlahkan seluruh biaya operasional cabang (144.000.000) lalu membaginya dengan 8 cabang."
+}

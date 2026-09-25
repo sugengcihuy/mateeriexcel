@@ -1,0 +1,142 @@
+{
+  "id": "ex-exam-20",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 20,
+  "title": "Soal 20: Cari Jabatan Staff STF005 (INDEX & MATCH)",
+  "type": "formula",
+  "instruction": "Gunakan kombinasi INDEX dan MATCH di cell G2 untuk mencari Jabatan staff kode STF005.",
+  "dataset": {
+    "rows": 11,
+    "cols": 8,
+    "data": {
+      "A1": {
+        "value": "Kode Staff"
+      },
+      "B1": {
+        "value": "Nama Staff"
+      },
+      "C1": {
+        "value": "Jabatan"
+      },
+      "D1": {
+        "value": "Lokasi"
+      },
+      "F1": {
+        "value": "Kode Dicari"
+      },
+      "G1": {
+        "value": "Hasil Jabatan"
+      },
+      "A2": {
+        "value": "STF001"
+      },
+      "B2": {
+        "value": "Alvin Tan"
+      },
+      "C2": {
+        "value": "Junior Developer"
+      },
+      "D2": {
+        "value": "Lantai 2"
+      },
+      "F2": {
+        "value": "STF005"
+      },
+      "G2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "STF002"
+      },
+      "B3": {
+        "value": "Bella Saphira"
+      },
+      "C3": {
+        "value": "UI/UX Designer"
+      },
+      "D3": {
+        "value": "Lantai 3"
+      },
+      "A4": {
+        "value": "STF003"
+      },
+      "B4": {
+        "value": "Charles Go"
+      },
+      "C4": {
+        "value": "QA Tester"
+      },
+      "D4": {
+        "value": "Lantai 2"
+      },
+      "A5": {
+        "value": "STF004"
+      },
+      "B5": {
+        "value": "David Bayu"
+      },
+      "C5": {
+        "value": "DevOps Lead"
+      },
+      "D5": {
+        "value": "Lantai 4"
+      },
+      "A6": {
+        "value": "STF005"
+      },
+      "B6": {
+        "value": "Ello Tahitoe"
+      },
+      "C6": {
+        "value": "Senior Engineer"
+      },
+      "D6": {
+        "value": "Lantai 4"
+      },
+      "A7": {
+        "value": "STF006"
+      },
+      "B7": {
+        "value": "Faza Meonk"
+      },
+      "C7": {
+        "value": "Product Owner"
+      },
+      "D7": {
+        "value": "Lantai 5"
+      },
+      "A8": {
+        "value": "STF007"
+      },
+      "B8": {
+        "value": "Grace Natalie"
+      },
+      "C8": {
+        "value": "Data Scientist"
+      },
+      "D8": {
+        "value": "Lantai 3"
+      },
+      "A9": {
+        "value": "STF008"
+      },
+      "B9": {
+        "value": "Hito Caesar"
+      },
+      "C9": {
+        "value": "Scrum Master"
+      },
+      "D9": {
+        "value": "Lantai 5"
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": "Senior Engineer",
+    "requiredFormulaPattern": "INDEX",
+    "checkType": "both"
+  },
+  "hint": "=INDEX(C2:C9, MATCH(F2, A2:A9, 0))",
+  "explanation": "Fungsi MATCH(F2, A2:A9, 0) menemukan baris ke-5 untuk STF005, lalu INDEX(C2:C9, 5) mengambil nilai 'Senior Engineer' di kolom C."
+}

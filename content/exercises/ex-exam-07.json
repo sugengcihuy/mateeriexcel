@@ -1,0 +1,82 @@
+{
+  "id": "ex-exam-07",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 7,
+  "title": "Soal 7: Kualifikasi Bonus Sales (IF)",
+  "type": "formula",
+  "instruction": "Di cell D2, jika Penjualan (C2) >= 50000000 maka berikan 'BONUS', jika kurang berikan 'REGULER'.",
+  "dataset": {
+    "rows": 10,
+    "cols": 6,
+    "data": {
+      "A1": {
+        "value": "ID"
+      },
+      "B1": {
+        "value": "Salesman"
+      },
+      "C1": {
+        "value": "Penjualan (Rp)"
+      },
+      "D1": {
+        "value": "Kategori Bonus"
+      },
+      "A2": {
+        "value": "S01"
+      },
+      "B2": {
+        "value": "Rian Ekky"
+      },
+      "C2": {
+        "value": 55000000
+      },
+      "D2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "S02"
+      },
+      "B3": {
+        "value": "Sinta Nur"
+      },
+      "C3": {
+        "value": 42000000
+      },
+      "D3": {
+        "value": ""
+      },
+      "A4": {
+        "value": "S03"
+      },
+      "B4": {
+        "value": "Tono Sudirgo"
+      },
+      "C4": {
+        "value": 68000000
+      },
+      "D4": {
+        "value": ""
+      },
+      "A5": {
+        "value": "S04"
+      },
+      "B5": {
+        "value": "Ujang Komar"
+      },
+      "C5": {
+        "value": 35000000
+      },
+      "D5": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "D2",
+    "expectedValue": "BONUS",
+    "requiredFormulaPattern": "IF",
+    "checkType": "both"
+  },
+  "hint": "=IF(C2>=50000000, \"BONUS\", \"REGULER\")",
+  "explanation": "Rumus =IF(C2>=50000000, \"BONUS\", \"REGULER\") mengecek apakah 55.000.000 >= 50.000.000 (BENAR), sehingga menghasilkan teks BONUS."
+}

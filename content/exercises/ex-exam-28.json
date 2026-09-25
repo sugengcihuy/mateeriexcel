@@ -1,0 +1,109 @@
+{
+  "id": "ex-exam-28",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 28,
+  "title": "Soal 28: Omset Tertinggi Agen Properti (MAX)",
+  "type": "formula",
+  "instruction": "Cari nilai Omset Tertinggi di antara seluruh agen di cell C10.",
+  "dataset": {
+    "rows": 11,
+    "cols": 5,
+    "data": {
+      "A1": {
+        "value": "No"
+      },
+      "B1": {
+        "value": "Nama Agen Properti"
+      },
+      "C1": {
+        "value": "Omset Terjual (Rp)"
+      },
+      "A2": {
+        "value": 1
+      },
+      "B2": {
+        "value": "Agen Raffi"
+      },
+      "C2": {
+        "value": 1250000000
+      },
+      "A3": {
+        "value": 2
+      },
+      "B3": {
+        "value": "Agen Nagita"
+      },
+      "C3": {
+        "value": 980000000
+      },
+      "A4": {
+        "value": 3
+      },
+      "B4": {
+        "value": "Agen Atta"
+      },
+      "C4": {
+        "value": 850000000
+      },
+      "A5": {
+        "value": 4
+      },
+      "B5": {
+        "value": "Agen Aurel"
+      },
+      "C5": {
+        "value": 620000000
+      },
+      "A6": {
+        "value": 5
+      },
+      "B6": {
+        "value": "Agen Sule"
+      },
+      "C6": {
+        "value": 450000000
+      },
+      "A7": {
+        "value": 6
+      },
+      "B7": {
+        "value": "Agen Andre"
+      },
+      "C7": {
+        "value": 780000000
+      },
+      "A8": {
+        "value": 7
+      },
+      "B8": {
+        "value": "Agen Nunung"
+      },
+      "C8": {
+        "value": 350000000
+      },
+      "A9": {
+        "value": 8
+      },
+      "B9": {
+        "value": "Agen Parto"
+      },
+      "C9": {
+        "value": 520000000
+      },
+      "B10": {
+        "value": "Omset Tertinggi"
+      },
+      "C10": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C10",
+    "expectedValue": 1250000000,
+    "requiredFormulaPattern": "MAX",
+    "checkType": "both"
+  },
+  "hint": "=MAX(C2:C9)",
+  "explanation": "Fungsi =MAX(C2:C9) memindai kolom Omset dan mengambil angka tertinggi yaitu Rp 1.250.000.000 (Milik Agen Raffi)."
+}

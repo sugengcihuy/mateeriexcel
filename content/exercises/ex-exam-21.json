@@ -1,0 +1,115 @@
+{
+  "id": "ex-exam-21",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 21,
+  "title": "Soal 21: Total Nilai Ekspor Wilayah Asia (SUMIF)",
+  "type": "formula",
+  "instruction": "Hitung Total Nilai Ekspor khusus untuk Benua 'Asia' di cell F2.",
+  "dataset": {
+    "rows": 11,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Negara"
+      },
+      "B1": {
+        "value": "Benua"
+      },
+      "C1": {
+        "value": "Ekspor (USD)"
+      },
+      "E1": {
+        "value": "Cari Benua"
+      },
+      "F1": {
+        "value": "Total Asia"
+      },
+      "A2": {
+        "value": "Jepang"
+      },
+      "B2": {
+        "value": "Asia"
+      },
+      "C2": {
+        "value": 65000000
+      },
+      "E2": {
+        "value": "Asia"
+      },
+      "F2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "Jerman"
+      },
+      "B3": {
+        "value": "Eropa"
+      },
+      "C3": {
+        "value": 50000000
+      },
+      "A4": {
+        "value": "Korea Selatan"
+      },
+      "B4": {
+        "value": "Asia"
+      },
+      "C4": {
+        "value": 40000000
+      },
+      "A5": {
+        "value": "Prancis"
+      },
+      "B5": {
+        "value": "Eropa"
+      },
+      "C5": {
+        "value": 35000000
+      },
+      "A6": {
+        "value": "China"
+      },
+      "B6": {
+        "value": "Asia"
+      },
+      "C6": {
+        "value": 60000000
+      },
+      "A7": {
+        "value": "Inggris"
+      },
+      "B7": {
+        "value": "Eropa"
+      },
+      "C7": {
+        "value": 42000000
+      },
+      "A8": {
+        "value": "Australia"
+      },
+      "B8": {
+        "value": "Australia"
+      },
+      "C8": {
+        "value": 28000000
+      },
+      "A9": {
+        "value": "Kanada"
+      },
+      "B9": {
+        "value": "Amerika"
+      },
+      "C9": {
+        "value": 30000000
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 165000000,
+    "requiredFormulaPattern": "SUMIF",
+    "checkType": "both"
+  },
+  "hint": "=SUMIF(B2:B9, \"Asia\", C2:C9)",
+  "explanation": "Fungsi =SUMIF(B2:B9, \"Asia\", C2:C9) menjumlahkan seluruh nilai ekspor dari negara ber-benua Asia (Jepang 65M + Korea 40M + China 60M)."
+}

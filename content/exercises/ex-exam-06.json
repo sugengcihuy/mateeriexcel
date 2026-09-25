@@ -1,0 +1,109 @@
+{
+  "id": "ex-exam-06",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 6,
+  "title": "Soal 6: Harga Bahan Pokok Terendah (MIN)",
+  "type": "formula",
+  "instruction": "Cari Harga Terendah di antara seluruh komoditas bahan pokok di cell C10.",
+  "dataset": {
+    "rows": 11,
+    "cols": 5,
+    "data": {
+      "A1": {
+        "value": "No"
+      },
+      "B1": {
+        "value": "Komoditas Pasar"
+      },
+      "C1": {
+        "value": "Harga per Kg (Rp)"
+      },
+      "A2": {
+        "value": 1
+      },
+      "B2": {
+        "value": "Beras Medium"
+      },
+      "C2": {
+        "value": 14500
+      },
+      "A3": {
+        "value": 2
+      },
+      "B3": {
+        "value": "Minyak Goreng"
+      },
+      "C3": {
+        "value": 18000
+      },
+      "A4": {
+        "value": 3
+      },
+      "B4": {
+        "value": "Daging Sapi"
+      },
+      "C4": {
+        "value": 135000
+      },
+      "A5": {
+        "value": 4
+      },
+      "B5": {
+        "value": "Telur Ayam"
+      },
+      "C5": {
+        "value": 28000
+      },
+      "A6": {
+        "value": 5
+      },
+      "B6": {
+        "value": "Cabai Merah"
+      },
+      "C6": {
+        "value": 45000
+      },
+      "A7": {
+        "value": 7
+      },
+      "B7": {
+        "value": "Bawang Merah"
+      },
+      "C7": {
+        "value": 32000
+      },
+      "A8": {
+        "value": 8
+      },
+      "B8": {
+        "value": "Gula Pasir"
+      },
+      "C8": {
+        "value": 16000
+      },
+      "A9": {
+        "value": 9
+      },
+      "B9": {
+        "value": "Garam Dapur"
+      },
+      "C9": {
+        "value": 5000
+      },
+      "B10": {
+        "value": "Harga Terendah"
+      },
+      "C10": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C10",
+    "expectedValue": 5000,
+    "requiredFormulaPattern": "MIN",
+    "checkType": "both"
+  },
+  "hint": "=MIN(C2:C9)",
+  "explanation": "Fungsi =MIN(C2:C9) memindai seluruh harga komoditas dan mengekstrak nilai terkecil yaitu Rp 5.000 (Garam Dapur)."
+}

@@ -1,0 +1,115 @@
+{
+  "id": "ex-exam-09",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 9,
+  "title": "Soal 9: Total Penjualan Wilayah Jakarta (SUMIF)",
+  "type": "formula",
+  "instruction": "Hitunglah Total Penjualan khusus wilayah 'Jakarta' di cell F2.",
+  "dataset": {
+    "rows": 11,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "ID"
+      },
+      "B1": {
+        "value": "Wilayah"
+      },
+      "C1": {
+        "value": "Penjualan (Rp)"
+      },
+      "E1": {
+        "value": "Filter"
+      },
+      "F1": {
+        "value": "Total Jakarta"
+      },
+      "A2": {
+        "value": "T01"
+      },
+      "B2": {
+        "value": "Jakarta"
+      },
+      "C2": {
+        "value": 45000000
+      },
+      "E2": {
+        "value": "Jakarta"
+      },
+      "F2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "T02"
+      },
+      "B3": {
+        "value": "Bandung"
+      },
+      "C3": {
+        "value": 30000000
+      },
+      "A4": {
+        "value": "T03"
+      },
+      "B4": {
+        "value": "Jakarta"
+      },
+      "C4": {
+        "value": 12000000
+      },
+      "A5": {
+        "value": "T04"
+      },
+      "B5": {
+        "value": "Surabaya"
+      },
+      "C5": {
+        "value": 28000000
+      },
+      "A6": {
+        "value": "T05"
+      },
+      "B6": {
+        "value": "Jakarta"
+      },
+      "C6": {
+        "value": 25000000
+      },
+      "A7": {
+        "value": "T06"
+      },
+      "B7": {
+        "value": "Bandung"
+      },
+      "C7": {
+        "value": 15000000
+      },
+      "A8": {
+        "value": "T07"
+      },
+      "B8": {
+        "value": "Surabaya"
+      },
+      "C8": {
+        "value": 22000000
+      },
+      "A9": {
+        "value": "T08"
+      },
+      "B9": {
+        "value": "Medan"
+      },
+      "C9": {
+        "value": 35000000
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 82000000,
+    "requiredFormulaPattern": "SUMIF",
+    "checkType": "both"
+  },
+  "hint": "=SUMIF(B2:B9, \"Jakarta\", C2:C9)",
+  "explanation": "Fungsi =SUMIF(B2:B9, \"Jakarta\", C2:C9) memfilter kolom B untuk kata 'Jakarta' lalu menjumlahkan penjualan terkait (45M + 12M + 25M = 82M)."
+}

@@ -1,0 +1,115 @@
+{
+  "id": "ex-exam-22",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 22,
+  "title": "Soal 22: Hitung Siswa Berpredikat A (COUNTIF)",
+  "type": "formula",
+  "instruction": "Hitung berapa banyak siswa yang mendapatkan Predikat 'A' di cell F2.",
+  "dataset": {
+    "rows": 11,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "No"
+      },
+      "B1": {
+        "value": "Nama Siswa"
+      },
+      "C1": {
+        "value": "Predikat"
+      },
+      "E1": {
+        "value": "Predikat Cari"
+      },
+      "F1": {
+        "value": "Banyak Siswa A"
+      },
+      "A2": {
+        "value": 1
+      },
+      "B2": {
+        "value": "Aldi Taher"
+      },
+      "C2": {
+        "value": "A"
+      },
+      "E2": {
+        "value": "A"
+      },
+      "F2": {
+        "value": ""
+      },
+      "A3": {
+        "value": 2
+      },
+      "B3": {
+        "value": "Baim Wong"
+      },
+      "C3": {
+        "value": "B"
+      },
+      "A4": {
+        "value": 3
+      },
+      "B4": {
+        "value": "Chef Juna"
+      },
+      "C4": {
+        "value": "A"
+      },
+      "A5": {
+        "value": 4
+      },
+      "B5": {
+        "value": "Desta Mahendra"
+      },
+      "C5": {
+        "value": "B"
+      },
+      "A6": {
+        "value": 5
+      },
+      "B6": {
+        "value": "Enzy Storia"
+      },
+      "C6": {
+        "value": "A"
+      },
+      "A7": {
+        "value": 6
+      },
+      "B7": {
+        "value": "Gading Marten"
+      },
+      "C7": {
+        "value": "C"
+      },
+      "A8": {
+        "value": 7
+      },
+      "B8": {
+        "value": "Hesti Purwadinata"
+      },
+      "C8": {
+        "value": "A"
+      },
+      "A9": {
+        "value": 8
+      },
+      "B9": {
+        "value": "Irfan Hakim"
+      },
+      "C9": {
+        "value": "B"
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 4,
+    "requiredFormulaPattern": "COUNTIF",
+    "checkType": "both"
+  },
+  "hint": "=COUNTIF(C2:C9, \"A\")",
+  "explanation": "Fungsi =COUNTIF(C2:C9, \"A\") memindai kolom Predikat dan menghitung persis ada 4 siswa yang berhasil meraih predikat A."
+}

@@ -1,0 +1,142 @@
+{
+  "id": "ex-exam-19",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 19,
+  "title": "Soal 19: Cari Harga Produk PRD007 (XLOOKUP)",
+  "type": "formula",
+  "instruction": "Gunakan XLOOKUP di cell G2 untuk mencari Harga produk dengan kode PRD007.",
+  "dataset": {
+    "rows": 11,
+    "cols": 8,
+    "data": {
+      "A1": {
+        "value": "Kode Barang"
+      },
+      "B1": {
+        "value": "Nama Barang"
+      },
+      "C1": {
+        "value": "Harga (Rp)"
+      },
+      "D1": {
+        "value": "Stok"
+      },
+      "F1": {
+        "value": "Kode Dicari"
+      },
+      "G1": {
+        "value": "Hasil Harga"
+      },
+      "A2": {
+        "value": "PRD001"
+      },
+      "B2": {
+        "value": "SSD 512GB"
+      },
+      "C2": {
+        "value": 750000
+      },
+      "D2": {
+        "value": 15
+      },
+      "F2": {
+        "value": "PRD007"
+      },
+      "G2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "PRD002"
+      },
+      "B3": {
+        "value": "RAM 16GB"
+      },
+      "C3": {
+        "value": 650000
+      },
+      "D3": {
+        "value": 20
+      },
+      "A4": {
+        "value": "PRD003"
+      },
+      "B4": {
+        "value": "VGA RTX 3060"
+      },
+      "C4": {
+        "value": 4800000
+      },
+      "D4": {
+        "value": 5
+      },
+      "A5": {
+        "value": "PRD004"
+      },
+      "B5": {
+        "value": "PSU 650W"
+      },
+      "C5": {
+        "value": 950000
+      },
+      "D5": {
+        "value": 10
+      },
+      "A6": {
+        "value": "PRD005"
+      },
+      "B6": {
+        "value": "Case Gaming"
+      },
+      "C6": {
+        "value": 850000
+      },
+      "D6": {
+        "value": 8
+      },
+      "A7": {
+        "value": "PRD006"
+      },
+      "B7": {
+        "value": "Cooler CPU"
+      },
+      "C7": {
+        "value": 350000
+      },
+      "D7": {
+        "value": 25
+      },
+      "A8": {
+        "value": "PRD007"
+      },
+      "B8": {
+        "value": "Fan Case 12cm"
+      },
+      "C8": {
+        "value": 450000
+      },
+      "D8": {
+        "value": 30
+      },
+      "A9": {
+        "value": "PRD008"
+      },
+      "B9": {
+        "value": "Monitor 27 Inch"
+      },
+      "C9": {
+        "value": 3200000
+      },
+      "D9": {
+        "value": 7
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": 450000,
+    "requiredFormulaPattern": "XLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=XLOOKUP(F2, A2:A9, C2:C9)",
+  "explanation": "Fungsi =XLOOKUP(F2, A2:A9, C2:C9) mencocokkan kode barang PRD007 pada rentang A2:A9 lalu mengembalikan Harga di kolom C2:C9."
+}

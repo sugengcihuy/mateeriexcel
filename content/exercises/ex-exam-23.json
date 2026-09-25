@@ -1,0 +1,82 @@
+{
+  "id": "ex-exam-23",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 23,
+  "title": "Soal 23: Tentukan Grade Kinerja (IF)",
+  "type": "formula",
+  "instruction": "Di cell D2, jika Skor (C2) >= 85 maka 'SANGAT BAIK', jika tidak 'CUKUP'.",
+  "dataset": {
+    "rows": 10,
+    "cols": 6,
+    "data": {
+      "A1": {
+        "value": "ID"
+      },
+      "B1": {
+        "value": "Nama Pegawai"
+      },
+      "C1": {
+        "value": "Skor Kinerja"
+      },
+      "D1": {
+        "value": "Grade Evaluasi"
+      },
+      "A2": {
+        "value": "P01"
+      },
+      "B2": {
+        "value": "Jefri Nichol"
+      },
+      "C2": {
+        "value": 88
+      },
+      "D2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "P02"
+      },
+      "B3": {
+        "value": "Keanu Angelo"
+      },
+      "C3": {
+        "value": 78
+      },
+      "D3": {
+        "value": ""
+      },
+      "A4": {
+        "value": "P03"
+      },
+      "B4": {
+        "value": "Lalisa Manoban"
+      },
+      "C4": {
+        "value": 92
+      },
+      "D4": {
+        "value": ""
+      },
+      "A5": {
+        "value": "P05"
+      },
+      "B5": {
+        "value": "Mawar de Jongh"
+      },
+      "C5": {
+        "value": 82
+      },
+      "D5": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "D2",
+    "expectedValue": "SANGAT BAIK",
+    "requiredFormulaPattern": "IF",
+    "checkType": "both"
+  },
+  "hint": "=IF(C2>=85, \"SANGAT BAIK\", \"CUKUP\")",
+  "explanation": "Rumus =IF(C2>=85, \"SANGAT BAIK\", \"CUKUP\") mengecek skor 88 >= 85 (BENAR), sehingga menghasilkan predikat SANGAT BAIK."
+}

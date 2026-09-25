@@ -1,0 +1,142 @@
+{
+  "id": "ex-exam-24",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 24,
+  "title": "Soal 24: Cari Stok Gudang Barang SKU010 (VLOOKUP)",
+  "type": "formula",
+  "instruction": "Gunakan VLOOKUP di cell G2 untuk mencari Stok gudang barang dengan kode SKU010.",
+  "dataset": {
+    "rows": 11,
+    "cols": 8,
+    "data": {
+      "A1": {
+        "value": "Kode SKU"
+      },
+      "B1": {
+        "value": "Deskripsi Produk"
+      },
+      "C1": {
+        "value": "Kategori"
+      },
+      "D1": {
+        "value": "Stok Unit"
+      },
+      "F1": {
+        "value": "SKU Dicari"
+      },
+      "G1": {
+        "value": "Hasil Stok"
+      },
+      "A2": {
+        "value": "SKU007"
+      },
+      "B2": {
+        "value": "Kipas Angin Berdiri"
+      },
+      "C2": {
+        "value": "Elektronik"
+      },
+      "D2": {
+        "value": 25
+      },
+      "F2": {
+        "value": "SKU010"
+      },
+      "G2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "SKU008"
+      },
+      "B3": {
+        "value": "Rice Cooker 1.8L"
+      },
+      "C3": {
+        "value": "Elektronik"
+      },
+      "D3": {
+        "value": 18
+      },
+      "A4": {
+        "value": "SKU009"
+      },
+      "B4": {
+        "value": "Blender Jus 2in1"
+      },
+      "C4": {
+        "value": "Elektronik"
+      },
+      "D4": {
+        "value": 30
+      },
+      "A5": {
+        "value": "SKU010"
+      },
+      "B5": {
+        "value": "Setrika Uap Digital"
+      },
+      "C5": {
+        "value": "Elektronik"
+      },
+      "D5": {
+        "value": 42
+      },
+      "A6": {
+        "value": "SKU011"
+      },
+      "B6": {
+        "value": "Air Fryer 4L"
+      },
+      "C6": {
+        "value": "Elektronik"
+      },
+      "D6": {
+        "value": 12
+      },
+      "A7": {
+        "value": "SKU012"
+      },
+      "B7": {
+        "value": "Dispenser Galon Bawah"
+      },
+      "C7": {
+        "value": "Elektronik"
+      },
+      "D7": {
+        "value": 8
+      },
+      "A8": {
+        "value": "SKU013"
+      },
+      "B8": {
+        "value": "Microwave 20L"
+      },
+      "C8": {
+        "value": "Elektronik"
+      },
+      "D8": {
+        "value": 15
+      },
+      "A9": {
+        "value": "SKU014"
+      },
+      "B9": {
+        "value": "Vacuum Cleaner Handheld"
+      },
+      "C9": {
+        "value": "Elektronik"
+      },
+      "D9": {
+        "value": 22
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": 42,
+    "requiredFormulaPattern": "VLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=VLOOKUP(F2, A2:D9, 4, FALSE)",
+  "explanation": "Fungsi =VLOOKUP(F2, A2:D9, 4, FALSE) mencari kode SKU010 pada kolom A lalu mengembalikan angka Stok pada kolom ke-4 (D)."
+}

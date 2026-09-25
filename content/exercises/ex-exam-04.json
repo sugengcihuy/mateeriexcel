@@ -1,0 +1,109 @@
+{
+  "id": "ex-exam-04",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 4,
+  "title": "Soal 4: Total Peserta Terdaftar (COUNTA)",
+  "type": "formula",
+  "instruction": "Hitung total seluruh peserta terdaftar (baik angka maupun teks) di cell B10.",
+  "dataset": {
+    "rows": 11,
+    "cols": 5,
+    "data": {
+      "A1": {
+        "value": "No"
+      },
+      "B1": {
+        "value": "Nama Peserta Seminar"
+      },
+      "C1": {
+        "value": "Kota Asal"
+      },
+      "A2": {
+        "value": 1
+      },
+      "B2": {
+        "value": "Ahmad Dahlan"
+      },
+      "C2": {
+        "value": "Jakarta"
+      },
+      "A3": {
+        "value": 2
+      },
+      "B3": {
+        "value": "Bunda Corla"
+      },
+      "C3": {
+        "value": "Medan"
+      },
+      "A4": {
+        "value": 3
+      },
+      "B4": {
+        "value": "Cinta Laura"
+      },
+      "C4": {
+        "value": "Bandung"
+      },
+      "A5": {
+        "value": 4
+      },
+      "B5": {
+        "value": "Deddy Corbuzier"
+      },
+      "C5": {
+        "value": "Jakarta"
+      },
+      "A6": {
+        "value": 5
+      },
+      "B6": {
+        "value": "Erick Thohir"
+      },
+      "C6": {
+        "value": "Surabaya"
+      },
+      "A7": {
+        "value": 6
+      },
+      "B7": {
+        "value": "Fadli Zon"
+      },
+      "C7": {
+        "value": "Jakarta"
+      },
+      "A8": {
+        "value": 7
+      },
+      "B8": {
+        "value": "Ganjar Pranowo"
+      },
+      "C8": {
+        "value": "Semarang"
+      },
+      "A9": {
+        "value": 8
+      },
+      "B9": {
+        "value": "Hj. Lulung"
+      },
+      "C9": {
+        "value": "Jakarta"
+      },
+      "A10": {
+        "value": "Total Peserta"
+      },
+      "B10": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "B10",
+    "expectedValue": 8,
+    "requiredFormulaPattern": "COUNTA",
+    "checkType": "both"
+  },
+  "hint": "=COUNTA(B2:B9)",
+  "explanation": "Fungsi =COUNTA(B2:B9) menghitung seluruh sel yang tidak kosong (baik berupa teks nama maupun angka ID pendaftaran)."
+}

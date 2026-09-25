@@ -1,0 +1,142 @@
+{
+  "id": "ex-exam-17",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 17,
+  "title": "Soal 17: Cari Departemen EMP006 (VLOOKUP)",
+  "type": "formula",
+  "instruction": "Gunakan VLOOKUP di cell G2 untuk mencari Departemen karyawan EMP006 di tabel A2:D9.",
+  "dataset": {
+    "rows": 11,
+    "cols": 8,
+    "data": {
+      "A1": {
+        "value": "ID Karyawan"
+      },
+      "B1": {
+        "value": "Nama"
+      },
+      "C1": {
+        "value": "Departemen"
+      },
+      "D1": {
+        "value": "Gaji (Rp)"
+      },
+      "F1": {
+        "value": "ID Dicari"
+      },
+      "G1": {
+        "value": "Hasil Dept"
+      },
+      "A2": {
+        "value": "EMP001"
+      },
+      "B2": {
+        "value": "Budi Santoso"
+      },
+      "C2": {
+        "value": "Finance"
+      },
+      "D2": {
+        "value": 8500000
+      },
+      "F2": {
+        "value": "EMP006"
+      },
+      "G2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "EMP002"
+      },
+      "B3": {
+        "value": "Siti Aminah"
+      },
+      "C3": {
+        "value": "Marketing"
+      },
+      "D3": {
+        "value": 7200000
+      },
+      "A4": {
+        "value": "EMP003"
+      },
+      "B4": {
+        "value": "Rizky Febian"
+      },
+      "C4": {
+        "value": "IT Support"
+      },
+      "D4": {
+        "value": 9800000
+      },
+      "A5": {
+        "value": "EMP004"
+      },
+      "B5": {
+        "value": "Dewi Persik"
+      },
+      "C5": {
+        "value": "HRD"
+      },
+      "D5": {
+        "value": 6900000
+      },
+      "A6": {
+        "value": "EMP005"
+      },
+      "B6": {
+        "value": "Andi Wijaya"
+      },
+      "C6": {
+        "value": "Operations"
+      },
+      "D6": {
+        "value": 11000000
+      },
+      "A7": {
+        "value": "EMP006"
+      },
+      "B7": {
+        "value": "Fajar Sadboy"
+      },
+      "C7": {
+        "value": "IT Support"
+      },
+      "D7": {
+        "value": 11500000
+      },
+      "A8": {
+        "value": "EMP007"
+      },
+      "B8": {
+        "value": "Gita Savitri"
+      },
+      "C8": {
+        "value": "Marketing"
+      },
+      "D8": {
+        "value": 7000000
+      },
+      "A9": {
+        "value": "EMP008"
+      },
+      "B9": {
+        "value": "Hendra Setiawan"
+      },
+      "C9": {
+        "value": "HRD"
+      },
+      "D9": {
+        "value": 6800000
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": "IT Support",
+    "requiredFormulaPattern": "VLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=VLOOKUP(F2, A2:D9, 3, FALSE)",
+  "explanation": "Fungsi =VLOOKUP(F2, A2:D9, 3, FALSE) mencocokkan ID EMP006 pada kolom A dan mengambil teks Departemen pada kolom ke-3 (C)."
+}

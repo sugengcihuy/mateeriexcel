@@ -1,0 +1,142 @@
+{
+  "id": "ex-exam-25",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 25,
+  "title": "Soal 25: Cari Nama Vendor VND007 (XLOOKUP)",
+  "type": "formula",
+  "instruction": "Gunakan XLOOKUP di cell G2 untuk mencari Nama Vendor dari kode VND007.",
+  "dataset": {
+    "rows": 11,
+    "cols": 8,
+    "data": {
+      "A1": {
+        "value": "Kode Vendor"
+      },
+      "B1": {
+        "value": "Nama Vendor"
+      },
+      "C1": {
+        "value": "Kota"
+      },
+      "D1": {
+        "value": "Kontak"
+      },
+      "F1": {
+        "value": "Kode Dicari"
+      },
+      "G1": {
+        "value": "Hasil Vendor"
+      },
+      "A2": {
+        "value": "VND004"
+      },
+      "B2": {
+        "value": "PT Aneka Industri"
+      },
+      "C2": {
+        "value": "Jakarta"
+      },
+      "D2": {
+        "value": "0811223344"
+      },
+      "F2": {
+        "value": "VND007"
+      },
+      "G2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "VND005"
+      },
+      "B3": {
+        "value": "CV Bina Karya"
+      },
+      "C3": {
+        "value": "Bandung"
+      },
+      "D3": {
+        "value": "0812334455"
+      },
+      "A4": {
+        "value": "VND006"
+      },
+      "B4": {
+        "value": "PT Cipta Mandiri"
+      },
+      "C4": {
+        "value": "Surabaya"
+      },
+      "D4": {
+        "value": "0813445566"
+      },
+      "A5": {
+        "value": "VND007"
+      },
+      "B5": {
+        "value": "PT Mitra Sejahtera"
+      },
+      "C5": {
+        "value": "Semarang"
+      },
+      "D5": {
+        "value": "0814556677"
+      },
+      "A6": {
+        "value": "VND008"
+      },
+      "B6": {
+        "value": "CV Nusantara Jaya"
+      },
+      "C6": {
+        "value": "Medan"
+      },
+      "D6": {
+        "value": "0815667788"
+      },
+      "A7": {
+        "value": "VND009"
+      },
+      "B7": {
+        "value": "PT Optima Logistik"
+      },
+      "C7": {
+        "value": "Makassar"
+      },
+      "D7": {
+        "value": "0816778899"
+      },
+      "A8": {
+        "value": "VND010"
+      },
+      "B8": {
+        "value": "CV Prima Utama"
+      },
+      "C8": {
+        "value": "Bali"
+      },
+      "D8": {
+        "value": "0817889900"
+      },
+      "A9": {
+        "value": "VND011"
+      },
+      "B9": {
+        "value": "PT Quality Supplier"
+      },
+      "C9": {
+        "value": "Palembang"
+      },
+      "D9": {
+        "value": "0818990011"
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": "PT Mitra Sejahtera",
+    "requiredFormulaPattern": "XLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=XLOOKUP(F2, A2:A9, B2:B9)",
+  "explanation": "Fungsi =XLOOKUP(F2, A2:A9, B2:B9) mencari VND007 pada rentang A2:A9 dan langsung mengembalikan Nama Vendor pada B2:B9."
+}

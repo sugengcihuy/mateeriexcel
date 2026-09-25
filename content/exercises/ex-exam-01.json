@@ -1,0 +1,163 @@
+{
+  "id": "ex-exam-01",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 1,
+  "title": "Soal 1: Total Omset 8 Cabang Toko (SUM)",
+  "type": "formula",
+  "instruction": "Hitunglah Total Omset dari Cabang Jakarta sampai Bali di cell C10.",
+  "dataset": {
+    "rows": 11,
+    "cols": 6,
+    "data": {
+      "A1": {
+        "value": "No"
+      },
+      "B1": {
+        "value": "Cabang Toko"
+      },
+      "C1": {
+        "value": "Omset (Rp)"
+      },
+      "D1": {
+        "value": "Target (Rp)"
+      },
+      "E1": {
+        "value": "Status"
+      },
+      "A2": {
+        "value": 1
+      },
+      "B2": {
+        "value": "Jakarta Pusat"
+      },
+      "C2": {
+        "value": 45000000
+      },
+      "D2": {
+        "value": 40000000
+      },
+      "E2": {
+        "value": "Lapai"
+      },
+      "A3": {
+        "value": 2
+      },
+      "B3": {
+        "value": "Bandung"
+      },
+      "C3": {
+        "value": 32000000
+      },
+      "D3": {
+        "value": 30000000
+      },
+      "E3": {
+        "value": "Lapai"
+      },
+      "A4": {
+        "value": 3
+      },
+      "B4": {
+        "value": "Surabaya"
+      },
+      "C4": {
+        "value": 28000000
+      },
+      "D4": {
+        "value": 25000000
+      },
+      "E4": {
+        "value": "Lapai"
+      },
+      "A5": {
+        "value": 4
+      },
+      "B5": {
+        "value": "Medan"
+      },
+      "C5": {
+        "value": 35000000
+      },
+      "D5": {
+        "value": 30000000
+      },
+      "E5": {
+        "value": "Lapai"
+      },
+      "A6": {
+        "value": 5
+      },
+      "B6": {
+        "value": "Semarang"
+      },
+      "C6": {
+        "value": 22000000
+      },
+      "D6": {
+        "value": 20000000
+      },
+      "E6": {
+        "value": "Lapai"
+      },
+      "A7": {
+        "value": 6
+      },
+      "B7": {
+        "value": "Makassar"
+      },
+      "C7": {
+        "value": 18000000
+      },
+      "D7": {
+        "value": 20000000
+      },
+      "E7": {
+        "value": "Belum"
+      },
+      "A8": {
+        "value": 7
+      },
+      "B8": {
+        "value": "Yogyakarta"
+      },
+      "C8": {
+        "value": 25000000
+      },
+      "D8": {
+        "value": 22000000
+      },
+      "E8": {
+        "value": "Lapai"
+      },
+      "A9": {
+        "value": 8
+      },
+      "B9": {
+        "value": "Bali"
+      },
+      "C9": {
+        "value": 40000000
+      },
+      "D9": {
+        "value": 35000000
+      },
+      "E9": {
+        "value": "Lapai"
+      },
+      "B10": {
+        "value": "Total Omset"
+      },
+      "C10": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "C10",
+    "expectedValue": 245000000,
+    "requiredFormulaPattern": "SUM",
+    "checkType": "both"
+  },
+  "hint": "=SUM(C2:C9)",
+  "explanation": "Fungsi =SUM(C2:C9) secara efisien menjumlahkan seluruh omset penjualan dari cell C2 hingga C9 tanpa perlu menuliskan tanda tambah (+)."
+}

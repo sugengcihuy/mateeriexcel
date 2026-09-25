@@ -1,0 +1,82 @@
+{
+  "id": "ex-exam-08",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 8,
+  "title": "Soal 8: Status Kelulusan Siswa (IF)",
+  "type": "formula",
+  "instruction": "Di cell D2, jika Nilai (C2) >= 75 maka berikan status 'LULUS', jika tidak 'REMIDI'.",
+  "dataset": {
+    "rows": 10,
+    "cols": 6,
+    "data": {
+      "A1": {
+        "value": "No"
+      },
+      "B1": {
+        "value": "Nama Siswa"
+      },
+      "C1": {
+        "value": "Nilai Akhir"
+      },
+      "D1": {
+        "value": "Status Lulus"
+      },
+      "A2": {
+        "value": 1
+      },
+      "B2": {
+        "value": "Ani Maryani"
+      },
+      "C2": {
+        "value": 82
+      },
+      "D2": {
+        "value": ""
+      },
+      "A3": {
+        "value": 2
+      },
+      "B3": {
+        "value": "Budi Utomo"
+      },
+      "C3": {
+        "value": 65
+      },
+      "D3": {
+        "value": ""
+      },
+      "A4": {
+        "value": 3
+      },
+      "B4": {
+        "value": "Chandra Kirana"
+      },
+      "C4": {
+        "value": 78
+      },
+      "D4": {
+        "value": ""
+      },
+      "A5": {
+        "value": 4
+      },
+      "B5": {
+        "value": "Dina Diana"
+      },
+      "C5": {
+        "value": 70
+      },
+      "D5": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "D2",
+    "expectedValue": "LULUS",
+    "requiredFormulaPattern": "IF",
+    "checkType": "both"
+  },
+  "hint": "=IF(C2>=75, \"LULUS\", \"REMIDI\")",
+  "explanation": "Rumus =IF(C2>=75, \"LULUS\", \"REMIDI\") mengecek apakah nilai 82 >= 75, karena memenuhi syarat maka menghasilkan status LULUS."
+}

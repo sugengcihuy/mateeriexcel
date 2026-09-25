@@ -1,0 +1,115 @@
+{
+  "id": "ex-exam-10",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 10,
+  "title": "Soal 10: Hitung Stok Produk 'Ready' (COUNTIF)",
+  "type": "formula",
+  "instruction": "Hitung berapa banyak produk yang berstatus 'Ready' di cell F2.",
+  "dataset": {
+    "rows": 11,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Kode"
+      },
+      "B1": {
+        "value": "Nama Barang"
+      },
+      "C1": {
+        "value": "Status Stok"
+      },
+      "E1": {
+        "value": "Cari"
+      },
+      "F1": {
+        "value": "Jumlah Ready"
+      },
+      "A2": {
+        "value": "PRD1"
+      },
+      "B2": {
+        "value": "Laptop Asus"
+      },
+      "C2": {
+        "value": "Ready"
+      },
+      "E2": {
+        "value": "Ready"
+      },
+      "F2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "PRD2"
+      },
+      "B3": {
+        "value": "Mouse Wireless"
+      },
+      "C3": {
+        "value": "Habis"
+      },
+      "A4": {
+        "value": "PRD3"
+      },
+      "B4": {
+        "value": "Keyboard Mech"
+      },
+      "C4": {
+        "value": "Ready"
+      },
+      "A5": {
+        "value": "PRD4"
+      },
+      "B5": {
+        "value": "Monitor 24 Inch"
+      },
+      "C5": {
+        "value": "Ready"
+      },
+      "A6": {
+        "value": "PRD5"
+      },
+      "B6": {
+        "value": "Headset Gaming"
+      },
+      "C6": {
+        "value": "Habis"
+      },
+      "A7": {
+        "value": "PRD6"
+      },
+      "B7": {
+        "value": "Webcam Full HD"
+      },
+      "C7": {
+        "value": "Ready"
+      },
+      "A8": {
+        "value": "PRD7"
+      },
+      "B8": {
+        "value": "Printer Canon"
+      },
+      "C8": {
+        "value": "Habis"
+      },
+      "A9": {
+        "value": "PRD8"
+      },
+      "B9": {
+        "value": "Flashdisk 64GB"
+      },
+      "C9": {
+        "value": "Ready"
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 5,
+    "requiredFormulaPattern": "COUNTIF",
+    "checkType": "both"
+  },
+  "hint": "=COUNTIF(C2:C9, \"Ready\")",
+  "explanation": "Fungsi =COUNTIF(C2:C9, \"Ready\") memindai kolom Status dan menghitung berapa sel yang persis bertuliskan 'Ready'."
+}

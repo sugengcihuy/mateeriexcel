@@ -1,0 +1,142 @@
+{
+  "id": "ex-exam-30",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 30,
+  "title": "Soal 30: Cari Biaya Pengiriman Resi EXP008 (VLOOKUP)",
+  "type": "formula",
+  "instruction": "Gunakan VLOOKUP di cell G2 untuk mencari Biaya Pengiriman nomor resi EXP008 di tabel A2:D9.",
+  "dataset": {
+    "rows": 11,
+    "cols": 8,
+    "data": {
+      "A1": {
+        "value": "No Resi"
+      },
+      "B1": {
+        "value": "Pengirim"
+      },
+      "C1": {
+        "value": "Tujuan"
+      },
+      "D1": {
+        "value": "Biaya Kirim (Rp)"
+      },
+      "F1": {
+        "value": "Resi Dicari"
+      },
+      "G1": {
+        "value": "Hasil Biaya"
+      },
+      "A2": {
+        "value": "EXP003"
+      },
+      "B2": {
+        "value": "Toko Serba"
+      },
+      "C2": {
+        "value": "Bandung"
+      },
+      "D2": {
+        "value": 45000
+      },
+      "F2": {
+        "value": "EXP008"
+      },
+      "G2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "EXP004"
+      },
+      "B3": {
+        "value": "UD Makmur"
+      },
+      "C3": {
+        "value": "Surabaya"
+      },
+      "D3": {
+        "value": 85000
+      },
+      "A4": {
+        "value": "EXP005"
+      },
+      "B4": {
+        "value": "PT Abadi"
+      },
+      "C4": {
+        "value": "Medan"
+      },
+      "D4": {
+        "value": 140000
+      },
+      "A5": {
+        "value": "EXP006"
+      },
+      "B5": {
+        "value": "CV Gemilang"
+      },
+      "C5": {
+        "value": "Makassar"
+      },
+      "D5": {
+        "value": 175000
+      },
+      "A6": {
+        "value": "EXP007"
+      },
+      "B6": {
+        "value": "PT Prima"
+      },
+      "C6": {
+        "value": "Semarang"
+      },
+      "D6": {
+        "value": 65000
+      },
+      "A7": {
+        "value": "EXP008"
+      },
+      "B7": {
+        "value": "Toko Maju"
+      },
+      "C7": {
+        "value": "Bali"
+      },
+      "D7": {
+        "value": 125000
+      },
+      "A8": {
+        "value": "EXP009"
+      },
+      "B8": {
+        "value": "CV Utama"
+      },
+      "C8": {
+        "value": "Palembang"
+      },
+      "D8": {
+        "value": 95000
+      },
+      "A9": {
+        "value": "EXP010"
+      },
+      "B9": {
+        "value": "PT Sukses"
+      },
+      "C9": {
+        "value": "Balikpapan"
+      },
+      "D9": {
+        "value": 210000
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": 125000,
+    "requiredFormulaPattern": "VLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=VLOOKUP(F2, A2:D9, 4, FALSE)",
+  "explanation": "Fungsi =VLOOKUP(F2, A2:D9, 4, FALSE) mencocokkan nomor resi EXP008 pada kolom A lalu mengembalikan Biaya Pengiriman Rp 125.000 pada kolom ke-4 (D). Selamat! Kamu berhasil menuntaskan seluruh 30 soal Ujian Praktik Excel Comprehensive!"
+}

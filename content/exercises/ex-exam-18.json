@@ -1,0 +1,142 @@
+{
+  "id": "ex-exam-18",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 18,
+  "title": "Soal 18: Cari Departemen EMP005 (XLOOKUP)",
+  "type": "formula",
+  "instruction": "Gunakan XLOOKUP di cell G2 untuk mencari Departemen karyawan EMP005 dari rentang A2:A9 ke C2:C9.",
+  "dataset": {
+    "rows": 11,
+    "cols": 8,
+    "data": {
+      "A1": {
+        "value": "ID Karyawan"
+      },
+      "B1": {
+        "value": "Nama"
+      },
+      "C1": {
+        "value": "Departemen"
+      },
+      "D1": {
+        "value": "Gaji (Rp)"
+      },
+      "F1": {
+        "value": "ID Dicari"
+      },
+      "G1": {
+        "value": "Hasil Dept"
+      },
+      "A2": {
+        "value": "EMP001"
+      },
+      "B2": {
+        "value": "Budi Santoso"
+      },
+      "C2": {
+        "value": "Finance"
+      },
+      "D2": {
+        "value": 8500000
+      },
+      "F2": {
+        "value": "EMP005"
+      },
+      "G2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "EMP002"
+      },
+      "B3": {
+        "value": "Siti Aminah"
+      },
+      "C3": {
+        "value": "Marketing"
+      },
+      "D3": {
+        "value": 7200000
+      },
+      "A4": {
+        "value": "EMP003"
+      },
+      "B4": {
+        "value": "Rizky Febian"
+      },
+      "C4": {
+        "value": "IT Support"
+      },
+      "D4": {
+        "value": 9800000
+      },
+      "A5": {
+        "value": "EMP004"
+      },
+      "B5": {
+        "value": "Dewi Persik"
+      },
+      "C5": {
+        "value": "HRD"
+      },
+      "D5": {
+        "value": 6900000
+      },
+      "A6": {
+        "value": "EMP005"
+      },
+      "B6": {
+        "value": "Andi Wijaya"
+      },
+      "C6": {
+        "value": "Operations"
+      },
+      "D6": {
+        "value": 11000000
+      },
+      "A7": {
+        "value": "EMP006"
+      },
+      "B7": {
+        "value": "Fajar Sadboy"
+      },
+      "C7": {
+        "value": "IT Support"
+      },
+      "D7": {
+        "value": 11500000
+      },
+      "A8": {
+        "value": "EMP007"
+      },
+      "B8": {
+        "value": "Gita Savitri"
+      },
+      "C8": {
+        "value": "Marketing"
+      },
+      "D8": {
+        "value": 7000000
+      },
+      "A9": {
+        "value": "EMP008"
+      },
+      "B9": {
+        "value": "Hendra Setiawan"
+      },
+      "C9": {
+        "value": "HRD"
+      },
+      "D9": {
+        "value": 6800000
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "G2",
+    "expectedValue": "Operations",
+    "requiredFormulaPattern": "XLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=XLOOKUP(F2, A2:A9, C2:C9)",
+  "explanation": "Fungsi =XLOOKUP(F2, A2:A9, C2:C9) mencocokkan nilai F2 pada rentang pencarian A2:A9 dan langsung mengembalikan hasil sel sejajar di C2:C9."
+}

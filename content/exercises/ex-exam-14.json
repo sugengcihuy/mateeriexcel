@@ -1,0 +1,64 @@
+{
+  "id": "ex-exam-14",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 14,
+  "title": "Soal 14: Cari Tarif Pajak Golongan III (HLOOKUP)",
+  "type": "formula",
+  "instruction": "Gunakan HLOOKUP di cell B5 untuk mencari Tarif Pajak Golongan 'III' di cell B4 dari tabel mendatar A1:E2.",
+  "dataset": {
+    "rows": 8,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "Golongan"
+      },
+      "B1": {
+        "value": "I"
+      },
+      "C1": {
+        "value": "II"
+      },
+      "D1": {
+        "value": "III"
+      },
+      "E1": {
+        "value": "IV"
+      },
+      "A2": {
+        "value": "Tarif Pajak"
+      },
+      "B2": {
+        "value": 0.05
+      },
+      "C2": {
+        "value": 0.1
+      },
+      "D2": {
+        "value": 0.15
+      },
+      "E2": {
+        "value": 0.2
+      },
+      "A4": {
+        "value": "Golongan Dicari"
+      },
+      "B4": {
+        "value": "III"
+      },
+      "A5": {
+        "value": "Hasil Tarif"
+      },
+      "B5": {
+        "value": ""
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "B5",
+    "expectedValue": 0.15,
+    "requiredFormulaPattern": "HLOOKUP",
+    "checkType": "both"
+  },
+  "hint": "=HLOOKUP(B4, A1:E2, 2, FALSE)",
+  "explanation": "Fungsi =HLOOKUP(B4, A1:E2, 2, FALSE) mencocokkan Golongan 'III' di baris ke-1 lalu mengekstrak tarif pajak 15% (0.15) di baris ke-2."
+}

@@ -1,0 +1,142 @@
+{
+  "id": "ex-exam-12",
+  "lessonId": "les-exam-comprehensive",
+  "taskNumber": 12,
+  "title": "Soal 12: Jumlah Transaksi Surabaya (COUNTIF)",
+  "type": "formula",
+  "instruction": "Hitung berapa banyak transaksi yang berasal dari kota 'Surabaya' di cell F2.",
+  "dataset": {
+    "rows": 11,
+    "cols": 7,
+    "data": {
+      "A1": {
+        "value": "No Trx"
+      },
+      "B1": {
+        "value": "Pelanggan"
+      },
+      "C1": {
+        "value": "Kota"
+      },
+      "D1": {
+        "value": "Total (Rp)"
+      },
+      "E1": {
+        "value": "Kota Cari"
+      },
+      "F1": {
+        "value": "Banyak Trx"
+      },
+      "A2": {
+        "value": "TRX01"
+      },
+      "B2": {
+        "value": "PT Sukses"
+      },
+      "C2": {
+        "value": "Surabaya"
+      },
+      "D2": {
+        "value": 15000000
+      },
+      "E2": {
+        "value": "Surabaya"
+      },
+      "F2": {
+        "value": ""
+      },
+      "A3": {
+        "value": "TRX02"
+      },
+      "B3": {
+        "value": "CV Maju"
+      },
+      "C3": {
+        "value": "Jakarta"
+      },
+      "D3": {
+        "value": 8500000
+      },
+      "A4": {
+        "value": "TRX03"
+      },
+      "B4": {
+        "value": "UD Makmur"
+      },
+      "C4": {
+        "value": "Surabaya"
+      },
+      "D4": {
+        "value": 22000000
+      },
+      "A5": {
+        "value": "TRX04"
+      },
+      "B5": {
+        "value": "Toko Jaya"
+      },
+      "C5": {
+        "value": "Bandung"
+      },
+      "D5": {
+        "value": 12000000
+      },
+      "A6": {
+        "value": "TRX05"
+      },
+      "B6": {
+        "value": "PT Abadi"
+      },
+      "C6": {
+        "value": "Surabaya"
+      },
+      "D6": {
+        "value": 18000000
+      },
+      "A7": {
+        "value": "TRX06"
+      },
+      "B7": {
+        "value": "CV Gemilang"
+      },
+      "C7": {
+        "value": "Jakarta"
+      },
+      "D7": {
+        "value": 25000000
+      },
+      "A8": {
+        "value": "TRX07"
+      },
+      "B8": {
+        "value": "Toko Serba"
+      },
+      "C8": {
+        "value": "Medan"
+      },
+      "D8": {
+        "value": 14000000
+      },
+      "A9": {
+        "value": "TRX08"
+      },
+      "B9": {
+        "value": "PT Prima"
+      },
+      "C9": {
+        "value": "Jakarta"
+      },
+      "D9": {
+        "value": 30000000
+      }
+    }
+  },
+  "expectedAnswer": {
+    "targetCell": "F2",
+    "expectedValue": 3,
+    "requiredFormulaPattern": "COUNTIF",
+    "checkType": "both"
+  },
+  "hint": "=COUNTIF(C2:C9, \"Surabaya\")",
+  "explanation": "Fungsi =COUNTIF(C2:C9, \"Surabaya\") menghitung berapa kali kata 'Surabaya' muncul di dalam kolom Kota Transaksi."
+}
