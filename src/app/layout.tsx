@@ -7,16 +7,16 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Belajar Excel Ayya",
-  description: "Platform Interaktif Belajar Microsoft Excel dari Dasar hingga Mahir.",
+  description: "Developed By Sugengcihuyyy",
   openGraph: {
     title: "Belajar Excel Ayya",
-    description: "Platform Interaktif Belajar Microsoft Excel dari Dasar hingga Mahir.",
+    description: "Developed By Sugengcihuyyy",
     siteName: "Belajar Excel Ayya",
   },
   twitter: {
     card: "summary_large_image",
     title: "Belajar Excel Ayya",
-    description: "Platform Interaktif Belajar Microsoft Excel dari Dasar hingga Mahir.",
+    description: "Developed By Sugengcihuyyy",
   },
 };
 
