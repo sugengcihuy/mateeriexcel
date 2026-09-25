@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ExerciseData, CellData } from "@/types/exercise";
 import { SpreadsheetGrid } from "@/components/spreadsheet/SpreadsheetGrid";
 import { FeedbackBanner } from "./FeedbackBanner";
@@ -51,10 +51,16 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
     }
   }, []);
 
-  // Reset task index to 0 whenever exerciseList changes (e.g. switching subtopics)
+  // Track exercise IDs key to ONLY reset task index when user switches subtopics, avoiding jumps on re-renders
+  const exerciseIdsKey = exerciseList.map((e) => e.id).join(",");
+  const prevExerciseIdsKeyRef = useRef<string>(exerciseIdsKey);
+
   useEffect(() => {
-    setCurrentTaskIndex(0);
-  }, [exerciseList]);
+    if (prevExerciseIdsKeyRef.current !== exerciseIdsKey) {
+      prevExerciseIdsKeyRef.current = exerciseIdsKey;
+      setCurrentTaskIndex(0);
+    }
+  }, [exerciseIdsKey]);
 
   // Cleanly isolate current grid data ONLY to active exercise dataset when switching tasks
   useEffect(() => {

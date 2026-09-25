@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import fs from "fs";
+import path from "path";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +14,29 @@ interface RoomData {
   cloudObjectId?: string;
 }
 
-const memoryStore: Record<string, RoomData> = {};
+const STORE_FILE = path.join(process.cwd(), ".room_store.json");
+
+function loadStore(): Record<string, RoomData> {
+  try {
+    if (fs.existsSync(STORE_FILE)) {
+      const raw = fs.readFileSync(STORE_FILE, "utf-8");
+      return JSON.parse(raw);
+    }
+  } catch (e) {
+    console.error("Failed to load room store file:", e);
+  }
+  return {};
+}
+
+function saveStore(store: Record<string, RoomData>) {
+  try {
+    fs.writeFileSync(STORE_FILE, JSON.stringify(store, null, 2), "utf-8");
+  } catch (e) {
+    console.error("Failed to save room store file:", e);
+  }
+}
+
+const memoryStore: Record<string, RoomData> = loadStore();
 
 async function getCloudRoom(roomId: string): Promise<RoomData> {
   const cleanId = roomId.toUpperCase().trim();
@@ -24,6 +48,7 @@ async function getCloudRoom(roomId: string): Promise<RoomData> {
       updatedAt: Date.now(),
       activeUsers: {},
     };
+    saveStore(memoryStore);
   }
 
   const room = memoryStore[cleanId];
@@ -35,11 +60,20 @@ async function getCloudRoom(roomId: string): Promise<RoomData> {
       });
       if (res.ok) {
         const json = await res.json();
-        if (json.data && json.data.updatedAt > room.updatedAt) {
-          room.gridDataPerExercise = json.data.gridDataPerExercise || room.gridDataPerExercise;
-          room.activeCell = json.data.activeCell || room.activeCell;
-          room.updatedAt = json.data.updatedAt;
-          room.updatedBy = json.data.updatedBy;
+        if (json.data) {
+          if (json.data.gridDataPerExercise) {
+            Object.entries(json.data.gridDataPerExercise).forEach(([exId, gData]) => {
+              room.gridDataPerExercise[exId] = {
+                ...(room.gridDataPerExercise[exId] || {}),
+                ...(gData as Record<string, unknown>),
+              };
+            });
+          }
+          if (json.data.updatedAt > room.updatedAt) {
+            room.activeCell = json.data.activeCell || room.activeCell;
+            room.updatedAt = json.data.updatedAt;
+            room.updatedBy = json.data.updatedBy;
+          }
           if (json.data.activeUsers) {
             room.activeUsers = { ...json.data.activeUsers, ...room.activeUsers };
           }
@@ -70,7 +104,7 @@ export async function GET(req: Request) {
     (t) => now - t < 8000
   ).length;
 
-  if (room.cloudObjectId && now - room.updatedAt > 2500) {
+  if (room.cloudObjectId && now - room.updatedAt > 2000) {
     try {
       fetch(`https://api.restful-api.dev/objects/${room.cloudObjectId}`, {
         method: "PUT",
@@ -88,6 +122,7 @@ export async function GET(req: Request) {
         }),
       }).catch((e) => console.error(e));
       room.updatedAt = now;
+      saveStore(memoryStore);
     } catch (e) {
       console.error(e);
     }
@@ -125,6 +160,7 @@ export async function POST(req: Request) {
 
     if (isDisconnect && userId) {
       delete room.activeUsers[userId];
+      saveStore(memoryStore);
       const connectedCount = Object.values(room.activeUsers).filter(
         (t) => now - t < 8000
       ).length;
@@ -148,6 +184,7 @@ export async function POST(req: Request) {
     ).length;
 
     if (isHeartbeat) {
+      saveStore(memoryStore);
       return NextResponse.json({
         success: true,
         roomState: {
@@ -206,6 +243,8 @@ export async function POST(req: Request) {
     } catch (err) {
       console.error("Cloud sync save error:", err);
     }
+
+    saveStore(memoryStore);
 
     return NextResponse.json({
       success: true,
