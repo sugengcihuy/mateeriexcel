@@ -25,6 +25,16 @@ export function RoomSyncBar({
 
   const cloudObjIdRef = useRef<string>("");
   const lastLocalUpdateRef = useRef<number>(0);
+  const skipNextBroadcastRef = useRef<boolean>(true);
+  const prevExerciseIdRef = useRef<string>(exerciseId);
+
+  useEffect(() => {
+    if (prevExerciseIdRef.current !== exerciseId) {
+      prevExerciseIdRef.current = exerciseId;
+      skipNextBroadcastRef.current = true;
+      lastLocalUpdateRef.current = 0;
+    }
+  }, [exerciseId]);
 
   useEffect(() => {
     let uid = sessionStorage.getItem("excel_learn_user_id");
@@ -117,15 +127,15 @@ export function RoomSyncBar({
     }
   };
 
-  // Poll server for live updates strictly for current exerciseId
+  // Poll server for live updates strictly for current exerciseId with immediate fetch on exercise switch / connect
   useEffect(() => {
     if (!isConnected || !roomId || !userId) return;
 
-    const interval = setInterval(async () => {
+    const fetchLatestSync = async () => {
       try {
         const res = await fetch(`/api/room/sync?roomId=${encodeURIComponent(roomId)}&userId=${encodeURIComponent(userId)}&exerciseId=${encodeURIComponent(exerciseId)}`);
         const data = await res.json();
-        
+
         if (data.success && data.roomState) {
           if (data.roomState.connectedCount) {
             setConnectedCount(data.roomState.connectedCount);
@@ -134,7 +144,11 @@ export function RoomSyncBar({
             cloudObjIdRef.current = data.roomState.cloudObjectId;
           }
 
-          if (data.roomState.gridData && onGridSynced && data.roomState.exerciseId === exerciseId) {
+          if (
+            data.roomState.gridData &&
+            onGridSynced &&
+            data.roomState.exerciseId === exerciseId
+          ) {
             if (Date.now() - lastLocalUpdateRef.current > 400) {
               onGridSynced(data.roomState.gridData);
             }
@@ -143,7 +157,10 @@ export function RoomSyncBar({
       } catch (err) {
         console.error("Realtime sync error:", err);
       }
-    }, 350);
+    };
+
+    fetchLatestSync();
+    const interval = setInterval(fetchLatestSync, 350);
 
     return () => clearInterval(interval);
   }, [isConnected, roomId, userId, exerciseId, onGridSynced]);
@@ -151,6 +168,11 @@ export function RoomSyncBar({
   // Broadcast cell edits for current exerciseId
   useEffect(() => {
     if (!isConnected || !roomId || !currentGridData || !userId) return;
+
+    if (skipNextBroadcastRef.current) {
+      skipNextBroadcastRef.current = false;
+      return;
+    }
 
     lastLocalUpdateRef.current = Date.now();
 

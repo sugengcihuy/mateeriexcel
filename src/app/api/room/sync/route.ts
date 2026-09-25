@@ -140,8 +140,11 @@ export async function POST(req: Request) {
       });
     }
 
-    if (gridData && exerciseId) {
-      room.gridDataPerExercise[exerciseId] = gridData;
+    if (gridData && exerciseId && Object.keys(gridData).length > 0) {
+      room.gridDataPerExercise[exerciseId] = {
+        ...(room.gridDataPerExercise[exerciseId] || {}),
+        ...gridData,
+      };
     }
     room.activeCell = activeCell || room.activeCell;
     room.updatedBy = updatedBy || "Pengguna Excel";
