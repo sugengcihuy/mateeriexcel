@@ -8,6 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Belajar Excel Ayya",
   description: "Developed By Sugengcihuyyy",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     title: "Belajar Excel Ayya",
     description: "Developed By Sugengcihuyyy",
