@@ -313,19 +313,16 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
           {showKissModal && (
             <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
               <div className="bg-white border-4 border-[#FF758F] rounded-3xl p-6 max-w-sm w-full text-center space-y-4 shadow-2xl animate-in zoom-in-95 duration-200">
-                <div className="w-16 h-16 bg-[#FFE5EC] border-2 border-[#FF758F] rounded-full flex items-center justify-center mx-auto text-3xl shadow-sm">
-                  💋
-                </div>
-                <h3 className="text-xl font-black text-[#2D2342]">Kiss Dulu 💋</h3>
-                <p className="text-xs text-slate-600 font-bold leading-relaxed">
-                  Muah! Minta cium dulu baru dikasih bocoran rumusnya ya~ 😘
+                <h3 className="text-xl font-black text-[#2D2342]">Kiss Dulu</h3>
+                <p className="text-[#2D2342] font-black text-sm leading-relaxed">
+                  Kiss dluu la bejirrrr
                 </p>
                 <button
                   type="button"
                   onClick={handleKissConfirmed}
                   className="w-full py-3 bg-[#FFC8DD] hover:bg-[#FFADAD] active:scale-95 text-[#2D2342] font-black rounded-2xl border-2 border-[#FFADAD] shadow-md transition-all text-sm flex items-center justify-center gap-2"
                 >
-                  <span>Sudah 💖</span>
+                  <span>Sudah</span>
                 </button>
               </div>
             </div>
