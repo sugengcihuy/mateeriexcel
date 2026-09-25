@@ -67,8 +67,31 @@ export async function GET(req: Request) {
   }
 
   const connectedCount = Object.values(room.activeUsers).filter(
-    (t) => now - t < 3500
+    (t) => now - t < 8000
   ).length;
+
+  if (room.cloudObjectId && now - room.updatedAt > 2500) {
+    try {
+      fetch(`https://api.restful-api.dev/objects/${room.cloudObjectId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: `EXCEL_ROOM_${room.roomId}`,
+          data: {
+            roomId: room.roomId,
+            gridDataPerExercise: room.gridDataPerExercise,
+            activeCell: room.activeCell,
+            updatedBy: room.updatedBy,
+            updatedAt: now,
+            activeUsers: room.activeUsers,
+          },
+        }),
+      }).catch((e) => console.error(e));
+      room.updatedAt = now;
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   const exerciseGridData = room.gridDataPerExercise[exerciseId] || {};
 
@@ -103,7 +126,7 @@ export async function POST(req: Request) {
     if (isDisconnect && userId) {
       delete room.activeUsers[userId];
       const connectedCount = Object.values(room.activeUsers).filter(
-        (t) => now - t < 3500
+        (t) => now - t < 8000
       ).length;
 
       return NextResponse.json({
@@ -121,7 +144,7 @@ export async function POST(req: Request) {
     }
 
     const connectedCount = Object.values(room.activeUsers).filter(
-      (t) => now - t < 3500
+      (t) => now - t < 8000
     ).length;
 
     if (isHeartbeat) {

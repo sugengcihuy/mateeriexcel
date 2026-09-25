@@ -51,25 +51,31 @@ export function ExercisePanel({ exerciseList, nextLessonUrl }: ExercisePanelProp
     }
   }, []);
 
-  // Update current grid only when currentTaskIndex or currentExercise.id actually changes
+  // Reset task index to 0 whenever exerciseList changes (e.g. switching subtopics)
+  useEffect(() => {
+    setCurrentTaskIndex(0);
+  }, [exerciseList]);
+
+  // Cleanly isolate current grid data ONLY to active exercise dataset when switching tasks
   useEffect(() => {
     if (currentExercise) {
       setCurrentGridData(JSON.parse(JSON.stringify(currentExercise.dataset?.data || {})));
       setValidationResult({ correct: null, message: "" });
       setShowHintTimer(false);
     }
-  }, [currentTaskIndex, currentExercise]);
+  }, [currentExercise, currentTaskIndex]);
 
   const handleGridChange = (newGrid: Record<string, CellData>) => {
     setCurrentGridData(newGrid);
   };
 
   const handleRemoteGridSynced = (syncedGrid: Record<string, CellData>) => {
-    if (syncedGrid) {
-      setCurrentGridData((prev) => ({
-        ...prev,
+    if (syncedGrid && Object.keys(syncedGrid).length > 0 && currentExercise) {
+      const baseDataset = JSON.parse(JSON.stringify(currentExercise.dataset?.data || {}));
+      setCurrentGridData({
+        ...baseDataset,
         ...syncedGrid,
-      }));
+      });
     }
   };
 
