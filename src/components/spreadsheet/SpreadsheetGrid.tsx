@@ -332,20 +332,31 @@ export function SpreadsheetGrid({
   };
 
   const getCellDisplay = (cellRef: string) => {
-    if (computedValues[cellRef] !== undefined && computedValues[cellRef] !== null) {
-      const val = computedValues[cellRef];
-      if (typeof val === "number") {
-        if (val >= 1000) {
-          return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(val);
+    const cell = gridData[cellRef];
+
+    if (cell && cell.formula) {
+      if (computedValues[cellRef] !== undefined && computedValues[cellRef] !== null) {
+        const val = computedValues[cellRef];
+        if (typeof val === "number") {
+          if (val >= 1000) {
+            return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(val);
+          }
+          return val.toLocaleString("id-ID");
         }
-        return val.toLocaleString("id-ID");
+        return String(val);
       }
-      return String(val);
+      return "";
     }
 
-    const cell = gridData[cellRef];
-    if (!cell) return "";
-    return cell.value !== undefined ? String(cell.value) : "";
+    if (!cell || cell.value === undefined || cell.value === null) return "";
+    const val = cell.value;
+    if (typeof val === "number") {
+      if (val >= 1000) {
+        return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(val);
+      }
+      return val.toLocaleString("id-ID");
+    }
+    return String(val);
   };
 
   const activeCellData = gridData[activeCell];
