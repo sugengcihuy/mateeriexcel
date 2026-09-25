@@ -8,7 +8,7 @@ export function validateExerciseAnswer(
 ): ValidationResponse {
   const engine = buildHyperFormulaEngine(userGridData);
 
-  // Helper function to validate 1 single target cell
+  
   const validateSingle = (target: ExpectedAnswer): ValidationResponse => {
     const { targetCell, expectedValue, requiredFormulaPattern, checkType = "both" } = target;
     const cellInput = userGridData[targetCell];
@@ -107,12 +107,12 @@ export function validateExerciseAnswer(
     };
   };
 
-  // If multiTargetAnswers is provided (Integrated Master Test)
+  
   if (multiTargetAnswers && multiTargetAnswers.length > 0) {
     for (const target of multiTargetAnswers) {
       const res = validateSingle(target);
       if (!res.correct) {
-        return res; // Return first failing target cell feedback
+        return res; 
       }
     }
 
@@ -124,6 +124,6 @@ export function validateExerciseAnswer(
     };
   }
 
-  // Single cell validation
+  
   return validateSingle(expectedAnswer);
 }
