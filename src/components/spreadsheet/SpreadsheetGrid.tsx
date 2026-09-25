@@ -37,14 +37,30 @@ export function SpreadsheetGrid({
   const numRows = initialDataset.rows || 10;
   const numCols = initialDataset.cols || 7;
 
-  const getColLetter = (index: number) => String.fromCharCode(65 + index);
-  const getColIndex = (letter: string) => letter.toUpperCase().charCodeAt(0) - 65;
+  const getColLetter = useCallback((index: number): string => {
+    let temp = index;
+    let letter = "";
+    while (temp >= 0) {
+      letter = String.fromCharCode((temp % 26) + 65) + letter;
+      temp = Math.floor(temp / 26) - 1;
+    }
+    return letter;
+  }, []);
+
+  const getColIndex = useCallback((colStr: string): number => {
+    let index = 0;
+    const str = colStr.toUpperCase();
+    for (let i = 0; i < str.length; i++) {
+      index = index * 26 + (str.charCodeAt(i) - 64);
+    }
+    return index - 1;
+  }, []);
 
   const getCellCoords = useCallback((cellRef: string) => {
     const match = cellRef.match(/^([A-Z]+)([0-9]+)$/i);
     if (!match) return { col: 0, row: 1 };
     return { col: getColIndex(match[1]), row: parseInt(match[2], 10) };
-  }, []);
+  }, [getColIndex]);
 
   const getSelectionRange = useCallback(() => {
     if (!selectionStart || !selectionEnd) return null;
@@ -65,7 +81,34 @@ export function SpreadsheetGrid({
         : `${startCellRef}:${endCellRef}`;
 
     return { minCol, maxCol, minRow, maxRow, rangeString, startCellRef, endCellRef };
-  }, [selectionStart, selectionEnd, getCellCoords]);
+  }, [selectionStart, selectionEnd, getCellCoords, getColLetter]);
+
+  // Formula prefix computation helper - multi range drag selection fix!
+  const computeFormulaPrefix = useCallback((input: string): string => {
+    if (!input.startsWith("=")) return "=";
+
+    const trimmedInput = input.trimEnd();
+    const isOperatorChar = (ch: string) => /[\(\)\,\+\-\stream\*\/\=\<\>\&\^\%\;\:]/.test(ch);
+    const lastChar = trimmedInput.slice(-1);
+
+    if (isOperatorChar(lastChar)) {
+      return input;
+    }
+
+    let lastOpIndex = -1;
+    for (let i = trimmedInput.length - 1; i >= 0; i--) {
+      if (isOperatorChar(trimmedInput[i])) {
+        lastOpIndex = i;
+        break;
+      }
+    }
+
+    if (lastOpIndex >= 0) {
+      return trimmedInput.substring(0, lastOpIndex + 1);
+    }
+
+    return "=";
+  }, []);
 
   useEffect(() => {
     if (editingCell && inlineInputRef.current) {
@@ -140,7 +183,7 @@ export function SpreadsheetGrid({
         console.error("HyperFormula recalc error:", err);
       }
     },
-    [numRows, numCols]
+    [numRows, numCols, getColIndex, getColLetter]
   );
 
   useEffect(() => {
@@ -214,8 +257,7 @@ export function SpreadsheetGrid({
 
     if (editingCell && editInputValue.startsWith("=")) {
       e.preventDefault();
-      const match = editInputValue.match(/^(=[A-Z_]+\(|\=)/i);
-      const prefix = match ? match[1] : "=";
+      const prefix = computeFormulaPrefix(editInputValue);
       setFormulaPrefix(prefix);
 
       setIsDragging(true);
@@ -257,7 +299,7 @@ export function SpreadsheetGrid({
       const rangeStr = minCol === maxCol && minRow === maxRow ? startRef : `${startRef}:${endRef}`;
 
       if (editingCell && editInputValue.startsWith("=")) {
-        const prefix = formulaPrefix || editInputValue.match(/^(=[A-Z_]+\(|\=)/i)?.[1] || "=";
+        const prefix = formulaPrefix || computeFormulaPrefix(editInputValue);
         const newFormula = `${prefix}${rangeStr}`;
         setEditInputValue(newFormula);
         updateCell(editingCell, newFormula);
@@ -374,9 +416,16 @@ export function SpreadsheetGrid({
       <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
         <FormulaBar
           activeCellRef={range?.rangeString || activeCell}
-          value={formulaBarCurrentVal}
-          onCommit={(val) => updateCell(activeCell, val)}
-          onLiveChange={(val) => updateCell(activeCell, val)}
+          value={editingCell === activeCell ? editInputValue : formulaBarCurrentVal}
+          onCommit={(val) => {
+            updateCell(activeCell, val);
+            setEditingCell(null);
+          }}
+          onLiveChange={(val) => {
+            if (!editingCell) setEditingCell(activeCell);
+            setEditInputValue(val);
+            updateCell(activeCell, val);
+          }}
         />
         <button
           type="button"
